@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCode : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerCode : MonoBehaviour
     public Transform firePoint;
 
     Rigidbody2D _rigidbody;
+    SpriteRenderer SR;
+    public Color dmgColor;
 
     public int knockbackForce = 10;
     
@@ -34,6 +37,7 @@ public class PlayerCode : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        SR = GetComponent<SpriteRenderer>();
         currHealth = maxHealth;
     }
 
@@ -104,7 +108,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Die() {
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene("AndyTestScene");
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -112,6 +116,7 @@ public class PlayerCode : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             Damage(1);
+            //gameObject.GetComponent<Animation>().Play("GetHit");
             Vector2 direction = new Vector2(1, 1).normalized;
             Vector2 knockback = direction * knockbackForce;
             knockbacked(knockback);
@@ -124,21 +129,28 @@ public class PlayerCode : MonoBehaviour
     }
     public void Damage(int dmg){
         currHealth -= dmg;
-        //gameObject.GetComponent<Animation>().Play("GetHit");
+        StartCoroutine(hit());
+        
     }
 
-    public IEnumerator Knockback (float knockDur, float knockbackPwr, Vector3 knockbackDir){
-        float timer = 0;
-        print("here");
-        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
-
-        while (knockDur > timer) {
-            timer += Time.deltaTime;
-            _rigidbody.AddForce(new Vector3(knockbackDir.x + -1000, knockbackDir.y + knockbackPwr, transform.position.z));
-        }
-
-        yield return 0;
+    IEnumerator hit(){
+        Color og = SR.color;
+        SR.color = dmgColor;
+        yield return new WaitForSeconds(.5f);
+        SR.color = og;
     }
+    // public IEnumerator Knockback (float knockDur, float knockbackPwr, Vector3 knockbackDir){
+    //     float timer = 0;
+    //     print("here");
+    //     _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+
+    //     while (knockDur > timer) {
+    //         timer += Time.deltaTime;
+    //         _rigidbody.AddForce(new Vector3(knockbackDir.x + -1000, knockbackDir.y + knockbackPwr, transform.position.z));
+    //     }
+
+    //     yield return 0;
+    // }
 
 }
 
