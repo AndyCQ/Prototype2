@@ -57,9 +57,33 @@ public class PlayerCode : MonoBehaviour
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce);
         }
-        }
     }
-    
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "SpeedBoost")
+        {
+            speed = speed + 2;
+        }
+        if (other.tag == "JumpBoost")
+        {
+            jumpForce = jumpForce +100;
+        }
+        if (other.tag == "BulletBoost")
+        {
+            bulletSpeed = bulletSpeed + 3;
+        }
+        if (other.tag == "Heal")
+        {
+            if (currHealth < maxHealth)
+            {
+                currHealth = currHealth + 1;
+            }
+        }
+
+    }
+}
 
     
                 
