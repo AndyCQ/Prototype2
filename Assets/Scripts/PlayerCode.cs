@@ -20,7 +20,11 @@ public class PlayerCode : MonoBehaviour
 
     Rigidbody2D _rigidbody;
 
-    
+//UI
+    public int speepBoost_count = 0;
+    public int jumpBoost_count = 0;
+    public int bulletBoost_count = 0;
+    public int sum_count = 0;
 
     float xSpeed = 0;
 
@@ -65,14 +69,17 @@ public class PlayerCode : MonoBehaviour
         if (other.tag == "SpeedBoost")
         {
             speed = speed + 2;
+            speepBoost_count += 1;
         }
         if (other.tag == "JumpBoost")
         {
             jumpForce = jumpForce +100;
+            jumpBoost_count += 1;
         }
         if (other.tag == "BulletBoost")
         {
             bulletSpeed = bulletSpeed + 3;
+            bulletBoost_count += 1;
         }
         if (other.tag == "Heal")
         {
@@ -81,7 +88,7 @@ public class PlayerCode : MonoBehaviour
                 currHealth = currHealth + 1;
             }
         }
-
+        sum_count += 1;
     }
 }
 
