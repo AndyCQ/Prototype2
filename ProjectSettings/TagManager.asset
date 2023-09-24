@@ -9,6 +9,8 @@ TagManager:
   - JumpBoost
   - Heal
   - BulletBoost
+  - Enemy
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 

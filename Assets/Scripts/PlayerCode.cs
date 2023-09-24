@@ -20,6 +20,7 @@ public class PlayerCode : MonoBehaviour
 
     Rigidbody2D _rigidbody;
 
+    public int knockbackForce = 10;
     
 
     float xSpeed = 0;
@@ -57,8 +58,14 @@ public class PlayerCode : MonoBehaviour
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale);
         }
-    }
 
+        if(currHealth > maxHealth){
+            currHealth = maxHealth;
+        }
+        if(currHealth <= 0){
+            Die();
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -81,8 +88,49 @@ public class PlayerCode : MonoBehaviour
                 currHealth = currHealth + 1;
             }
         }
+        if (other.tag == "EnemyBullet"){
+                Destroy(other.gameObject);
+                Damage(1);
+                }
+    }
+
+    void Die() {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Collider2D collider = other.collider;
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            Damage(1);
+            Vector2 direction = new Vector2(1, 1).normalized;
+            Vector2 knockback = direction * knockbackForce;
+            knockbacked(knockback);
+        }
+    }
+    
+    public void knockbacked(Vector2 knockback){
+        _rigidbody.AddForce(knockback, ForceMode2D.Impulse);
 
     }
+    public void Damage(int dmg){
+        currHealth -= dmg;
+        //gameObject.GetComponent<Animation>().Play("GetHit");
+    }
+
+    public IEnumerator Knockback (float knockDur, float knockbackPwr, Vector3 knockbackDir){
+        float timer = 0;
+        print("here");
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+
+        while (knockDur > timer) {
+            timer += Time.deltaTime;
+            _rigidbody.AddForce(new Vector3(knockbackDir.x + -1000, knockbackDir.y + knockbackPwr, transform.position.z));
+        }
+
+        yield return 0;
+    }
+
 }
 
     
