@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField] float startTime;
-    float currentTime;
+    public float currentTime;
     bool StartTimer = false;
     //referrence of Text component
     [SerializeField] Text TimerText;

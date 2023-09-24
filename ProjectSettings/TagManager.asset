@@ -11,6 +11,7 @@ TagManager:
   - BulletBoost
   - Enemy
   - EnemyBullet
+  - Timer
   layers:
   - Default
   - TransparentFX
