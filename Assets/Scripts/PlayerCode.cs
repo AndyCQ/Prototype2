@@ -100,7 +100,7 @@ public class PlayerCode : MonoBehaviour
                 Destroy(other.gameObject);
                 Damage(1);
                 }
-        sum_count += 1
+        sum_count += 1;
     }
 
     void Die() {
