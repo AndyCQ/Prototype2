@@ -55,7 +55,7 @@ public class PlayerCode : MonoBehaviour
         if(Input.GetButtonDown("Fire1")){
             GameObject newBullet;
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce);
+            newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale);
         }
         }
     }
