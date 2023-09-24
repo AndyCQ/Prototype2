@@ -9,6 +9,8 @@ TagManager:
   - JumpBoost
   - Heal
   - BulletBoost
+  - TimeBoost
+  - Timer
   layers:
   - Default
   - TransparentFX
