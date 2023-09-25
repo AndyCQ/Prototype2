@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     //referrence of Text component
     [SerializeField] Text TimerText;
 
+
     void Start()
     {
         currentTime = startTime;
@@ -30,7 +31,8 @@ public class Timer : MonoBehaviour
             currentTime -= Time.deltaTime;
             if (currentTime <= 0)
             {
-                Debug.Log("timer reached zero");
+                FindObjectOfType<GameManager>().EndGame();
+
                 //add migrate to end scene here after complete
                 StartTimer = false;
                 currentTime = 0;
