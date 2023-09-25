@@ -106,7 +106,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Die() {
-        SceneManager.LoadScene("RogerScene1");
+        SceneManager.LoadScene("EndGame");
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
