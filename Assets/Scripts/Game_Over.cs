@@ -7,8 +7,10 @@ public class Game_Over : MonoBehaviour
 {
     public Text pointsText;
 
-    public void Setup(int score){
-        gameObject.SetActive(true);
+
+    void Update()
+    {
+        int display_score = PublicVars.score;
         pointsText.text = score.ToString() + " POINTS";
     }
 }
