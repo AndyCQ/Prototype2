@@ -32,6 +32,11 @@ public class PlayerCode : MonoBehaviour
     public int bulletBoost_count = 0;
 
 
+    public AudioSource gunshotSFX;
+    public AudioSource healSFX;
+    public AudioSource pickupSFX;
+    public AudioSource hitSFX;
+
     float xSpeed = 0;
 
     // Start is called before the first frame update
@@ -67,6 +72,7 @@ public class PlayerCode : MonoBehaviour
             GameObject newBullet;
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale);
+            gunshotSFX.Play();
         }
 
         if(currHealth > maxHealth){
@@ -79,6 +85,7 @@ public class PlayerCode : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag != "EnemyBullet") pickupSFX.Play();
         if (other.tag == "SpeedBoost")
         {
             speed = speed + 2;
@@ -97,6 +104,7 @@ public class PlayerCode : MonoBehaviour
         if (other.tag == "Heal")
         {
             currHealth += 1;
+            healSFX.Play();
         }
         if (other.tag == "EnemyBullet"){
                 Destroy(other.gameObject);
@@ -128,6 +136,7 @@ public class PlayerCode : MonoBehaviour
     public void Damage(int dmg){
         currHealth -= dmg;
         StartCoroutine(hit());
+        hitSFX.Play();
         
     }
 
