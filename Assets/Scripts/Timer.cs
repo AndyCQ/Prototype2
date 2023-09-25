@@ -15,14 +15,17 @@ public class Timer : MonoBehaviour
     {
         currentTime = startTime;
         TimerText.text = currentTime.ToString("f2");
+        StartTimer = true;
     }
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Z))
         {
             StartTimer = true;
         }
+        */
         if (StartTimer){
             currentTime -= Time.deltaTime;
             if (currentTime <= 0)
