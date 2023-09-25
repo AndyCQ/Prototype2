@@ -11,6 +11,6 @@ public class Game_Over : MonoBehaviour
     void Update()
     {
         int display_score = PublicVars.score;
-        pointsText.text = score.ToString() + " POINTS";
+        pointsText.text = display_score.ToString() + " POINTS";
     }
 }
