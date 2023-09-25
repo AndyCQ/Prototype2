@@ -31,6 +31,11 @@ public class PlayerCode : MonoBehaviour
     public int jumpBoost_count = 0;
     public int bulletBoost_count = 0;
 
+    public AudioSource gunshotSoundEffect;
+    public AudioSource damageSoundEffect;
+    public AudioSource healSoundEffect;
+    public AudioSource itemPickupSoundEffect;
+
 
     float xSpeed = 0;
 
@@ -67,6 +72,7 @@ public class PlayerCode : MonoBehaviour
             GameObject newBullet;
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale);
+            gunshotSoundEffect.Play();
         }
 
         if(currHealth > maxHealth){
@@ -79,6 +85,7 @@ public class PlayerCode : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag != "EnemyBullet") itemPickupSoundEffect.Play();
         if (other.tag == "SpeedBoost")
         {
             speed = speed + 2;
@@ -97,6 +104,7 @@ public class PlayerCode : MonoBehaviour
         if (other.tag == "Heal")
         {
             currHealth += 1;
+            healSoundEffect.Play();
         }
         if (other.tag == "EnemyBullet"){
                 Destroy(other.gameObject);
@@ -127,6 +135,7 @@ public class PlayerCode : MonoBehaviour
     }
     public void Damage(int dmg){
         currHealth -= dmg;
+        damageSoundEffect.Play();
         StartCoroutine(hit());
         
     }

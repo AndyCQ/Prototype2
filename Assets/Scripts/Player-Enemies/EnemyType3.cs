@@ -21,6 +21,8 @@ public class EnemyType3 : MonoBehaviour
     public Transform firePoint;
     public int bulletForce = 500;
 
+    public AudioSource gunshotSoundEffect;
+
     void Start()
     {
         currHealth = maxHealth;
@@ -43,6 +45,7 @@ public class EnemyType3 : MonoBehaviour
                 yield return new WaitForSeconds(.5f);
                 GameObject newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
                 newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x,0) * bulletForce);
+                gunshotSoundEffect.Play();
                 
             }
             //Platform version
