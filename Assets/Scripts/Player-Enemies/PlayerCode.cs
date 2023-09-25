@@ -29,7 +29,7 @@ public class PlayerCode : MonoBehaviour
     public int speepBoost_count = 0;
     public int jumpBoost_count = 0;
     public int bulletBoost_count = 0;
-    public int sum_count = 0;
+
 
     float xSpeed = 0;
 
@@ -104,7 +104,7 @@ public class PlayerCode : MonoBehaviour
                 Destroy(other.gameObject);
                 Damage(1);
                 }
-        sum_count += 1;
+        PublicVars.score += 1;
     }
 
     void Die() {
