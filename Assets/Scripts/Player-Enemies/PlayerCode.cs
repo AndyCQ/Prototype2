@@ -22,6 +22,7 @@ public class PlayerCode : MonoBehaviour
     Rigidbody2D _rigidbody;
     SpriteRenderer SR;
     public Color dmgColor;
+    public Color Original;
 
     public int knockbackForce = 10;
     
@@ -95,10 +96,7 @@ public class PlayerCode : MonoBehaviour
         }
         if (other.tag == "Heal")
         {
-            if (currHealth < maxHealth)
-            {
-                currHealth = currHealth + 1;
-            }
+            currHealth += 1;
         }
         if (other.tag == "EnemyBullet"){
                 Destroy(other.gameObject);
@@ -108,7 +106,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Die() {
-        SceneManager.LoadScene("AndyTestScene");
+        SceneManager.LoadScene("RogerScene1");
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -134,10 +132,9 @@ public class PlayerCode : MonoBehaviour
     }
 
     IEnumerator hit(){
-        Color og = SR.color;
         SR.color = dmgColor;
         yield return new WaitForSeconds(.5f);
-        SR.color = og;
+        SR.color = Original;
     }
     // public IEnumerator Knockback (float knockDur, float knockbackPwr, Vector3 knockbackDir){
     //     float timer = 0;

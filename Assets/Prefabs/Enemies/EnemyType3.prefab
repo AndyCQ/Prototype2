@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  lookDist: 6
+  lookDist: 10
   currHealth: 0
   maxHealth: 10
   GroundWallLayer:
