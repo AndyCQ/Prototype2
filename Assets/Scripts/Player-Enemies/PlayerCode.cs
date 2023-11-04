@@ -39,12 +39,28 @@ public class PlayerCode : MonoBehaviour
 
     float xSpeed = 0;
 
+    public static PlayerCode Instance;
+    public Renderer PlayerRenderer;
+    public bool IsImmune;
+
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
         currHealth = maxHealth;
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+        
     }
 
     // Update is called once per frame
@@ -81,6 +97,7 @@ public class PlayerCode : MonoBehaviour
         if(currHealth <= 0){
             Die();
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -134,10 +151,11 @@ public class PlayerCode : MonoBehaviour
 
     }
     public void Damage(int dmg){
-        currHealth -= dmg;
-        StartCoroutine(hit());
-        hitSFX.Play();
-        
+        if(!IsImmune){
+            currHealth -= dmg;
+            //StartCoroutine(hit());
+            hitSFX.Play();
+        }
     }
 
     IEnumerator hit(){
