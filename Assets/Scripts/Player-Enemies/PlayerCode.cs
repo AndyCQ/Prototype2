@@ -95,16 +95,22 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Update(){
+
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
         if (grounded == true)
         {
-            remainingJumps = doubleJump ? 2 : 1;
+            remainingJumps = doubleJump ? 1 : 0;
         }
-        if((Input.GetButtonDown("Jump")) && remainingJumps > 0)
+        if ((Input.GetButtonDown("Jump")) && grounded)
         {
             _rigidbody.AddForce(new Vector2(0, jumpForce));
-            remainingJumps--;
         }
+        if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0)
+        {
+            _rigidbody.AddForce(new Vector2(0, jumpForce));
+            remainingJumps -= 1;
+        }
+
         
         if(Input.GetButtonDown("Fire1")){
             GameObject newBullet;
