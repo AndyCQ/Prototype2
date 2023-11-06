@@ -42,7 +42,7 @@ public class EnemyType3 : MonoBehaviour
                 {
                     transform.localScale *= new Vector2(-1,1);
                 }
-                yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(1.5f);
                 GameObject newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
                 newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x,0) * bulletForce);
                 gunshotSFX.Play();
