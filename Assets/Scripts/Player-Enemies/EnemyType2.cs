@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EnemyType2 : MonoBehaviour
 {
-    public float speed = 4;
     public float distance = 4;
     public float lookDist = 4;
 
     public int jumpForce = 500;
     public bool grounded = false;
 
-    public int currHealth;
-    public int maxHealth = 3;
 
     public LayerMask GroundWallLayer;
     Rigidbody2D _rigidbody;
@@ -30,7 +27,6 @@ public class EnemyType2 : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(MoveLoop());
-        currHealth = maxHealth;
         mc = GetComponent<Monster>();
     }
     
@@ -65,15 +61,6 @@ public class EnemyType2 : MonoBehaviour
     }
   
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Bullet")){
-            Destroy(other.gameObject);
-            currHealth -= PublicVars.bulletDMG;
-        }
-        if(currHealth <= 0){
-                Die();
-            }
-    }
 
     // private void OnCollisionEnter2D(Collision2D other)
     // {
@@ -83,8 +70,4 @@ public class EnemyType2 : MonoBehaviour
     //     }
     // }
 
-    void Die() {
-        PublicVars.score += 3;
-        Destroy(gameObject,.15f);
-    }
 }

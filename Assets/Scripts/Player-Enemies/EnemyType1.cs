@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class EnemyType1 : MonoBehaviour
 {
-    public float speed = 4;
     public float distance = 4;
     public float lookDist = 4;
 
-    public int currHealth;
 
     public LayerMask GroundWallLayer;
     Rigidbody2D _rigidbody;
@@ -62,20 +60,4 @@ public class EnemyType1 : MonoBehaviour
     }
   
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Bullet")){
-            Destroy(other.gameObject);
-            currHealth -= PublicVars.bulletDMG;
-        if(currHealth <= 0){
-                Die();
-            }
-    }
-
-    void Die() {
-        PublicVars.score += 1;
-
-        Destroy(gameObject,.15f);
-        print(PublicVars.score);
-    }
-    }
 }

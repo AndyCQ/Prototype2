@@ -70,7 +70,7 @@ public class PlayerCode : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(this);
             return;
@@ -125,10 +125,10 @@ public class PlayerCode : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.F) && cooldown2){
             SpawnDarts();
+            StartCoroutine(PdartsCD(2));
         }
         if(currHealth > maxHealth){
             currHealth = maxHealth;
-            StartCoroutine(PdartsCD(2));
         }
         if(currHealth <= 0){
             Die();

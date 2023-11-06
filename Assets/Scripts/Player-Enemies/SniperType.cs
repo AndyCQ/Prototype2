@@ -19,7 +19,7 @@ public class SniperType : MonoBehaviour
 
     void Start()
     {
-        currHealth = maxHealth;
+        
         _rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(Aim());
@@ -45,18 +45,6 @@ public class SniperType : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Bullet")){
-            Destroy(other.gameObject);
-            currHealth -= PublicVars.bulletDMG;
-        }
-        if(currHealth <= 0){
-                Die();
-            }
-    }
-
-    void Die() {
-        Destroy(gameObject,.15f);
-    }
+    
 
 }

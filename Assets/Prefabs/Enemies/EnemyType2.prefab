@@ -172,13 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ca1735d7515674ab925d48994d1da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
   distance: 4
   lookDist: 15
   jumpForce: 500
   grounded: 0
-  currHealth: 0
-  maxHealth: 3
   GroundWallLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -203,3 +200,4 @@ MonoBehaviour:
   maxHealth: 4
   Mrb: {fileID: 0}
   moving: 1
+  scoreVal: 3
