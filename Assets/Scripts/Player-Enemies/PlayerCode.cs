@@ -155,7 +155,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Die() {
-        SceneManager.LoadScene("EndGame");
+        SceneManager.LoadScene("Level1");
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
