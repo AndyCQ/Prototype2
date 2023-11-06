@@ -231,9 +231,9 @@ public class PlayerCode : MonoBehaviour
     }
 
     private IEnumerator PdartsCD(float timer){
-        cooldown1 = false;
+        cooldown2 = false;
         yield return new WaitForSeconds(timer);
-        cooldown1 = true;
+        cooldown2 = true;
     }
 
     void SpawnDarts(){

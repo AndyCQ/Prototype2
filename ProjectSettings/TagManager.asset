@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - EnemyBullet
   - Timer
+  - PoisonDart
   layers:
   - Default
   - TransparentFX
