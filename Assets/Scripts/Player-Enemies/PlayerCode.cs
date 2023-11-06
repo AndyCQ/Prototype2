@@ -43,6 +43,13 @@ public class PlayerCode : MonoBehaviour
     public Renderer PlayerRenderer;
     public bool IsImmune;
 
+    //Knockback ability
+    public GameObject powerRadiusVisual;
+    private GameObject activePowerRadiusVisual;
+    public float powerRadius = 10;
+    public float thrust = 300;
+    private bool cooldown1 = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +98,10 @@ public class PlayerCode : MonoBehaviour
             gunshotSFX.Play();
         }
 
+        if(Input.GetKeyDown(KeyCode.E) && cooldown1){
+            KnockbackEnemies();
+            StartCoroutine(cooldown(0));
+        }
         if(currHealth > maxHealth){
             currHealth = maxHealth;
         }
@@ -163,19 +174,39 @@ public class PlayerCode : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         SR.color = Original;
     }
-    // public IEnumerator Knockback (float knockDur, float knockbackPwr, Vector3 knockbackDir){
-    //     float timer = 0;
-    //     print("here");
-    //     _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
 
-    //     while (knockDur > timer) {
-    //         timer += Time.deltaTime;
-    //         _rigidbody.AddForce(new Vector3(knockbackDir.x + -1000, knockbackDir.y + knockbackPwr, transform.position.z));
-    //     }
+    private void KnockbackEnemies(){
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, powerRadius);
+        foreach (var collider in colliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                StartCoroutine(PushBack(collider));
+            }
+        }
+    }
+    private IEnumerator PushBack(Collider2D collider){
+        Monster mc = collider.gameObject.GetComponent<Monster>();
+        mc.moving = false;
+        mc.speed = 0;
+        Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
+        mc.Mrb.AddForce(knockbackDirection * thrust, ForceMode2D.Impulse);
+        print(knockbackDirection * thrust);
+        yield return new WaitForSeconds(.5F);
+        mc.Mrb.velocity = new Vector2(0f,0f);
+        mc.speed = mc.startSpd;
+        mc.moving = true;
+        }
 
-    //     yield return 0;
-    // }
+    
+    private IEnumerator cooldown(float timer){
+        cooldown1 = false;
+        yield return new WaitForSeconds(timer);
+        cooldown1 = true;
 
+    }
+
+    
 }
 
     

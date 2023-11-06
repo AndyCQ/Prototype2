@@ -23,7 +23,7 @@ public class EnemyType2 : MonoBehaviour
     public float knockbackPower = 4;
     private PlayerCode spaceman;
 
-
+    Monster mc;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class EnemyType2 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(MoveLoop());
         currHealth = maxHealth;
-        //spaceman = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
+        mc = GetComponent<Monster>();
     }
     
     IEnumerator MoveLoop(){
@@ -60,7 +60,7 @@ public class EnemyType2 : MonoBehaviour
                 transform.localScale *= new Vector2(-1,1);
             }
 
-            _rigidbody.velocity = new Vector2(speed* transform.localScale.x, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(mc.speed* transform.localScale.x, _rigidbody.velocity.y);
         }
     }
   
