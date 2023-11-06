@@ -984,7 +984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -80}
+  m_AnchoredPosition: {x: -48, y: -30}
   m_SizeDelta: {x: 160, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &466946975
@@ -1121,7 +1121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -80}
+  m_AnchoredPosition: {x: -48, y: -30}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &494593018
@@ -1820,6 +1820,10 @@ PrefabInstance:
     - target: {fileID: 7954780642415885174, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
       propertyPath: jumpForce
       value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954780642415885174, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
+      propertyPath: maxHealth
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7954780642415885174, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
       propertyPath: doubleJump
@@ -9935,3 +9939,10 @@ SceneRoots:
   - {fileID: 1288746702}
   - {fileID: 921793670}
   - {fileID: 1695426998}
+  - {fileID: 730494451}
+  - {fileID: 1132999454}
+  - {fileID: 553711436}
+  - {fileID: 1357320613}
+  - {fileID: 1645710396}
+  - {fileID: 141577753}
+  - {fileID: 539025429}
