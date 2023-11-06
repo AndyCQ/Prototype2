@@ -9,7 +9,6 @@ public class EnemyType1 : MonoBehaviour
     public float lookDist = 4;
 
     public int currHealth;
-    public int maxHealth = 4;
 
     public LayerMask GroundWallLayer;
     Rigidbody2D _rigidbody;
@@ -23,14 +22,15 @@ public class EnemyType1 : MonoBehaviour
     public Transform firePoint;
     public int bulletForce = 500;
 
+    Monster mc;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(MoveLoop());
-        
+        mc = GetComponent<Monster>();
     }
-    
     IEnumerator MoveLoop(){
         while (true)
         {
@@ -57,7 +57,7 @@ public class EnemyType1 : MonoBehaviour
                 transform.localScale *= new Vector2(-1,1);
             }
 
-            _rigidbody.velocity = new Vector2(speed* transform.localScale.x, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(mc.speed* transform.localScale.x, _rigidbody.velocity.y);
         }
     }
   

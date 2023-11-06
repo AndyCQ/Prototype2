@@ -17,7 +17,9 @@ GameObject:
   - component: {fileID: 8484049529079373157}
   - component: {fileID: 8916489596289633892}
   - component: {fileID: 7666825389771902330}
-  m_Layer: 0
+  - component: {fileID: 1036621663}
+  - component: {fileID: 1036621673}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -165,8 +167,8 @@ MonoBehaviour:
   grounded: 0
   bulletPrefab: {fileID: 3885289713909164477, guid: 815c2b01b62acb943b92560d102ad009, type: 3}
   firePoint: {fileID: 7954780643899728294}
-  dmgColor: {r: 0, g: 0, b: 0, a: 0}
-  Original: {r: 0, g: 0, b: 0, a: 0}
+  dmgColor: {r: 0.9433962, g: 0.08365962, b: 0.08365962, a: 0.5764706}
+  Original: {r: 0.990566, g: 0.95692414, b: 0.95692414, a: 1}
   knockbackForce: 10
   speepBoost_count: 0
   jumpBoost_count: 0
@@ -175,6 +177,8 @@ MonoBehaviour:
   healSFX: {fileID: 8484049529079373157}
   pickupSFX: {fileID: 8916489596289633892}
   hitSFX: {fileID: 7666825389771902330}
+  PlayerRenderer: {fileID: 7954780642415885192}
+  IsImmune: 0
 --- !u!82 &1678010253116354133
 AudioSource:
   m_ObjectHideFlags: 0
@@ -559,6 +563,116 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &1036621663
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954780642415885195}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 69f7d15b974f646beb12d45690ed7bff, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1036621673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954780642415885195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50716d89ab7dc5540af1a40b4b87cb4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immunityTime: 1.5
+  flashDuration: 0.1
 --- !u!1 &7954780643184278628
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7954780643184278627}
   - component: {fileID: 7954780643184278626}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7954780643398434652}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -684,7 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7954780643899728294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

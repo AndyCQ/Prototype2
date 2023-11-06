@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyType2 : MonoBehaviour
+public class EnemyTypeSplitter : MonoBehaviour
 {
-    public float speed = 4;
+    public float speed;
     public float distance = 4;
-    public float lookDist = 4;
+    public float lookDist = 15;
 
     public int jumpForce = 500;
     public bool grounded = false;
@@ -23,7 +23,15 @@ public class EnemyType2 : MonoBehaviour
     public float knockbackPower = 4;
     private PlayerCode spaceman;
 
-    Monster mc;
+    // splitter specific.
+    public GameObject SplitterPrefab;
+    public float size;
+    public float generation;
+    public int numberOfChildren;
+    public float maxGeneration;
+    public float childrenSizeProportion;
+    public float childrenSpeedProportion;
+    public float childrenHealthProportion;
 
     void Start()
     {
@@ -31,7 +39,8 @@ public class EnemyType2 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(MoveLoop());
         currHealth = maxHealth;
-        mc = GetComponent<Monster>();
+        //spaceman = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
+        gameObject.transform.localScale = new Vector3(size, size, size);
     }
     
     IEnumerator MoveLoop(){
@@ -60,7 +69,7 @@ public class EnemyType2 : MonoBehaviour
                 transform.localScale *= new Vector2(-1,1);
             }
 
-            _rigidbody.velocity = new Vector2(mc.speed* transform.localScale.x, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(speed* transform.localScale.x, _rigidbody.velocity.y);
         }
     }
   
@@ -75,16 +84,25 @@ public class EnemyType2 : MonoBehaviour
             }
     }
 
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Player")){
-    //         spaceman.Damage(3);
-    //         StartCoroutine(spaceman.Knockback(0.02f, knockbackPower, spaceman.transform.position));
-    //     }
-    // }
-
     void Die() {
         PublicVars.score += 3;
-        Destroy(gameObject,.15f);
+
+        if (generation < maxGeneration)
+        {
+            for (int i = 0; i < numberOfChildren; i++)
+            {
+                GameObject childGameObject = Instantiate(SplitterPrefab, transform.position + new Vector3(Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f)), Quaternion.identity);
+                EnemyTypeSplitter child = childGameObject.GetComponent<EnemyTypeSplitter>();
+                child.size = size * childrenSizeProportion;
+                gameObject.transform.localScale = new Vector3(size, size, size);
+                child.generation = generation += 1;
+                child.maxHealth = Mathf.FloorToInt(maxHealth * childrenHealthProportion);
+                child.currHealth = child.maxHealth;
+                child.speed = speed * childrenSpeedProportion;
+            }
+
+        }
+
+        Destroy(gameObject, .15f);
     }
 }
