@@ -11,6 +11,10 @@ public class BulletLifeSpan : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Destroy(gameObject, 1f);
     }
 }
