@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCode : MonoBehaviour
 {
+    public bool doubleJump;
+    int remainingJumps;
     public int speed = 5;
     public int jumpForce = 500;
     public int currHealth;
@@ -86,9 +88,14 @@ public class PlayerCode : MonoBehaviour
 
     void Update(){
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
-        if((Input.GetButtonDown("Jump")) && grounded)
+        if (grounded == true)
         {
-            _rigidbody.AddForce(new Vector2(0, jumpForce));    
+            remainingJumps = doubleJump ? 2 : 1;
+        }
+        if((Input.GetButtonDown("Jump")) && remainingJumps > 0)
+        {
+            _rigidbody.AddForce(new Vector2(0, jumpForce));
+            remainingJumps--;
         }
         
         if(Input.GetButtonDown("Fire1")){
