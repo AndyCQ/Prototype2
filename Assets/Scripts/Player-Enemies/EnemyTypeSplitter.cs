@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EnemyTypeSplitter : MonoBehaviour
 {
-    public float speed;
     public float distance = 4;
     public float lookDist = 15;
 
     public int jumpForce = 500;
     public bool grounded = false;
 
-    public int currHealth;
-    public int maxHealth = 3;
 
     public LayerMask GroundWallLayer;
     Rigidbody2D _rigidbody;
@@ -33,14 +30,16 @@ public class EnemyTypeSplitter : MonoBehaviour
     public float childrenSpeedProportion;
     public float childrenHealthProportion;
 
+    Monster mc;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(MoveLoop());
-        currHealth = maxHealth;
         //spaceman = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
         gameObject.transform.localScale = new Vector3(size, size, size);
+        mc = GetComponent<Monster>();
     }
     
     IEnumerator MoveLoop(){
@@ -69,40 +68,9 @@ public class EnemyTypeSplitter : MonoBehaviour
                 transform.localScale *= new Vector2(-1,1);
             }
 
-            _rigidbody.velocity = new Vector2(speed* transform.localScale.x, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(mc.speed* transform.localScale.x, _rigidbody.velocity.y);
         }
     }
   
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Bullet")){
-            Destroy(other.gameObject);
-            currHealth -= PublicVars.bulletDMG;
-        }
-        if(currHealth <= 0){
-                Die();
-            }
-    }
-
-    void Die() {
-        PublicVars.score += 3;
-
-        if (generation < maxGeneration)
-        {
-            for (int i = 0; i < numberOfChildren; i++)
-            {
-                GameObject childGameObject = Instantiate(SplitterPrefab, transform.position + new Vector3(Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f)), Quaternion.identity);
-                EnemyTypeSplitter child = childGameObject.GetComponent<EnemyTypeSplitter>();
-                child.size = size * childrenSizeProportion;
-                gameObject.transform.localScale = new Vector3(size, size, size);
-                child.generation = generation += 1;
-                child.maxHealth = Mathf.FloorToInt(maxHealth * childrenHealthProportion);
-                child.currHealth = child.maxHealth;
-                child.speed = speed * childrenSpeedProportion;
-            }
-
-        }
-
-        Destroy(gameObject, .15f);
-    }
 }

@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour
     public bool moving = true;
     public int scoreVal = 1;
     private HealthBar hb;
+    public bool splitter = false;
 
     void Start(){
         Mrb = GetComponent<Rigidbody2D>();
@@ -40,6 +41,25 @@ public class Monster : MonoBehaviour
 
     void Die() {
         PublicVars.score += scoreVal;
+        if(splitter){
+            EnemyTypeSplitter parent = GetComponent<EnemyTypeSplitter>();
+            if (parent.generation < parent.maxGeneration)
+        {
+            for (int i = 0; i < parent.numberOfChildren; i++)
+            {
+                GameObject childGameObject = Instantiate(parent.SplitterPrefab, transform.position + new Vector3(Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f)), Quaternion.identity);
+                EnemyTypeSplitter child = childGameObject.GetComponent<EnemyTypeSplitter>();
+                Monster mc = childGameObject.GetComponent<Monster>();
+                child.size = parent.size * parent.childrenSizeProportion;
+                gameObject.transform.localScale = new Vector3(parent.size, parent.size, parent.size);
+                child.generation = parent.generation += 1;
+                mc.maxHealth = Mathf.FloorToInt(maxHealth * parent.childrenHealthProportion);
+                mc.currHealth = mc.maxHealth;
+                mc.speed = speed * parent.childrenSpeedProportion;
+            }
+
+        }
+        }
         Destroy(gameObject,.15f);
     }
 
