@@ -21,6 +21,7 @@ public class PlayerCode : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    private Animator _animator;
     Rigidbody2D _rigidbody;
     SpriteRenderer SR;
     public Color dmgColor;
@@ -66,6 +67,7 @@ public class PlayerCode : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
         currHealth = maxHealth;
+        _animator = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -91,12 +93,14 @@ public class PlayerCode : MonoBehaviour
         //print(Time.fixedDeltaTime);
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
 
+        _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
 
     }
 
     void Update(){
 
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
+        _animator.SetBool("Grounded", grounded);
         if (grounded == true)
         {
             remainingJumps = doubleJump ? 1 : 0;
