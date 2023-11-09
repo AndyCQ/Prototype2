@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1107256888733757743}
   - component: {fileID: 752370066549142379}
   - component: {fileID: 5245630543839959997}
+  - component: {fileID: 990615774553151264}
   m_Layer: 8
   m_Name: EnemyType2
   m_TagString: Enemy
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9339623, g: 0.58752096, b: 0.038768206, a: 1}
+  m_Sprite: {fileID: 1164280340, guid: ed1e8893be7a4ee46832580af01aefd3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,18 +150,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.00000011920929}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.68, y: 1.08}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.1192322}
   m_EdgeRadius: 0
 --- !u!114 &1107256888733757743
 MonoBehaviour:
@@ -203,6 +204,7 @@ MonoBehaviour:
   Mrb: {fileID: 0}
   moving: 1
   scoreVal: 3
+  splitter: 0
 --- !u!114 &5245630543839959997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +220,27 @@ MonoBehaviour:
   maxHealth: 4
   healthBarUI: {fileID: 4351956510841985835}
   slider: {fileID: 4351956511684643755}
+--- !u!95 &990615774553151264
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107256888733757736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4fef571ce52eabe4786e6d2d7f587b7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2867761036059831365
 PrefabInstance:
   m_ObjectHideFlags: 0
