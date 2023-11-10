@@ -27,7 +27,12 @@ public class PlayerCode : MonoBehaviour
     public Color dmgColor;
     public Color Original;
 
-    public int knockbackForce = 10;
+    public float knockbackForce = 10;
+    public float KBCounter;
+    public float KBTotalTime;
+    public bool knockFromRight;
+
+
     
 //UI
     public int speepBoost_count = 0;
@@ -84,16 +89,27 @@ public class PlayerCode : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        xSpeed = Input.GetAxisRaw("Horizontal") * speed;
+        if(KBCounter <=0){
+            xSpeed = Input.GetAxisRaw("Horizontal") * speed;
 
-        if((xSpeed < 0 && transform.localScale.x > 0) || (xSpeed > 0 && transform.localScale.x < 0))
-        {
-            transform.localScale *= new Vector2(-1,1);
+            if((xSpeed < 0 && transform.localScale.x > 0) || (xSpeed > 0 && transform.localScale.x < 0))
+            {
+                transform.localScale *= new Vector2(-1,1);
+            }
+            //print(Time.fixedDeltaTime);
+            _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
+
+            _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
+            }
+        else{
+            if(knockFromRight){
+                _rigidbody.velocity = new Vector2(-knockbackForce, knockbackForce);
+            }
+            else{
+                _rigidbody.velocity = new Vector2(knockbackForce, knockbackForce);
+            }
+            KBCounter -= Time.deltaTime;
         }
-        //print(Time.fixedDeltaTime);
-        _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
-
-        _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
 
     }
 
@@ -175,21 +191,25 @@ public class PlayerCode : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Collider2D collider = other.collider;
         if(other.gameObject.CompareTag("Enemy"))
         {
             Damage(1);
+            if(other.gameObject.transform.position.x <= transform.position.x){
+                knockFromRight = false;
+            }
+            else{
+                knockFromRight = true;
+            }
+            KBCounter = KBTotalTime;
+
             //gameObject.GetComponent<Animation>().Play("GetHit");
-            Vector2 direction = new Vector2(1, 1).normalized;
-            Vector2 knockback = direction * knockbackForce;
-            knockbacked(knockback);
         }
     }
     
     public void knockbacked(Vector2 knockback){
-        _rigidbody.AddForce(knockback, ForceMode2D.Impulse);
-
+        KBCounter = KBTotalTime;
     }
+
     public void Damage(int dmg){
         if(!IsImmune){
             currHealth -= dmg;
@@ -218,10 +238,10 @@ public class PlayerCode : MonoBehaviour
         Monster mc = collider.gameObject.GetComponent<Monster>();
         mc.moving = false;
         mc.speed = 0;
-        Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
+        Vector2 knockbackDirection = (collider.transform.position - transform.position);
         mc.Mrb.AddForce(knockbackDirection * thrust, ForceMode2D.Impulse);
-        print(knockbackDirection * thrust);
-        yield return new WaitForSeconds(.5F);
+        print(knockbackDirection);
+        yield return new WaitForSeconds(1);
         mc.Mrb.velocity = new Vector2(0f,0f);
         mc.speed = mc.startSpd;
         mc.moving = true;

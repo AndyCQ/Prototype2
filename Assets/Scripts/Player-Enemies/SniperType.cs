@@ -22,11 +22,11 @@ public class SniperType : MonoBehaviour
         
         _rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(Aim());
+        StartCoroutine(MoveLoop());
         
     }
 
-    IEnumerator Aim(){
+    IEnumerator MoveLoop(){
         while(true){
             if(player.position.x > transform.position.x && transform.localScale.x < 0 || 
                 player.position.x < transform.position.x && transform.localScale.x > 0)
