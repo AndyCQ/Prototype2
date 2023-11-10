@@ -51,19 +51,6 @@ public class PlayerCode : MonoBehaviour
     public Renderer PlayerRenderer;
     public bool IsImmune;
 
-    //Knockback ability
-    public GameObject powerRadiusVisual;
-    private GameObject activePowerRadiusVisual;
-    public float powerRadius = 10;
-    public float thrust = 300;
-    private bool cooldown1 = true;
-
-    //Poison Darts ability
-    public GameObject dart;
-    public int bulletCount = 8;
-    public float shootInterval = 1.0f;
-    public float dartSpeed = 20;
-    public bool cooldown2 = true;
 
 
     // Start is called before the first frame update
@@ -130,22 +117,12 @@ public class PlayerCode : MonoBehaviour
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             remainingJumps -= 1;
         }
-
         
         if(Input.GetButtonDown("Fire1")){
             GameObject newBullet;
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale);
             gunshotSFX.Play();
-        }
-
-        if(Input.GetKeyDown(KeyCode.E) && cooldown1){
-            KnockbackEnemies();
-            StartCoroutine(cooldown(2));
-        }
-        if(Input.GetKeyDown(KeyCode.F) && cooldown2){
-            SpawnDarts();
-            StartCoroutine(PdartsCD(2));
         }
         if(currHealth > maxHealth){
             currHealth = maxHealth;
@@ -206,9 +183,6 @@ public class PlayerCode : MonoBehaviour
         }
     }
     
-    public void knockbacked(Vector2 knockback){
-        KBCounter = KBTotalTime;
-    }
 
     public void Damage(int dmg){
         if(!IsImmune){
@@ -222,72 +196,7 @@ public class PlayerCode : MonoBehaviour
         SR.color = dmgColor;
         yield return new WaitForSeconds(.5f);
         SR.color = Original;
-    }
-
-    private void KnockbackEnemies(){
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, powerRadius);
-        foreach (var collider in colliders)
-        {
-            if (collider.CompareTag("Enemy"))
-            {
-                StartCoroutine(PushBack(collider));
-            }
-        }
-    }
-    private IEnumerator PushBack(Collider2D collider){
-        Monster mc = collider.gameObject.GetComponent<Monster>();
-        mc.moving = false;
-        mc.speed = 0;
-        Vector2 knockbackDirection = (collider.transform.position - transform.position);
-        mc.Mrb.AddForce(knockbackDirection * thrust, ForceMode2D.Impulse);
-        print(knockbackDirection);
-        yield return new WaitForSeconds(1);
-        mc.Mrb.velocity = new Vector2(0f,0f);
-        mc.speed = mc.startSpd;
-        mc.moving = true;
-        }
-
-    //Combine soon
-    private IEnumerator cooldown(float timer){
-        cooldown1 = false;
-        yield return new WaitForSeconds(timer);
-        cooldown1 = true;
-    }
-
-    private IEnumerator PdartsCD(float timer){
-        cooldown2 = false;
-        yield return new WaitForSeconds(timer);
-        cooldown2 = true;
-    }
-
-    void SpawnDarts(){
-        float angleStep = 360f / bulletCount;
-        float currentAngle = 0f;
-
-        for (int i = 0; i < bulletCount; i++)
-        {
-            // Calculate the position for each bullet.
-            float radians = currentAngle * Mathf.Deg2Rad;
-            Vector2 spawnPosition = new Vector2(transform.position.x + Mathf.Cos(radians), transform.position.y + Mathf.Sin(radians));
-
-            // Calculate the direction for each bullet.
-            Vector2 spawnDirection = (spawnPosition - (Vector2)transform.position).normalized;
-
-            // Create a new bullet at the calculated position.
-            GameObject bullet = Instantiate(dart, spawnPosition, Quaternion.identity);
-
-            // Set the bullet's velocity to move in the calculated direction.
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.velocity = spawnDirection * dartSpeed;
-            }
-
-            currentAngle += angleStep;
-        }
-    }
-
-    
+    }    
 }
 
     
