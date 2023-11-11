@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 4
-  lookDist: 15
+  lookDist: 10
   jumpForce: 500
   grounded: 0
   GroundWallLayer:

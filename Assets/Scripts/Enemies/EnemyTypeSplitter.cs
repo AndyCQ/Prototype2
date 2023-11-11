@@ -65,9 +65,11 @@ public class EnemyTypeSplitter : MonoBehaviour
                     
                 }
                 //Platform version
-                else if (Physics2D.Raycast(castPoint.position, transform.forward, 1, GroundWallLayer) ||
-                !Physics2D.Raycast(castPoint.position,-transform.up,1,GroundWallLayer))
+                else if (!Physics2D.Raycast(castPoint.position,-transform.up + transform.forward,3,GroundWallLayer))
                 {
+                    transform.localScale *= new Vector2(-1,1);
+                }
+                else if (Physics2D.Raycast(castPoint.position, transform.localScale, 2, GroundWallLayer)){
                     transform.localScale *= new Vector2(-1,1);
                 }
 
