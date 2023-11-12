@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCode : MonoBehaviour
 {
+    public bool isFlipped = false;
     public bool doubleJump;
     int remainingJumps;
     public int speed = 5;
@@ -51,7 +52,8 @@ public class PlayerCode : MonoBehaviour
     public Renderer PlayerRenderer;
     public bool IsImmune;
 
-
+    public int ducksInLine = 0;
+    public List<GameObject> ducks = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +84,7 @@ public class PlayerCode : MonoBehaviour
             if((xSpeed < 0 && transform.localScale.x > 0) || (xSpeed > 0 && transform.localScale.x < 0))
             {
                 transform.localScale *= new Vector2(-1,1);
+                isFlipped = !isFlipped;
             }
             //print(Time.fixedDeltaTime);
             _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
