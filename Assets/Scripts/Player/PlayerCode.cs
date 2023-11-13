@@ -8,7 +8,7 @@ public class PlayerCode : MonoBehaviour
     public bool isFlipped = false;
     public bool doubleJump;
     int remainingJumps;
-    public int speed = 5;
+    public float speed = 5;
     public int jumpForce = 500;
     public int currHealth;
     public int maxHealth = 6;
@@ -19,7 +19,7 @@ public class PlayerCode : MonoBehaviour
 
     // for testing
     public int jumpForceIncr = 100;
-    public int speedIncr = 2;
+    public float speedIncr = 2;
     public float atkSpdIncr = .1f;
 
 

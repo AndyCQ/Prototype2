@@ -19,7 +19,7 @@ public class StuckTrap : MonoBehaviour
 
     IEnumerator Trap(){
         int jmpfr = player.jumpForce;
-        int spd = player.speed;
+        float spd = player.speed;
         player.jumpForce = 0;
         player.speed = 0;
         yield return new WaitForSeconds(5);
