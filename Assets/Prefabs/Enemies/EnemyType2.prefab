@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 4
-  lookDist: 10
+  lookDist: 5
   jumpForce: 500
   grounded: 0
   GroundWallLayer:
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  startSpd: 5
+  startSpd: 6
   currHealth: 0
   maxHealth: 4
   Mrb: {fileID: 0}

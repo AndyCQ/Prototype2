@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179b888e7fe0d149b46b1d84b3a6cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 9
   healthBarUI: {fileID: 3850353326787347867}
   slider: {fileID: 3850353325339923739}
 --- !u!114 &1457902576589319483
@@ -219,6 +219,7 @@ MonoBehaviour:
   Mrb: {fileID: 0}
   moving: 1
   scoreVal: 1
+  splitter: 0
 --- !u!1 &2820087568322596413
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class StuckTrap : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
     }
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")){
+        if (other.CompareTag("Player") && player.shielded == false){
             StartCoroutine(Trap());
 
         }
