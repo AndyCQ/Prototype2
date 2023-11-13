@@ -14,12 +14,13 @@ public class PlayerCode : MonoBehaviour
     public int maxHealth = 6;
     public int bulletForce = 500;
     public int bulletSpeed = 10;
+    public float atkCD_Timer = 1;
+    public bool fireStatus = true;
 
     // for testing
     public int jumpForceIncr = 100;
     public int speedIncr = 2;
-    public int bulletSpeedIncr = 3;
-
+    public float atkSpdIncr = .1f;
 
 
     public LayerMask groundLayer;
@@ -64,6 +65,7 @@ public class PlayerCode : MonoBehaviour
 
     // ability stuff
     public bool shielded = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -127,15 +129,17 @@ public class PlayerCode : MonoBehaviour
         }
         if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0)
         {
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x,0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             remainingJumps -= 1;
         }
         
-        if(Input.GetButtonDown("Fire1")){
+        if(Input.GetButtonDown("Fire1") && fireStatus){
             GameObject newBullet;
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale + _rigidbody.velocity);
             gunshotSFX.Play();
+            StartCoroutine(atkCD(atkCD_Timer));
         }
         if(currHealth > maxHealth){
             currHealth = maxHealth;
@@ -163,7 +167,7 @@ public class PlayerCode : MonoBehaviour
         }
         if (other.tag == "BulletBoost")
         {
-            bulletSpeed = bulletSpeed + bulletSpeedIncr;
+            atkCD_Timer -= atkSpdIncr;
             bulletBoost_count += 1;
             PublicVars.score += 1;
         }
@@ -215,6 +219,12 @@ public class PlayerCode : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         SR.color = Original;
     }    
+
+    private IEnumerator atkCD(float timer){
+        fireStatus = false;
+        yield return new WaitForSeconds(timer);
+        fireStatus = true;
+    }
 }
 
     
