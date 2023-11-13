@@ -15,6 +15,13 @@ public class PlayerCode : MonoBehaviour
     public int bulletForce = 500;
     public int bulletSpeed = 10;
 
+    // for testing
+    public int jumpForceIncr = 100;
+    public int speedIncr = 2;
+    public int bulletSpeedIncr = 3;
+
+
+
     public LayerMask groundLayer;
     public Transform feetTrans;
     public bool grounded = false;
@@ -81,7 +88,7 @@ public class PlayerCode : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(KBCounter <=0){
+        if(KBCounter <= 0){
             xSpeed = Input.GetAxisRaw("Horizontal") * speed;
 
             if((xSpeed < 0 && transform.localScale.x > 0) || (xSpeed > 0 && transform.localScale.x < 0))
@@ -144,30 +151,34 @@ public class PlayerCode : MonoBehaviour
         if (other.tag != "EnemyBullet") pickupSFX.Play();
         if (other.tag == "SpeedBoost")
         {
-            speed = speed + 2;
+            speed = speed + speedIncr;
             speepBoost_count += 1;
+            PublicVars.score += 1;
         }
         if (other.tag == "JumpBoost")
         {
-            jumpForce = jumpForce +100;
+            jumpForce = jumpForce + jumpForceIncr;
             jumpBoost_count += 1;
+            PublicVars.score += 1;
         }
         if (other.tag == "BulletBoost")
         {
-            bulletSpeed = bulletSpeed + 3;
+            bulletSpeed = bulletSpeed + bulletSpeedIncr;
             bulletBoost_count += 1;
+            PublicVars.score += 1;
         }
         if (other.tag == "Heal")
         {
             currHealth += 1;
             healSFX.Play();
+            PublicVars.score += 1;
         }
         if (other.tag == "EnemyBullet" && shielded == false)
         {
                 Destroy(other.gameObject);
                 Damage(1);
         }
-        PublicVars.score += 1;
+        // PublicVars.score += 1;
     }
 
     void Die() {

@@ -41,6 +41,7 @@ public class Monster : MonoBehaviour
 
     void Die() {
         PublicVars.score += scoreVal;
+        Debug.Log("enemy died, score + 1");
         if(splitter){
             EnemyTypeSplitter parent = GetComponent<EnemyTypeSplitter>();
             if (parent.generation < parent.maxGeneration)
