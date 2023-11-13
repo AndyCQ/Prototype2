@@ -23,6 +23,11 @@ public class PlayerAbilities : MonoBehaviour
     public float dartSpeed = 5;
     public bool cooldown2 = true;
 
+    // Shield abbibitity
+    public float shieldCooldown = 1f;
+    public float shieldDuration = 5f;
+    public bool cooldown3 = true;
+
     void Update(){
 
         if(Input.GetKeyDown(KeyCode.E) && cooldown1){
@@ -33,6 +38,20 @@ public class PlayerAbilities : MonoBehaviour
             SpawnDarts();
             StartCoroutine(poisonCD(2));
         }
+        if (Input.GetKeyDown(KeyCode.G) && cooldown2)
+        {
+            transform.Find("Shield").gameObject.SetActive(true);
+            gameObject.GetComponent<PlayerCode>().shielded = true;
+            StartCoroutine(shieldCD(shieldCooldown));
+            StartCoroutine(DisableShieldAfterSecs(shieldDuration));
+        }
+    }
+
+    private IEnumerator DisableShieldAfterSecs(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+        transform.Find("Shield").gameObject.SetActive(false);
+        gameObject.GetComponent<PlayerCode>().shielded = false;
     }
 
     private void KnockbackEnemies(){
@@ -74,6 +93,13 @@ public class PlayerAbilities : MonoBehaviour
         cooldown2 = false;
         yield return new WaitForSeconds(timer);
         cooldown2 = true;
+    }
+
+    private IEnumerator shieldCD(float timer)
+    {
+        cooldown3 = false;
+        yield return new WaitForSeconds(timer);
+        cooldown3 = true;
     }
 
     void SpawnDarts(){

@@ -55,6 +55,9 @@ public class PlayerCode : MonoBehaviour
     public int ducksInLine = 0;
     public List<GameObject> ducks = new List<GameObject>();
 
+    // ability stuff
+    public bool shielded = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -159,10 +162,11 @@ public class PlayerCode : MonoBehaviour
             currHealth += 1;
             healSFX.Play();
         }
-        if (other.tag == "EnemyBullet"){
+        if (other.tag == "EnemyBullet" && shielded == false)
+        {
                 Destroy(other.gameObject);
                 Damage(1);
-                }
+        }
         PublicVars.score += 1;
     }
 
@@ -171,7 +175,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Enemy"))
+        if(other.gameObject.CompareTag("Enemy") && shielded == false)
         {
             Damage(1);
             if(other.gameObject.transform.position.x <= transform.position.x){
