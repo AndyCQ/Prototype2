@@ -38,7 +38,7 @@ public class PlayerAbilities : MonoBehaviour
             SpawnDarts();
             StartCoroutine(poisonCD(2));
         }
-        if (Input.GetKeyDown(KeyCode.G) && cooldown2)
+        if (Input.GetKeyDown(KeyCode.S) && cooldown3)
         {
             transform.Find("Shield").gameObject.SetActive(true);
             gameObject.GetComponent<PlayerCode>().shielded = true;
