@@ -48,7 +48,7 @@ public class Monster : MonoBehaviour
         {
             for (int i = 0; i < parent.numberOfChildren; i++)
             {
-                GameObject childGameObject = Instantiate(parent.SplitterPrefab, transform.position + new Vector3(Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f), Random.Range(-2.25f, 2.25f)), Quaternion.identity);
+                GameObject childGameObject = Instantiate(parent.SplitterPrefab, transform.position + new Vector3(Random.Range(-2.25f, 2.25f), Random.Range(0, 2.25f), 0), Quaternion.identity);
                 EnemyTypeSplitter child = childGameObject.GetComponent<EnemyTypeSplitter>();
                 Monster mc = childGameObject.GetComponent<Monster>();
                 child.size = parent.size * parent.childrenSizeProportion;

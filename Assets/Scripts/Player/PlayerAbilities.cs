@@ -23,7 +23,7 @@ public class PlayerAbilities : MonoBehaviour
     public float dartSpeed = 5;
     public bool cooldown2 = true;
 
-    // Shield abbibitity
+    // Shield ability
     public float shieldCooldown = 1f;
     public float shieldDuration = 5f;
     public bool cooldown3 = true;
