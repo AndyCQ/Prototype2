@@ -19,4 +19,14 @@ public class JumpToScene : MonoBehaviour
         PublicVars.score = 0;
         SceneManager.LoadScene("Level1");
     }
+
+    public void PlayTutorial(){
+        clickSFX.Play();
+        Invoke("LoadTutorial", 0.8f);
+    }
+
+    public void LoadTutorial() {
+        PublicVars.score = 0;
+        SceneManager.LoadScene("Tutorial");
+    }
 }
