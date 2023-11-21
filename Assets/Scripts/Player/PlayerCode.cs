@@ -182,6 +182,12 @@ public class PlayerCode : MonoBehaviour
                 Destroy(other.gameObject);
                 Damage(1);
         }
+
+        if (other.tag == "XP")
+        {
+            PublicVars.total_xp += 5;
+            Destroy(other.gameObject);
+        }
         // PublicVars.score += 1;
     }
 
