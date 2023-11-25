@@ -14,17 +14,35 @@ public class Monster : MonoBehaviour
     private HealthBar hb;
     public bool splitter = false;
 
+    private AudioSource _as;
+    private AudioClip hurtSFX;
+    private AudioClip deathSFX;
+
     void Start(){
         Mrb = GetComponent<Rigidbody2D>();
         speed = startSpd;
         currHealth = maxHealth;
         hb = GetComponent<HealthBar>();
+
+        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+        _as = audioSource;
+        //_as = gameObject.GetComponent<AudioSource>();
+        hurtSFX = Resources.Load<AudioClip>("Audio/pain2");
+        deathSFX = Resources.Load<AudioClip>("Audio/death1");
     }
 
     void Update(){
         if(currHealth <= 0){
             Die();
-            }
+        }
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        //if (clip == null) return;
+        //if (_as == null) return;
+        _as.PlayOneShot(clip);
+        //AudioSource.PlayClipAtPoint(clip, transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -32,6 +50,7 @@ public class Monster : MonoBehaviour
             Destroy(other.gameObject);
             currHealth -= PublicVars.bulletDMG;
             hb.TakeDamage(PublicVars.bulletDMG);
+            PlaySFX(hurtSFX);
         }
         if (other.CompareTag("PoisonDart")){
             Destroy(other.gameObject);
@@ -40,6 +59,7 @@ public class Monster : MonoBehaviour
     }
 
     void Die() {
+        PlaySFX(deathSFX);
         PublicVars.score += scoreVal;
         Debug.Log("enemy died, score + 1");
         if(splitter){
@@ -71,6 +91,7 @@ public class Monster : MonoBehaviour
             yield return new WaitForSeconds(1);
             currHealth -= 1;
             hb.TakeDamage(1);
+            PlaySFX(hurtSFX);
         }
 
     }
