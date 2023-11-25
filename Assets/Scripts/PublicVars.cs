@@ -22,6 +22,10 @@ public class PublicVars : MonoBehaviour
     public static int starting_spd_cost = 5;
     public static int starting_health_cost = 5;
 
+    public static string support;
+    public static string secondaryFire;
+    public static string mobility;
+
 
     void start(){
         total_xp = starting_xp;

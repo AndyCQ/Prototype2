@@ -15,6 +15,7 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
+        maxHealth = GetComponent<Monster>().maxHealth;
         currHealth = maxHealth;
         slider.value = CalculateHealth();
     }

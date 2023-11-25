@@ -127,7 +127,7 @@ public class PlayerCode : MonoBehaviour
         {
             _rigidbody.AddForce(new Vector2(0, jumpForce));
         }
-        if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0)
+        if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0 && PublicVars.mobility == "DJ")
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x,0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));

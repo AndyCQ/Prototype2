@@ -31,21 +31,36 @@ public class PlayerAbilities : MonoBehaviour
     void Update(){
 
         if(Input.GetKeyDown(KeyCode.E) && cooldown1){
-            KnockbackEnemies();
-            StartCoroutine(pushBackCD(2));
+            activate();
+            // KnockbackEnemies();
+            // StartCoroutine(pushBackCD(2));
         }
-        if(Input.GetKeyDown(KeyCode.F) && cooldown2){
+        if(Input.GetKeyDown(KeyCode.Q) && cooldown2 && PublicVars.secondaryFire == "PDs"){
             SpawnDarts();
             StartCoroutine(poisonCD(2));
         }
-        if (Input.GetKeyDown(KeyCode.S) && cooldown3)
-        {
+        // if (Input.GetKeyDown(KeyCode.S) && cooldown3)
+        // {
+        //     transform.Find("Shield").gameObject.SetActive(true);
+        //     gameObject.GetComponent<PlayerCode>().shielded = true;
+        //     StartCoroutine(shieldCD(shieldCooldown));
+        //     StartCoroutine(DisableShieldAfterSecs(shieldDuration));
+        // }
+    }
+
+    private void activate(){
+        if(PublicVars.support == "Shield"){
             transform.Find("Shield").gameObject.SetActive(true);
             gameObject.GetComponent<PlayerCode>().shielded = true;
-            StartCoroutine(shieldCD(shieldCooldown));
+            StartCoroutine(supportCD(shieldCooldown));
             StartCoroutine(DisableShieldAfterSecs(shieldDuration));
         }
+        if(PublicVars.support == "Knockback"){
+            KnockbackEnemies();
+            StartCoroutine(supportCD(2));
+        }
     }
+
 
     private IEnumerator DisableShieldAfterSecs(float secs)
     {
@@ -53,6 +68,7 @@ public class PlayerAbilities : MonoBehaviour
         transform.Find("Shield").gameObject.SetActive(false);
         gameObject.GetComponent<PlayerCode>().shielded = false;
     }
+
 
     private void KnockbackEnemies(){
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, powerRadius);
@@ -64,6 +80,7 @@ public class PlayerAbilities : MonoBehaviour
             }
         }
     }
+
 
     private IEnumerator PushBack(Collider2D collider){
         Monster mc = collider.gameObject.GetComponent<Monster>();
@@ -83,7 +100,8 @@ public class PlayerAbilities : MonoBehaviour
         mc.moving = true;
         }
 
-    private IEnumerator pushBackCD(float timer){
+
+    private IEnumerator supportCD(float timer){
         cooldown1 = false;
         yield return new WaitForSeconds(timer);
         cooldown1 = true;

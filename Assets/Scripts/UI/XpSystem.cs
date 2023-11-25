@@ -30,6 +30,16 @@ public class XpSystem : MonoBehaviour
     int pwrLevel = 0;
     int healtBoost = 0;
 
+    public Button shield;
+    public Button knockback;
+    public Button PDs;
+    public Button DJ;
+    public TMP_Text supportCost;
+    public TMP_Text SFCost;
+    public TMP_Text MCost;
+
+    public GameObject UI;
+
 
     void Start()
     {
@@ -53,7 +63,18 @@ public class XpSystem : MonoBehaviour
         health_cost.text = PublicVars.health_cost.ToString();
 
         total_xp.text = "Total XP: " + PublicVars.total_xp.ToString();
+
+        if (Input.GetKeyDown(KeyCode.F)){
+            if(UI.activeSelf){
+                UI.SetActive(false);
+            }
+            else{
+                UI.SetActive(true);
+                }
+        }
+        
     }
+
 
     public void incAtkSpd(){
         if(PublicVars.total_xp >= PublicVars.atkSpd_cost){
@@ -64,6 +85,7 @@ public class XpSystem : MonoBehaviour
         }
     }
 
+
     public void incAtkPwr(){
         if(PublicVars.total_xp >= PublicVars.atk_cost){
             PublicVars.bulletDMG += 1;
@@ -72,6 +94,8 @@ public class XpSystem : MonoBehaviour
             PublicVars.atk_cost +=5;
         }
     }
+
+
     public void incSpd(){
         if(PublicVars.total_xp >= PublicVars.spd_cost){
             player.speed += speedIncr;
@@ -80,6 +104,8 @@ public class XpSystem : MonoBehaviour
             PublicVars.spd_cost +=5;
         }
     }
+
+
     public void incJmp(){
         if(PublicVars.total_xp >= PublicVars.jmp_cost){
             player.jumpForce += jumpForceIncr;
@@ -88,12 +114,50 @@ public class XpSystem : MonoBehaviour
             PublicVars.jmp_cost +=5;
         }
     }
+
+
     public void incHealth(){
         if(PublicVars.total_xp >= PublicVars.health_cost){
             healtBoost += 1;
             player.maxHealth += 1;
             PublicVars.total_xp -= PublicVars.health_cost;
             PublicVars.health_cost +=5;
+        }
+    }
+
+
+    public void PurchaseShield(){
+        if(PublicVars.total_xp >= 35){
+            PublicVars.support = "Shield";
+            knockback.gameObject.SetActive(false);
+            supportCost.gameObject.SetActive(false);
+            PublicVars.total_xp -= 35;
+        }
+    }
+
+
+    public void PurchaseForce(){
+        if(PublicVars.total_xp >= 35){
+            PublicVars.support = "Knockback";
+            knockback.gameObject.SetActive(false);
+            supportCost.gameObject.SetActive(false);
+            PublicVars.total_xp -= 35;
+        }
+    }
+
+    public void PurchasePDs(){
+        if(PublicVars.total_xp >= 35){
+            PublicVars.secondaryFire = "PDs";
+            SFCost.gameObject.SetActive(false);
+            PublicVars.total_xp -= 35;
+        }
+    }
+
+    public void PurchaseDJ(){
+        if(PublicVars.total_xp >= 35){
+            PublicVars.mobility = "DJ";
+            MCost.gameObject.SetActive(false);
+            PublicVars.total_xp -= 35;
         }
     }
 }
