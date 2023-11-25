@@ -3603,12 +3603,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036621663, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1036621663, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 69f7d15b974f646beb12d45690ed7bff, type: 3}
+      objectReference: {fileID: 8300000, guid: d98b3587947be426d8c4ba20cf7b75c6, type: 3}
     - target: {fileID: 1036621673, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
       propertyPath: immunityTime
       value: 1.2
