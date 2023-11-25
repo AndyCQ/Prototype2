@@ -65,11 +65,16 @@ public class XpSystem : MonoBehaviour
         total_xp.text = "Total XP: " + PublicVars.total_xp.ToString();
 
         if (Input.GetKeyDown(KeyCode.F)){
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
             if(UI.activeSelf){
                 UI.SetActive(false);
+                Time.timeScale = 1f;
+                player.fireStatus = true;
             }
             else{
                 UI.SetActive(true);
+                Time.timeScale = 0f;
+                player.fireStatus = false;
                 }
         }
         

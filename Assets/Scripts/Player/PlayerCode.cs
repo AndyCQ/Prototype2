@@ -192,7 +192,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Die() {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
