@@ -7,10 +7,12 @@ public class BulletLifeSpan : MonoBehaviour
 
     public float lifeTime = 1;
     public AudioSource groundHitSFX;
+    private ParticleSystem _ps;
 
     void Start()
     {
         Destroy(gameObject, lifeTime);
+        _ps = gameObject.GetComponent<ParticleSystem>();
     }
 
 
@@ -42,6 +44,12 @@ public class BulletLifeSpan : MonoBehaviour
 
     IEnumerator HandleGroundCollision()
     {
+        // create particles upon collision w/ground.
+        if (_ps != null)
+        {
+            _ps.Clear(); // why does this work???
+        }
+
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Get the initial color of the sprite
