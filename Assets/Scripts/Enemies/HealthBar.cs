@@ -24,10 +24,10 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currHealth <= 0f)
-        {
-            Destroy(gameObject);
-        }
+        // if (currHealth <= 0f)
+        // {
+        //     Destroy(gameObject);
+        // }
 
         slider.value = CalculateHealth();
 

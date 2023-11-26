@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    public PlayerCode player;
+    private PlayerCode player;
     public int neededDucks = 3;
     public string nextLevel;
     void Start()

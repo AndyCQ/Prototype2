@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class XpSystem : MonoBehaviour
+public class TutorialXpSys : MonoBehaviour
 {
     // Start is called before the first frame update
     PlayerCode player;
@@ -50,6 +50,7 @@ public class XpSystem : MonoBehaviour
         PublicVars.jmp_cost = PublicVars.starting_jmp_cost;
         PublicVars.spd_cost = PublicVars.starting_jmp_cost;
         PublicVars.health_cost = PublicVars.starting_health_cost;
+        
     }
 
     // Update is called once per frame
@@ -87,7 +88,7 @@ public class XpSystem : MonoBehaviour
 
 
     public void incAtkSpd(){
-        if(PublicVars.total_xp >= PublicVars.atkSpd_cost){
+        if(PublicVars.total_xp >= PublicVars.atkSpd_cost && player.bulletBoost_count < 2){
             player.atkCD_Timer -= atkSpdIncr;
             player.bulletBoost_count += 1;
             PublicVars.total_xp -= PublicVars.atkSpd_cost;
@@ -97,7 +98,7 @@ public class XpSystem : MonoBehaviour
 
 
     public void incAtkPwr(){
-        if(PublicVars.total_xp >= PublicVars.atk_cost){
+        if(PublicVars.total_xp >= PublicVars.atk_cost && pwrLevel < 2){
             PublicVars.bulletDMG += 1;
             pwrLevel += 1;
             PublicVars.total_xp -= PublicVars.atk_cost;
@@ -107,7 +108,7 @@ public class XpSystem : MonoBehaviour
 
 
     public void incSpd(){
-        if(PublicVars.total_xp >= PublicVars.spd_cost){
+        if(PublicVars.total_xp >= PublicVars.spd_cost && player.speepBoost_count < 2){
             player.speed += speedIncr;
             player.speepBoost_count += 1;
             PublicVars.total_xp -= PublicVars.spd_cost;
@@ -117,7 +118,7 @@ public class XpSystem : MonoBehaviour
 
 
     public void incJmp(){
-        if(PublicVars.total_xp >= PublicVars.jmp_cost){
+        if(PublicVars.total_xp >= PublicVars.jmp_cost && player.jumpBoost_count < 2){
             player.jumpForce += jumpForceIncr;
             player.jumpBoost_count += 1;
             PublicVars.total_xp -= PublicVars.jmp_cost;
@@ -127,7 +128,7 @@ public class XpSystem : MonoBehaviour
 
 
     public void incHealth(){
-        if(PublicVars.total_xp >= PublicVars.health_cost){
+        if(PublicVars.total_xp >= PublicVars.health_cost && player.maxHealth < 2){
             healtBoost += 1;
             player.maxHealth += 1;
             PublicVars.total_xp -= PublicVars.health_cost;

@@ -13,6 +13,7 @@ public class Monster : MonoBehaviour
     public int scoreVal = 1;
     private HealthBar hb;
     public bool splitter = false;
+    public int xpVal = 1;
 
     private AudioSource _as;
     private AudioClip hurtSFX;
@@ -61,7 +62,8 @@ public class Monster : MonoBehaviour
     void Die() {
         PlaySFX(deathSFX);
         PublicVars.score += scoreVal;
-        Debug.Log("enemy died, score + 1");
+        PublicVars.total_xp += xpVal;
+        Debug.Log(xpVal);
         if(splitter){
             EnemyTypeSplitter parent = GetComponent<EnemyTypeSplitter>();
             if (parent.generation < parent.maxGeneration)
@@ -81,7 +83,7 @@ public class Monster : MonoBehaviour
 
         }
         }
-        Destroy(gameObject,.15f);
+        Destroy(gameObject);
     }
 
     IEnumerator DoT(){

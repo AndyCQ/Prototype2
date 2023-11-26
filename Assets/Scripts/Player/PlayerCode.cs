@@ -185,14 +185,15 @@ public class PlayerCode : MonoBehaviour
 
         if (other.tag == "XP")
         {
-            PublicVars.total_xp += 5;
+            PublicVars.total_xp += 1;
             Destroy(other.gameObject);
         }
         // PublicVars.score += 1;
     }
 
     void Die() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 
     private void OnCollisionEnter2D(Collision2D other) {

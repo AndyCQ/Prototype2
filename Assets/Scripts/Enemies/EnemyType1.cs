@@ -21,6 +21,7 @@ public class EnemyType1 : MonoBehaviour
         StartCoroutine(MoveLoop());
         mc = GetComponent<Monster>();
     }
+    
     IEnumerator MoveLoop(){
         while (true)
         {
