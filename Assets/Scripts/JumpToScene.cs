@@ -17,7 +17,7 @@ public class JumpToScene : MonoBehaviour
 
     public void LoadLevel() {
         PublicVars.score = 0;
-        SceneManager.LoadScene("Level1_Remake");
+        SceneManager.LoadScene("Level1");
     }
 
     public void PlayTutorial(){

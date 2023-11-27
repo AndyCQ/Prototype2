@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/WelcomeScreen.unity
     guid: d1d34fa209ac0bf4ba2c09bf604e6218
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Level3.unity
     guid: a47e65de4e14a3a4b8da59de6bed3b13
   - enabled: 0
     path: Assets/Scenes/RogerScene1.unity
@@ -27,6 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/AndyTestScene.unity
     guid: 2f507493b65fb334ebd6cccb3ae62029
   - enabled: 1
-    path: Assets/Scenes/Level1_Remake.unity
+    path: Assets/Scenes/Level1.unity
     guid: c1179bdac09f3484882149506f81c800
   m_configObjects: {}

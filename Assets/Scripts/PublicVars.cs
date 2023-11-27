@@ -48,5 +48,4 @@ public class PublicVars : MonoBehaviour
     public static int s_jmp = 0;
     public static int s_health = 0;
     
-    
 }
