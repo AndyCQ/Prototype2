@@ -49,7 +49,7 @@ public class XpSystem : MonoBehaviour
         PublicVars.atk_cost = PublicVars.starting_atk_cost;
         PublicVars.atkSpd_cost = PublicVars.starting_atkSpd_cost;
         PublicVars.jmp_cost = PublicVars.starting_jmp_cost;
-        PublicVars.spd_cost = PublicVars.starting_jmp_cost;
+        PublicVars.spd_cost = PublicVars.starting_spd_cost;
         PublicVars.health_cost = PublicVars.starting_health_cost;
         PublicVars.bulletDMG = PublicVars.starting_bulletDMG;
 

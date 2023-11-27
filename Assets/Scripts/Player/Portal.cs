@@ -21,7 +21,7 @@ public class Portal : MonoBehaviour
             PublicVars.starting_atk_cost = PublicVars.atk_cost;
             PublicVars.starting_atkSpd_cost = PublicVars.atkSpd_cost;
             PublicVars.starting_jmp_cost = PublicVars.jmp_cost;
-            PublicVars.starting_jmp_cost = PublicVars.spd_cost;
+            PublicVars.starting_spd_cost = PublicVars.spd_cost;
             PublicVars.starting_health_cost = PublicVars.health_cost;
 
             PublicVars.currSA = PublicVars.support;
@@ -40,7 +40,32 @@ public class Portal : MonoBehaviour
             PublicVars.s_jmp = PublicVars.jmp;
             PublicVars.s_health = PublicVars.health;
             
+            if(nextLevel == "WelcomeScreen"){
+                PublicVars.starting_xp = 0;
 
+                PublicVars.starting_atk_cost = 5;
+                PublicVars.starting_atkSpd_cost = 5;
+                PublicVars.starting_jmp_cost = 5;
+                PublicVars.starting_spd_cost = 5;
+                PublicVars.starting_health_cost = 5;
+
+                PublicVars.currSA = "";
+                PublicVars.currSF = "";
+                PublicVars.currM = "";
+
+                PublicVars.starting_bulletDMG = 2;
+                PublicVars.starting_atk_spd = .7f;
+                PublicVars.starting_jumpforce = 700;
+                PublicVars.starting_health = 6;
+                PublicVars.starting_spd = 10;
+
+                PublicVars.s_atkLvl = 0;
+                PublicVars.s_atkSpd = 0;
+                PublicVars.s_spd = 0;
+                PublicVars.s_jmp = 0;
+                PublicVars.s_health = 0;
+
+            }
             SceneManager.LoadScene(nextLevel);
         }
     }
