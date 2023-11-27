@@ -182,9 +182,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   castPoint: {fileID: 4432042382007989148}
-  bulletPrefab: {fileID: 127163084303990805, guid: 2d74e1132f3c6dc489a5c9a0e155e1cf, type: 3}
-  firePoint: {fileID: 4432042383300288214}
-  bulletForce: 500
 --- !u!114 &1054328567044875031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +202,7 @@ MonoBehaviour:
   moving: 1
   scoreVal: 1
   splitter: 0
+  xpVal: 2
 --- !u!114 &7415236733617824371
 MonoBehaviour:
   m_ObjectHideFlags: 0

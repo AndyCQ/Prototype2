@@ -213,6 +213,7 @@ MonoBehaviour:
   moving: 1
   scoreVal: 1
   splitter: 1
+  xpVal: 5
 --- !u!114 &5531259083209608093
 MonoBehaviour:
   m_ObjectHideFlags: 0

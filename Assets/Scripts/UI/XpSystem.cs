@@ -50,6 +50,10 @@ public class XpSystem : MonoBehaviour
         PublicVars.jmp_cost = PublicVars.starting_jmp_cost;
         PublicVars.spd_cost = PublicVars.starting_jmp_cost;
         PublicVars.health_cost = PublicVars.starting_health_cost;
+        PublicVars.support = PublicVars.currSA;
+        PublicVars.secondaryFire = PublicVars.currSA;
+        PublicVars.mobility = PublicVars.currM;
+
     }
 
     // Update is called once per frame

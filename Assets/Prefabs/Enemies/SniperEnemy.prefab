@@ -262,8 +262,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   lookDist: 30
-  currHealth: 0
-  maxHealth: 6
   bulletPrefab: {fileID: 7195781738627703596, guid: 7b7b0ba382f49b94da620e387be83c59, type: 3}
   firePoint: {fileID: 5312986465914253948}
   bulletForce: 80
@@ -287,6 +285,7 @@ MonoBehaviour:
   moving: 1
   scoreVal: 1
   splitter: 0
+  xpVal: 5
 --- !u!114 &1961154584685588626
 MonoBehaviour:
   m_ObjectHideFlags: 0

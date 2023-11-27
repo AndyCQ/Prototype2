@@ -26,6 +26,10 @@ public class PublicVars : MonoBehaviour
     public static string secondaryFire;
     public static string mobility;
 
+    public static string currSA;
+    public static string currSF;
+    public static string currM;
+
 
     void start(){
         total_xp = starting_xp;

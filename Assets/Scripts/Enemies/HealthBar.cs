@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
 
 
     //Healthbar vars
-    public float maxHealth = 10f;
+    private float maxHealth = 10f;
     public GameObject healthBarUI;
     public Slider slider;
 
