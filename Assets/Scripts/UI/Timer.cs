@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     bool StartTimer = false;
     //referrence of Text component
     [SerializeField] Text TimerText;
+    public Color og;
+    public Color red;
 
 
     void Start()
@@ -37,7 +39,15 @@ public class Timer : MonoBehaviour
                 StartTimer = false;
                 currentTime = 0;
             }
+            if (currentTime <= 20){
+                TimerText.color = red;
+            }
+            if( currentTime > 20){
+                TimerText.color = og;
+            }
+
         }
+
         TimerText.text = currentTime.ToString("f2");
     }
 
