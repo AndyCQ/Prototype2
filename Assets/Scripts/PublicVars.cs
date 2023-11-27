@@ -30,14 +30,23 @@ public class PublicVars : MonoBehaviour
     public static string currSF;
     public static string currM;
 
+    public static int starting_health = 6;
+    public static int starting_jumpforce = 700;
+    public static float starting_spd = 10;
+    public static float starting_atk_spd = .7f;
+    public static int starting_bulletDMG = 2;
 
-    void start(){
-        total_xp = starting_xp;
-        atk_cost = starting_atk_cost;
-        atkSpd_cost = starting_atkSpd_cost;
-        jmp_cost = starting_jmp_cost;
-        spd_cost = starting_jmp_cost;
-        health_cost = starting_health_cost;
-    }
+    public static int atkLvl = 0;
+    public static int atkSpd = 0;
+    public static int spd = 0;
+    public static int jmp = 0;
+    public static int health = 0;
+    
+    public static int s_atkLvl = 0;
+    public static int s_atkSpd = 0;
+    public static int s_spd = 0;
+    public static int s_jmp = 0;
+    public static int s_health = 0;
+    
     
 }

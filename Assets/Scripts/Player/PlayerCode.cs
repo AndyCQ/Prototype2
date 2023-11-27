@@ -72,8 +72,15 @@ public class PlayerCode : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
-        currHealth = maxHealth;
         _animator = GetComponent<Animator>();
+
+        speed = PublicVars.starting_spd;
+        jumpForce = PublicVars.starting_jumpforce;
+        atkCD_Timer = PublicVars.starting_atk_spd;
+        maxHealth = PublicVars.starting_health;
+
+        currHealth = maxHealth;
+
     }
 
     private void Awake()

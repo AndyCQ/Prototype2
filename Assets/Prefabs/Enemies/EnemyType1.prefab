@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  startSpd: 4
+  startSpd: 2
   currHealth: 0
   maxHealth: 4
   Mrb: {fileID: 0}
@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179b888e7fe0d149b46b1d84b3a6cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
   healthBarUI: {fileID: 6611993748108977680}
   slider: {fileID: 6611993748885059216}
 --- !u!95 &6329042760026234786

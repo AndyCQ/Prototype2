@@ -24,8 +24,8 @@ public class XpSystem : MonoBehaviour
     public TMP_Text total_xp;
 
     public float atkSpdIncr = .1f;
-    public int jumpForceIncr = 100;
-    public float speedIncr = 2;
+    public int jumpForceIncr = 50;
+    public float speedIncr = 1.5f;
     
     int pwrLevel = 0;
     int healtBoost = 0;
@@ -45,25 +45,35 @@ public class XpSystem : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
         PublicVars.total_xp = PublicVars.starting_xp;
+        
         PublicVars.atk_cost = PublicVars.starting_atk_cost;
         PublicVars.atkSpd_cost = PublicVars.starting_atkSpd_cost;
         PublicVars.jmp_cost = PublicVars.starting_jmp_cost;
         PublicVars.spd_cost = PublicVars.starting_jmp_cost;
         PublicVars.health_cost = PublicVars.starting_health_cost;
+        PublicVars.bulletDMG = PublicVars.starting_bulletDMG;
+
         PublicVars.support = PublicVars.currSA;
-        PublicVars.secondaryFire = PublicVars.currSA;
+        PublicVars.secondaryFire = PublicVars.currSF;
         PublicVars.mobility = PublicVars.currM;
+
+        PublicVars.atkLvl = PublicVars.s_atkLvl;
+        PublicVars.atkSpd = PublicVars.s_atkSpd;
+        PublicVars.spd = PublicVars.s_spd;
+        PublicVars.jmp = PublicVars.s_jmp;
+        PublicVars.health = PublicVars.s_health;
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        atkSpd.text = "AtkSpd Level: "+ player.bulletBoost_count;
-        atkPwr.text = "AtkPwr Level: "+ pwrLevel;
-        spd.text = "Speed Level: "+ player.speepBoost_count;
-        jmp.text = "Jump Level: "+ player.jumpBoost_count;
-        health.text = "Health Boost: "+healtBoost;
+        atkSpd.text = "AtkSpd Level: "+ PublicVars.atkSpd;
+        atkPwr.text = "AtkPwr Level: "+ PublicVars.atkLvl;
+        spd.text = "Speed Level: "+ PublicVars.spd;
+        jmp.text = "Jump Level: "+ PublicVars.jmp;
+        health.text = "Health Boost: "+ PublicVars.health;
 
         atkSpd_cost.text = PublicVars.atkSpd_cost.ToString();
         atkPwr_cost.text = PublicVars.atk_cost.ToString();
@@ -72,6 +82,8 @@ public class XpSystem : MonoBehaviour
         health_cost.text = PublicVars.health_cost.ToString();
 
         total_xp.text = "Total XP: " + PublicVars.total_xp.ToString();
+
+    
 
         if (Input.GetKeyDown(KeyCode.F)){
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
@@ -93,9 +105,9 @@ public class XpSystem : MonoBehaviour
     public void incAtkSpd(){
         if(PublicVars.total_xp >= PublicVars.atkSpd_cost){
             player.atkCD_Timer -= atkSpdIncr;
-            player.bulletBoost_count += 1;
+            PublicVars.atkSpd += 1;
             PublicVars.total_xp -= PublicVars.atkSpd_cost;
-            PublicVars.atkSpd_cost+=5;
+            PublicVars.atkSpd_cost *= 2;
         }
     }
 
@@ -103,9 +115,9 @@ public class XpSystem : MonoBehaviour
     public void incAtkPwr(){
         if(PublicVars.total_xp >= PublicVars.atk_cost){
             PublicVars.bulletDMG += 1;
-            pwrLevel += 1;
+            PublicVars.atkLvl += 1;
             PublicVars.total_xp -= PublicVars.atk_cost;
-            PublicVars.atk_cost +=5;
+            PublicVars.atk_cost *= 2;
         }
     }
 
@@ -113,9 +125,9 @@ public class XpSystem : MonoBehaviour
     public void incSpd(){
         if(PublicVars.total_xp >= PublicVars.spd_cost){
             player.speed += speedIncr;
-            player.speepBoost_count += 1;
+            PublicVars.spd += 1;
             PublicVars.total_xp -= PublicVars.spd_cost;
-            PublicVars.spd_cost +=5;
+            PublicVars.spd_cost *= 2;
         }
     }
 
@@ -123,9 +135,9 @@ public class XpSystem : MonoBehaviour
     public void incJmp(){
         if(PublicVars.total_xp >= PublicVars.jmp_cost){
             player.jumpForce += jumpForceIncr;
-            player.jumpBoost_count += 1;
+            PublicVars.jmp += 1;
             PublicVars.total_xp -= PublicVars.jmp_cost;
-            PublicVars.jmp_cost +=5;
+            PublicVars.jmp_cost *= 2;
         }
     }
 
@@ -134,8 +146,9 @@ public class XpSystem : MonoBehaviour
         if(PublicVars.total_xp >= PublicVars.health_cost){
             healtBoost += 1;
             player.maxHealth += 1;
+            PublicVars.health += 1;
             PublicVars.total_xp -= PublicVars.health_cost;
-            PublicVars.health_cost +=5;
+            PublicVars.health_cost *= 2;
         }
     }
 

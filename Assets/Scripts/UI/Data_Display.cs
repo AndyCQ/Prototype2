@@ -16,9 +16,9 @@ public class Data_Display : MonoBehaviour
 
     void Update()
     {
-        DataText.text = "Speed Level " + obj.GetComponent<PlayerCode>().speepBoost_count + "\n" +
-            "Jump Level " + obj.GetComponent<PlayerCode>().jumpBoost_count + "\n" + 
-            "Bullet Speed Level " + obj.GetComponent<PlayerCode>().bulletBoost_count + "\n" +
-            "Score :  " + PublicVars.total_xp;
+        DataText.text = //"Speed Level " + obj.GetComponent<PlayerCode>().speepBoost_count + "\n" +
+        //     "Jump Level " + obj.GetComponent<PlayerCode>().jumpBoost_count + "\n" + 
+        //     "Bullet Speed Level " + obj.GetComponent<PlayerCode>().bulletBoost_count + "\n" +
+            "XP :  " + PublicVars.total_xp;
     }
 }
