@@ -80724,7 +80724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededDucks: 4
-  nextLevel: Level1
+  nextLevel: Level2
 --- !u!61 &1784602223
 BoxCollider2D:
   m_ObjectHideFlags: 0
