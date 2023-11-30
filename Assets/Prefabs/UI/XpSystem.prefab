@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 59.2, y: -70.6}
-  m_SizeDelta: {x: 37.844, y: 30}
+  m_AnchoredPosition: {x: 76, y: -63}
+  m_SizeDelta: {x: 77.1678, y: 19.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4396009787505042050
 CanvasRenderer:
@@ -493,8 +493,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1808,7 +1808,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Double Jump
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1341d2038ac411a4db42171c7607f58b, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1833,8 +1833,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1872,7 +1872,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2653862701095181088
@@ -2960,7 +2960,7 @@ GameObject:
   - component: {fileID: 4809561348108810306}
   - component: {fileID: 3984710782221434205}
   m_Layer: 5
-  m_Name: Mobility
+  m_Name: Mobility Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2982,7 +2982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 173.8, y: -79.2}
+  m_AnchoredPosition: {x: 143, y: -58}
   m_SizeDelta: {x: 89.0841, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4809561348108810306
@@ -3023,7 +3023,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.9843137, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3040,8 +3040,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3385,8 +3385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.68172, y: -13.9}
-  m_SizeDelta: {x: 84.8074, y: 19.3}
+  m_AnchoredPosition: {x: 79.69174, y: -18}
+  m_SizeDelta: {x: 80.8275, y: 19.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8929072130051433788
 CanvasRenderer:
@@ -4454,7 +4454,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.412, y: 14.5}
+  m_AnchoredPosition: {x: 68.412, y: -0}
   m_SizeDelta: {x: 58.532, y: 17.0102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4586893060972313002
@@ -5480,7 +5480,7 @@ GameObject:
   - component: {fileID: 2768631345027120747}
   - component: {fileID: 874919497696624042}
   m_Layer: 5
-  m_Name: MobilityTxt (2)
+  m_Name: MobilityTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5502,7 +5502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.412, y: -42.1}
+  m_AnchoredPosition: {x: 68.412, y: -48}
   m_SizeDelta: {x: 58.532, y: 17.0102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2768631345027120747
@@ -5748,7 +5748,7 @@ GameObject:
   - component: {fileID: 927813682117408425}
   - component: {fileID: 8628805977936699515}
   m_Layer: 5
-  m_Name: SecodaryFire
+  m_Name: Combat Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5770,7 +5770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 172.6, y: -23.3}
+  m_AnchoredPosition: {x: 143, y: -8}
   m_SizeDelta: {x: 89.0841, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &927813682117408425
@@ -5811,7 +5811,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.9843137, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5828,8 +5828,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
