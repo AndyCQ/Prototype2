@@ -57,6 +57,11 @@ public class Monster : MonoBehaviour
             Destroy(other.gameObject);
             StartCoroutine(DoT());
         }
+        if (other.CompareTag("RailGunShot")){
+            currHealth -= PublicVars.RGDmg;
+            hb.TakeDamage(PublicVars.RGDmg);
+            PlaySFX(hurtSFX);
+        }
     }
 
     void Die() {

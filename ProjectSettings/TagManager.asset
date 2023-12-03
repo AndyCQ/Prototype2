@@ -14,6 +14,7 @@ TagManager:
   - Timer
   - PoisonDart
   - XP
+  - RailGunShot
   layers:
   - Default
   - TransparentFX

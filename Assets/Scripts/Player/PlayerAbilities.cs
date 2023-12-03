@@ -28,6 +28,15 @@ public class PlayerAbilities : MonoBehaviour
     public float shieldDuration = 5f;
     public bool cooldown3 = true;
 
+    //Railgun ability
+    public GameObject railshot;
+    public float railSpeed = 5;
+    public Transform firePoint;
+    public Rigidbody2D rb;
+    public int totalParts = 100;  // Total number of parts to instantiate
+    //public bool cooldown3 = true;
+
+    
     void Update(){
 
         if(Input.GetKeyDown(KeyCode.E) && cooldown1){
@@ -46,6 +55,14 @@ public class PlayerAbilities : MonoBehaviour
         //     StartCoroutine(shieldCD(shieldCooldown));
         //     StartCoroutine(DisableShieldAfterSecs(shieldDuration));
         // }
+        if(Input.GetKeyDown(KeyCode.Q)){
+            GameObject newBullet;
+            newBullet = Instantiate(railshot, firePoint.position + new Vector3(17,0,0) * transform.localScale.x, Quaternion.identity);
+            //newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(railSpeed,0) * 1 *transform.localScale + rb.velocity);
+            //gunshotSFX.Play();
+            //StartCoroutine(atkCD(atkCD_Timer));
+            
+        }
     }
 
     private void activate(){
@@ -147,4 +164,6 @@ public class PlayerAbilities : MonoBehaviour
         }
 
     }
+
+    
 }

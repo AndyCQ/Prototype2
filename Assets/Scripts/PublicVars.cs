@@ -5,6 +5,7 @@ using UnityEngine;
 public class PublicVars : MonoBehaviour
 {
     public static int bulletDMG = 2;
+    public static int RGDmg = 20;
     public static int score = 0;
 
     public static int total_xp = 0;
@@ -27,7 +28,7 @@ public class PublicVars : MonoBehaviour
     public static string mobility = "";
 
     public static string currSA = "";
-    public static string currSF = "PDs";
+    public static string currSF = "";
     public static string currM = "";
 
     public static int starting_health = 6;

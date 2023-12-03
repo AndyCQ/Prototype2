@@ -143,7 +143,7 @@ public class PlayerCode : MonoBehaviour
         
         if(Input.GetButtonDown("Fire1") && fireStatus){
             GameObject newBullet;
-            newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            newBullet = Instantiate(bulletPrefab, firePoint.position * transform.localScale.x, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale + _rigidbody.velocity);
             gunshotSFX.Play();
             StartCoroutine(atkCD(atkCD_Timer));
