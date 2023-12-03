@@ -90,9 +90,9 @@ public class Monster : MonoBehaviour
         for (int i = 0; i < 6; i++) 
         {
             //Tickrate
-            yield return new WaitForSeconds(1);
             currHealth -= 1;
             hb.TakeDamage(1);
+            yield return new WaitForSeconds(1);
             PlaySFX(hurtSFX);
         }
 

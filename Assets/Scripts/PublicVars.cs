@@ -27,7 +27,7 @@ public class PublicVars : MonoBehaviour
     public static string mobility = "";
 
     public static string currSA = "";
-    public static string currSF = "";
+    public static string currSF = "PDs";
     public static string currM = "";
 
     public static int starting_health = 6;

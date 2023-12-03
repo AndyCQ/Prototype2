@@ -18,7 +18,7 @@ public class PlayerAbilities : MonoBehaviour
 
     //Poison Darts ability
     public GameObject dart;
-    public int bulletCount = 8;
+    private int bulletCount = 12;
     public float shootInterval = 1.0f;
     public float dartSpeed = 5;
     public bool cooldown2 = true;
