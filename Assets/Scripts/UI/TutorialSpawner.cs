@@ -9,9 +9,9 @@ public class TutorialSpawner : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Player"){
             GameObject tmp;
-            tmp = Instantiate(enemy, new Vector2(transform.position.x + 10,transform.position.y), Quaternion.identity);
+            tmp = Instantiate(enemy, new Vector2(transform.position.x + 6.5f,transform.position.y), Quaternion.identity);
             tmp.transform.localScale *= new Vector2(-1,1);
-            Instantiate(enemy, new Vector2(transform.position.x - 10,transform.position.y), Quaternion.identity);
+            Instantiate(enemy, new Vector2(transform.position.x - 6.5f,transform.position.y), Quaternion.identity);
             Destroy(gameObject);
         }
     }

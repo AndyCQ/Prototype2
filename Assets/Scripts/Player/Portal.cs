@@ -39,8 +39,12 @@ public class Portal : MonoBehaviour
             PublicVars.s_spd = PublicVars.spd;
             PublicVars.s_jmp = PublicVars.jmp;
             PublicVars.s_health = PublicVars.health;
+
+            PublicVars.supportCost = 35;
+            PublicVars.combatCost = 60;
+            PublicVars.mobilityCost = 35;
             
-            if(nextLevel == "WelcomeScreen"){
+            if(nextLevel == "WelcomeScreen" || nextLevel == "WinGame"){
                 PublicVars.starting_xp = 0;
 
                 PublicVars.starting_atk_cost = 5;

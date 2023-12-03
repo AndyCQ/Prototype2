@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuOptions : MonoBehaviour
 {
     public void restart(){
+        Time.timeScale = 1f;
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }

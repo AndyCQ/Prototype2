@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TutorialXpSys : MonoBehaviour
 {
@@ -51,6 +52,19 @@ public class TutorialXpSys : MonoBehaviour
         PublicVars.spd_cost = PublicVars.starting_jmp_cost;
         PublicVars.health_cost = PublicVars.starting_health_cost;
         
+        PublicVars.support = PublicVars.currSA;
+        PublicVars.secondaryFire = PublicVars.currSF;
+        PublicVars.mobility = PublicVars.currM;
+
+        PublicVars.atkLvl = PublicVars.s_atkLvl;
+        PublicVars.atkSpd = PublicVars.s_atkSpd;
+        PublicVars.spd = PublicVars.s_spd;
+        PublicVars.jmp = PublicVars.s_jmp;
+        PublicVars.health = PublicVars.s_health;
+        if(SceneManager.GetActiveScene().name == "Tutorial"){
+            PublicVars.starting_health = 1;
+        }
+        
     }
 
     // Update is called once per frame
@@ -83,7 +97,6 @@ public class TutorialXpSys : MonoBehaviour
                 player.fireStatus = false;
                 }
         }
-        
     }
 
 
@@ -138,37 +151,37 @@ public class TutorialXpSys : MonoBehaviour
 
 
     public void PurchaseShield(){
-        if(PublicVars.total_xp >= 35){
+        if(PublicVars.total_xp >= PublicVars.supportCost && PublicVars.support == ""){
             PublicVars.support = "Shield";
             knockback.gameObject.SetActive(false);
             supportCost.gameObject.SetActive(false);
-            PublicVars.total_xp -= 35;
+            PublicVars.total_xp -= PublicVars.supportCost;
         }
     }
 
 
     public void PurchaseForce(){
-        if(PublicVars.total_xp >= 35){
+        if(PublicVars.total_xp >= PublicVars.supportCost && PublicVars.support == ""){
             PublicVars.support = "Knockback";
             knockback.gameObject.SetActive(false);
             supportCost.gameObject.SetActive(false);
-            PublicVars.total_xp -= 35;
+            PublicVars.total_xp -= PublicVars.supportCost;
         }
     }
 
     public void PurchasePDs(){
-        if(PublicVars.total_xp >= 35){
+        if(PublicVars.total_xp >= PublicVars.combatCost && PublicVars.secondaryFire == ""){
             PublicVars.secondaryFire = "PDs";
             SFCost.gameObject.SetActive(false);
-            PublicVars.total_xp -= 35;
+            PublicVars.total_xp -= PublicVars.combatCost;
         }
     }
 
     public void PurchaseDJ(){
-        if(PublicVars.total_xp >= 35){
+        if(PublicVars.total_xp >= PublicVars.mobilityCost && PublicVars.mobility == ""){
             PublicVars.mobility = "DJ";
             MCost.gameObject.SetActive(false);
-            PublicVars.total_xp -= 35;
+            PublicVars.total_xp -= PublicVars.mobilityCost;
         }
     }
 }

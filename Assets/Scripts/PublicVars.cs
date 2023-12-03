@@ -22,13 +22,13 @@ public class PublicVars : MonoBehaviour
     public static int starting_spd_cost = 5;
     public static int starting_health_cost = 5;
 
-    public static string support;
-    public static string secondaryFire;
-    public static string mobility;
+    public static string support = "";
+    public static string secondaryFire = "";
+    public static string mobility = "";
 
-    public static string currSA;
-    public static string currSF;
-    public static string currM;
+    public static string currSA = "";
+    public static string currSF = "";
+    public static string currM = "";
 
     public static int starting_health = 6;
     public static int starting_jumpforce = 700;
@@ -47,5 +47,9 @@ public class PublicVars : MonoBehaviour
     public static int s_spd = 0;
     public static int s_jmp = 0;
     public static int s_health = 0;
+
+    public static int supportCost = 35;
+    public static int combatCost = 60;
+    public static int mobilityCost = 35;
     
 }
