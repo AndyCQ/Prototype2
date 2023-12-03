@@ -23352,6 +23352,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: a71bc7ed71e97e546aae993cdf23ea1f, type: 3}
     - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: og.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: og.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: og.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: red.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: red.b
+      value: 0.03137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: red.g
+      value: 0.101960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: red.r
+      value: 0.94509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917784, guid: 1818d4221007e714696366eff2fc6240, type: 3}
       propertyPath: startTime
       value: 90
       objectReference: {fileID: 0}
