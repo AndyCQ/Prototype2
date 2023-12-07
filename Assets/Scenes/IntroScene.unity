@@ -817,8 +817,8 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'However, just when they were about to arrive at their destination, Captain
-    Quacksterlost his control over the spaceship. The spaceship crashed. Debris and
-    feathers went flying everywhere.
+    Quackster lost his control over the spaceship. The spaceship crashed. Debris
+    and feathers went flying everywhere.
 
 '
 --- !u!222 &985985975
@@ -1286,10 +1286,10 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Captain Quackster emerged from the wreckage to find himself surrounded
-    by the unfamiliar terrain of an alien planet. To his amazement, the cargo hold
-    of the Quackstronaut had burst open upon impact, releasing a plucky parade of
-    ducks that now dotted the alien landscape like quirky cosmic confetti. The ducks
-    are scattered throughout the planet.
+    by the unfamiliar terrain of an alien planet. To his amazement, his spaceship
+    had burst open upon impact, releasing a plucky parade of ducks that now dotted
+    the alien landscape like quirky cosmic confetti. The ducks are scattered throughout
+    the planet.
 --- !u!222 &1461200421
 CanvasRenderer:
   m_ObjectHideFlags: 0
