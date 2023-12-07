@@ -763,7 +763,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 605319638}
         m_TargetAssemblyTypeName: JumpToScene, Assembly-CSharp
-        m_MethodName: PlayTutorial
+        m_MethodName: LoadIntroScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
