@@ -90,16 +90,20 @@ public class Monster : MonoBehaviour
         }
         }
 
-        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-        gameObject.GetComponent<Collider2D>().enabled = false;
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
         Transform deathPiecesTransform = gameObject.transform.Find("death_pieces");
         Transform gunTransform = gameObject.transform.Find("Gun");
         Transform healthBarTransform = gameObject.transform.Find("HealthBar");
+        Transform firepointTransform = gameObject.transform.Find("Firepoint");
+        Transform bowTransform = gameObject.transform.Find("Bow");
         if (deathPiecesTransform != null) deathPiecesTransform.gameObject.SetActive(true);
         if (gunTransform != null) gunTransform.gameObject.SetActive(false);
         if (healthBarTransform != null) healthBarTransform.gameObject.SetActive(false);
-        Destroy(gameObject, 5);
+        if (firepointTransform != null) firepointTransform.gameObject.SetActive(false);
+        if (bowTransform != null) bowTransform.gameObject.SetActive(false);
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Destroy(gameObject, 7.5f);
     }
 
     IEnumerator DoT(){

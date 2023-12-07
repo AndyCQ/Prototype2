@@ -5515,8 +5515,8 @@ MonoBehaviour:
   scoreVal: 1
   splitter: 0
   xpVal: 2
-  deathAudioClipPath: 
-  painAudioClipPath: 
+  deathAudioClipPath: Audio/death1
+  painAudioClipPath: Audio/pain2
   isDead: 0
 --- !u!114 &7415236733617824371
 MonoBehaviour:
