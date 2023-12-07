@@ -25,7 +25,8 @@ public class SniperType : MonoBehaviour
     }
 
     IEnumerator MoveLoop(){
-        while(true){
+        while(true && !gameObject.GetComponent<Monster>().isDead)
+        {
             if(player.position.x > transform.position.x && transform.localScale.x < 0 || 
                 player.position.x < transform.position.x && transform.localScale.x > 0)
                 {

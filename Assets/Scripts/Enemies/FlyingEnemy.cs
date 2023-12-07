@@ -35,11 +35,11 @@ public class FlyingEnemy : MonoBehaviour
     IEnumerator MoveLoop(){
         while(true){
             float newPosition = transform.position.x + direction * speed;
-            if (newPosition > spawnPoint + rightBoundary)
+            if (newPosition > spawnPoint + rightBoundary && !gameObject.GetComponent<Monster>().isDead)
             {
                 transform.localScale *= new Vector2(-1,1);
             }
-            else if (newPosition < spawnPoint + leftBoundary)
+            else if (newPosition < spawnPoint + leftBoundary && !gameObject.GetComponent<Monster>().isDead)
             {
                 transform.localScale *= new Vector2(-1,1);
             }
