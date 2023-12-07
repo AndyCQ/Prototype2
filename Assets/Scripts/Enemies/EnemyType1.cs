@@ -26,7 +26,8 @@ public class EnemyType1 : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(.1f);
-            if(mc.moving){
+            if(mc.moving && !gameObject.GetComponent<Monster>().isDead)
+            {
                 //Platform version
                 if (!Physics2D.Raycast(castPoint.position,-transform.up + transform.forward,3,GroundWallLayer))
                 {

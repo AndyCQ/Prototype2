@@ -95,8 +95,10 @@ public class Monster : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         Transform deathPiecesTransform = gameObject.transform.Find("death_pieces");
         Transform gunTransform = gameObject.transform.Find("Gun");
+        Transform healthBarTransform = gameObject.transform.Find("HealthBar");
         if (deathPiecesTransform != null) deathPiecesTransform.gameObject.SetActive(true);
         if (gunTransform != null) gunTransform.gameObject.SetActive(false);
+        if (healthBarTransform != null) healthBarTransform.gameObject.SetActive(false);
         Destroy(gameObject, 5);
     }
 

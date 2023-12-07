@@ -31,7 +31,8 @@ public class EnemyType3 : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(.1f);
-            if (Vector2.Distance(transform.position, player.position) < lookDist){
+            if (Vector2.Distance(transform.position, player.position) < lookDist && !gameObject.GetComponent<Monster>().isDead)
+            {
                 if(player.position.x > transform.position.x && transform.localScale.x < 0 || 
                 player.position.x < transform.position.x && transform.localScale.x > 0)
                 {

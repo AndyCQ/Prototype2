@@ -34,7 +34,8 @@ public class EnemyType2 : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(.1f);
-            if(mc.moving){
+            if(mc.moving && !gameObject.GetComponent<Monster>().isDead)
+            {
                 if (Vector2.Distance(transform.position, player.position) < lookDist){
                     if(player.position.x > transform.position.x && transform.localScale.x < 0 || 
                     player.position.x < transform.position.x && transform.localScale.x > 0)
