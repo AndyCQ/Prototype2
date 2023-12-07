@@ -4676,6 +4676,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6060881580074744154, guid: 4c9e0aa6e88c3b945894df39ae2427eb, type: 3}
+      propertyPath: painAudioClipPath
+      value: Audio/pain2
+      objectReference: {fileID: 0}
     - target: {fileID: 6869990981277311559, guid: 4c9e0aa6e88c3b945894df39ae2427eb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
