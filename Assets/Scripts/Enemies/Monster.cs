@@ -15,6 +15,8 @@ public class Monster : MonoBehaviour
     public bool splitter = false;
     public int xpVal = 1;
 
+    public string deathAudioClipPath;
+    public string painAudioClipPath;
     private AudioSource _as;
     private AudioClip hurtSFX;
     private AudioClip deathSFX;
@@ -27,9 +29,8 @@ public class Monster : MonoBehaviour
 
         AudioSource audioSource = gameObject.AddComponent<AudioSource>();
         _as = audioSource;
-        //_as = gameObject.GetComponent<AudioSource>();
-        hurtSFX = Resources.Load<AudioClip>("Audio/pain2");
-        deathSFX = Resources.Load<AudioClip>("Audio/death1");
+        hurtSFX = Resources.Load<AudioClip>(painAudioClipPath);
+        deathSFX = Resources.Load<AudioClip>(deathAudioClipPath);
     }
 
     void Update(){
@@ -40,10 +41,7 @@ public class Monster : MonoBehaviour
 
     private void PlaySFX(AudioClip clip)
     {
-        //if (clip == null) return;
-        //if (_as == null) return;
         _as.PlayOneShot(clip);
-        //AudioSource.PlayClipAtPoint(clip, transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -88,7 +86,15 @@ public class Monster : MonoBehaviour
 
         }
         }
-        Destroy(gameObject);
+
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Transform deathPiecesTransform = gameObject.transform.Find("death_pieces");
+        Transform gunTransform = gameObject.transform.Find("Gun");
+        if (deathPiecesTransform != null) deathPiecesTransform.gameObject.SetActive(true);
+        if (gunTransform != null) gunTransform.gameObject.SetActive(false);
+        Destroy(gameObject, 5);
     }
 
     IEnumerator DoT(){
