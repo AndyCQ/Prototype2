@@ -227,13 +227,14 @@ GameObject:
   - component: {fileID: 168468726}
   - component: {fileID: 168468725}
   - component: {fileID: 168468724}
+  - component: {fileID: 168468727}
   m_Layer: 0
   m_Name: Duration (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &168468723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -266,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -286,10 +287,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'However, Captain Quackster soon remembered that the inhabitants of this
+  m_Text: However, Captain Quackster soon remembered that the inhabitants of this
     alien planet were notoriously hostile, and extremely quackphobic.
-
-'
 --- !u!222 &168468725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -311,8 +310,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 30
-  ShowCursor: 0
+  SplashScreenDuration: 600
+  ShowCursor: 1
+--- !u!114 &168468727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168468722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1699686bbef47b18157e197b77e374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!1 &646846400
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,13 +337,14 @@ GameObject:
   - component: {fileID: 646846404}
   - component: {fileID: 646846403}
   - component: {fileID: 646846402}
+  - component: {fileID: 646846405}
   m_Layer: 0
   m_Name: Duration (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &646846401
 RectTransform:
   m_ObjectHideFlags: 0
@@ -364,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -384,7 +397,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u201COh no!\u201D The captain shouted in distress.\n"
+  m_Text: "\u201COh no!\u201D The captain shouted in distress."
 --- !u!222 &646846403
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -406,8 +419,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 30
-  ShowCursor: 0
+  SplashScreenDuration: 600
+  ShowCursor: 1
+--- !u!114 &646846405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646846400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1699686bbef47b18157e197b77e374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!1 &842639158
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +446,7 @@ GameObject:
   - component: {fileID: 842639162}
   - component: {fileID: 842639161}
   - component: {fileID: 842639160}
+  - component: {fileID: 842639163}
   m_Layer: 0
   m_Name: Duration
   m_TagString: Untagged
@@ -459,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -507,8 +534,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 30
-  ShowCursor: 0
+  SplashScreenDuration: 600
+  ShowCursor: 1
+--- !u!114 &842639163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842639158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1699686bbef47b18157e197b77e374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 5
 --- !u!1 &920152790
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,13 +645,14 @@ GameObject:
   - component: {fileID: 960781065}
   - component: {fileID: 960781064}
   - component: {fileID: 960781063}
+  - component: {fileID: 960781066}
   m_Layer: 0
   m_Name: Duration (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &960781062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -644,7 +685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -688,8 +729,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 30
-  ShowCursor: 0
+  SplashScreenDuration: 600
+  ShowCursor: 1
+--- !u!114 &960781066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960781061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1699686bbef47b18157e197b77e374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!1 &985985972
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,13 +756,14 @@ GameObject:
   - component: {fileID: 985985976}
   - component: {fileID: 985985975}
   - component: {fileID: 985985974}
+  - component: {fileID: 985985977}
   m_Layer: 0
   m_Name: Duration (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &985985973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -741,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -787,8 +842,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 30
-  ShowCursor: 0
+  SplashScreenDuration: 600
+  ShowCursor: 1
+--- !u!114 &985985977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985985972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1699686bbef47b18157e197b77e374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!850595691 &1130779851
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1009,7 +1077,6 @@ GameObject:
   - component: {fileID: 1298863839}
   - component: {fileID: 1298863838}
   - component: {fileID: 1298863837}
-  - component: {fileID: 1298863840}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1067,18 +1134,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1298863840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298863836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1439893617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,13 +1225,14 @@ GameObject:
   - component: {fileID: 1461200422}
   - component: {fileID: 1461200421}
   - component: {fileID: 1461200420}
+  - component: {fileID: 1461200423}
   m_Layer: 0
   m_Name: Duration (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1461200419
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1209,7 +1265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1229,13 +1285,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Captain Quackster emerged from the wreckage to find himself surrounded
+  m_Text: Captain Quackster emerged from the wreckage to find himself surrounded
     by the unfamiliar terrain of an alien planet. To his amazement, the cargo hold
     of the Quackstronaut had burst open upon impact, releasing a plucky parade of
     ducks that now dotted the alien landscape like quirky cosmic confetti. The ducks
     are scattered throughout the planet.
-
-'
 --- !u!222 &1461200421
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1257,8 +1311,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 30
-  ShowCursor: 0
+  SplashScreenDuration: 600
+  ShowCursor: 1
+--- !u!114 &1461200423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461200418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1699686bbef47b18157e197b77e374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!1 &1525110851 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1180987957330223618, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
@@ -1288,13 +1355,14 @@ GameObject:
   - component: {fileID: 1686185487}
   - component: {fileID: 1686185486}
   - component: {fileID: 1686185485}
+  - component: {fileID: 1686185488}
   m_Layer: 0
   m_Name: Duration (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1686185484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1327,7 +1395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1370,8 +1438,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 30
-  ShowCursor: 0
+  SplashScreenDuration: 600
+  ShowCursor: 1
+--- !u!114 &1686185488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686185483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1699686bbef47b18157e197b77e374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!1001 &1994333274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1383,6 +1464,10 @@ PrefabInstance:
     - target: {fileID: 1180987957330223618, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
       propertyPath: m_Name
       value: SplashScreen UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180987957330223618, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1180987957330223622, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
       propertyPath: m_Pivot.x
@@ -1470,7 +1555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1180987957352219952, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
       propertyPath: SceneToLoad
-      value: Assets/Simple SplashScreen/Scenes/GameExempleScene.unity
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1180987957352219952, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
       propertyPath: FadeOutAtEnd
