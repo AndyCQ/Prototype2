@@ -198,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179b888e7fe0d149b46b1d84b3a6cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 9
   healthBarUI: {fileID: 3850353326787347867}
   slider: {fileID: 3850353325339923739}
 --- !u!114 &1457902576589319483
@@ -222,6 +221,9 @@ MonoBehaviour:
   scoreVal: 1
   splitter: 0
   xpVal: 5
+  deathAudioClipPath: Audio/Voices Sfx/Mp3/Dinosaur/Dinosaur_04
+  painAudioClipPath: Audio/Voices Sfx/Mp3/Dinosaur/Dinosaur_12
+  isDead: 0
 --- !u!95 &4461486275293771057
 Animator:
   serializedVersion: 5

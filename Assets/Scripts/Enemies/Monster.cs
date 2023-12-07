@@ -21,6 +21,8 @@ public class Monster : MonoBehaviour
     private AudioClip hurtSFX;
     private AudioClip deathSFX;
 
+    // public AudioSource voiceAudioSource;
+
     public bool isDead = false;
 
     void Start(){
@@ -35,11 +37,11 @@ public class Monster : MonoBehaviour
         deathSFX = Resources.Load<AudioClip>(deathAudioClipPath);
     }
 
-    void Update(){
-        if(currHealth <= 0){
-            Die();
-        }
-    }
+//    void Update(){
+//        if(currHealth <= 0){
+//            Die();
+//        }
+//    }
 
     private void PlaySFX(AudioClip clip)
     {
@@ -50,6 +52,9 @@ public class Monster : MonoBehaviour
         if (other.CompareTag("Bullet")){
             Destroy(other.gameObject);
             currHealth -= PublicVars.bulletDMG;
+            if(currHealth <= 0){
+                Die();
+            }
             hb.TakeDamage(PublicVars.bulletDMG);
             PlaySFX(hurtSFX);
         }
@@ -111,6 +116,10 @@ public class Monster : MonoBehaviour
         {
             //Tickrate
             currHealth -= 1;
+            if (currHealth <= 0)
+            {
+                Die();
+            }
             hb.TakeDamage(1);
             yield return new WaitForSeconds(1);
             PlaySFX(hurtSFX);

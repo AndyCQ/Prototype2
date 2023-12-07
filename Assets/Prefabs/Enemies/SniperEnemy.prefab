@@ -10245,8 +10245,8 @@ MonoBehaviour:
   scoreVal: 1
   splitter: 0
   xpVal: 5
-  deathAudioClipPath: 
-  painAudioClipPath: 
+  deathAudioClipPath: Audio/Voices Sfx/Mp3/Alien/Alien_Funny_25
+  painAudioClipPath: Audio/Voices Sfx/Mp3/Alien/Alien_Funny_22
   isDead: 0
 --- !u!114 &1961154584685588626
 MonoBehaviour:
