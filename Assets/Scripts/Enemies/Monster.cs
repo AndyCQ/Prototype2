@@ -21,6 +21,8 @@ public class Monster : MonoBehaviour
     private AudioClip hurtSFX;
     private AudioClip deathSFX;
 
+    public bool isDead = false;
+
     void Start(){
         Mrb = GetComponent<Rigidbody2D>();
         speed = startSpd;
@@ -63,6 +65,7 @@ public class Monster : MonoBehaviour
     }
 
     void Die() {
+        isDead = true;
         PlaySFX(deathSFX);
         PublicVars.score += scoreVal;
         PublicVars.total_xp += xpVal;
