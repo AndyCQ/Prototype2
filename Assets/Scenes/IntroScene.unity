@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 600
+  SplashScreenDuration: 15
   ShowCursor: 1
 --- !u!114 &168468727
 MonoBehaviour:
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 600
+  SplashScreenDuration: 5
   ShowCursor: 1
 --- !u!114 &646846405
 MonoBehaviour:
@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 600
+  SplashScreenDuration: 22
   ShowCursor: 1
 --- !u!114 &842639163
 MonoBehaviour:
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 600
+  SplashScreenDuration: 18
   ShowCursor: 1
 --- !u!114 &960781066
 MonoBehaviour:
@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 600
+  SplashScreenDuration: 17
   ShowCursor: 1
 --- !u!114 &985985977
 MonoBehaviour:
@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 600
+  SplashScreenDuration: 26
   ShowCursor: 1
 --- !u!114 &1461200423
 MonoBehaviour:
@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreenMode: 0
-  SplashScreenDuration: 600
+  SplashScreenDuration: 10
   ShowCursor: 1
 --- !u!114 &1686185488
 MonoBehaviour:
