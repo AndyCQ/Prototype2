@@ -72,3 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/.DS_Store
 Assets/Resources/.DS_Store
+Assets/Audio/.DS_Store
