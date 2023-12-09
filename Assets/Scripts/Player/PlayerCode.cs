@@ -133,7 +133,7 @@ public class PlayerCode : MonoBehaviour
         }
         if ((Input.GetButtonDown("Jump")) && grounded)
         {
-            _rigidbody.AddForce(new Vector2(0, jumpForce));
+            if (Time.timeScale != 0f) _rigidbody.AddForce(new Vector2(0, jumpForce));
         }
         if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0 && PublicVars.mobility == "DJ")
         {
