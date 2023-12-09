@@ -70,6 +70,7 @@ public class Monster : MonoBehaviour
     }
 
     public void Die() {
+        if (isDead) return;
         isDead = true;
         PlaySFX(deathSFX);
         PublicVars.score += scoreVal;
@@ -120,9 +121,9 @@ public class Monster : MonoBehaviour
             {
                 Die();
             }
-            hb.TakeDamage(1);
+            if (!isDead) hb.TakeDamage(1);
             yield return new WaitForSeconds(1);
-            PlaySFX(hurtSFX);
+            if (!isDead) PlaySFX(hurtSFX);
         }
 
     }
