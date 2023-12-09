@@ -126,6 +126,7 @@ public class PlayerCode : MonoBehaviour
 
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
         _animator.SetBool("Grounded", grounded);
+        if (!grounded) Debug.Log(_rigidbody.velocity.y);
         if (grounded == true)
         {
             remainingJumps = doubleJump ? 1 : 0;
@@ -140,8 +141,14 @@ public class PlayerCode : MonoBehaviour
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             remainingJumps -= 1;
         }
-        
-        if(Input.GetButtonDown("Fire1") && fireStatus){
+
+        if (Input.GetKeyDown(KeyCode.S) && !grounded)
+        {
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+            _rigidbody.AddForce(new Vector2(0, -1500));
+        }
+
+        if (Input.GetButtonDown("Fire1") && fireStatus){
             GameObject newBullet;
             newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed,0) * bulletForce *transform.localScale + _rigidbody.velocity);

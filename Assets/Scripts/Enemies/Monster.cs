@@ -69,7 +69,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    void Die() {
+    public void Die() {
         isDead = true;
         PlaySFX(deathSFX);
         PublicVars.score += scoreVal;
