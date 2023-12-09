@@ -166,7 +166,6 @@ public class PlayerCode : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "EnemyBullet") pickupSFX.Play();
         if (other.tag == "SpeedBoost")
         {
             speed = speed + speedIncr;
@@ -199,6 +198,7 @@ public class PlayerCode : MonoBehaviour
 
         if (other.tag == "XP")
         {
+            pickupSFX.Play();
             PublicVars.total_xp += 1;
             Destroy(other.gameObject);
         }
