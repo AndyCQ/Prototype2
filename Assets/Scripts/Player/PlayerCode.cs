@@ -53,6 +53,8 @@ public class PlayerCode : MonoBehaviour
     public AudioSource healSFX;
     public AudioSource pickupSFX;
     public AudioSource hitSFX;
+    public AudioSource deathSFX;
+    public AudioSource backgroundMusic;
 
     float xSpeed = 0;
 
@@ -65,6 +67,8 @@ public class PlayerCode : MonoBehaviour
 
     // ability stuff
     public bool shielded = false;
+
+    public bool isDead = false;
 
 
     // Start is called before the first frame update
@@ -80,7 +84,6 @@ public class PlayerCode : MonoBehaviour
         maxHealth = PublicVars.starting_health;
 
         currHealth = maxHealth;
-
     }
 
     private void Awake()
@@ -97,6 +100,7 @@ public class PlayerCode : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (isDead) return;
         if(KBCounter <= 0){
             xSpeed = Input.GetAxisRaw("Horizontal") * speed;
 
@@ -123,7 +127,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Update(){
-
+        if (isDead) return;
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
         _animator.SetBool("Grounded", grounded);
         if (!grounded) Debug.Log(_rigidbody.velocity.y);
@@ -206,6 +210,23 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Die() {
+        isDead = true;
+        backgroundMusic.Stop();
+        deathSFX.Play();
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<PlayerDamage>().enabled = false;
+        SR.enabled = false;
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+
+        Transform deathPiecesTransform = gameObject.transform.Find("death_pieces");
+        if (deathPiecesTransform != null) deathPiecesTransform.gameObject.SetActive(true);
+
+        StartCoroutine(LoadLevelAfterDelay(3f));
+    }
+
+    IEnumerator LoadLevelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }

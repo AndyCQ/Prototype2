@@ -53,11 +53,13 @@ public class PlayerDamage : MonoBehaviour
 
     private void StartFlashing()
     {
+        if (PlayerCode.Instance.isDead) return;
         InvokeRepeating("ToggleVisibility", 0, flashDuration);
     }
 
     private void StopFlashing()
     {
+        if (PlayerCode.Instance.isDead) return;
         PlayerCode.Instance.IsImmune = false;
         CancelInvoke("ToggleVisibility");
         PlayerCode.Instance.PlayerRenderer.enabled = true;  // Ensure the player is visible at the end
@@ -65,6 +67,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void ToggleVisibility()
     {
+        if (PlayerCode.Instance.isDead && !PlayerCode.Instance.PlayerRenderer.enabled) return;
         PlayerCode.Instance.PlayerRenderer.enabled = !PlayerCode.Instance.PlayerRenderer.enabled;
     }
 
