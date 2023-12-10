@@ -6,6 +6,9 @@ public class FastFallHitboxScript : MonoBehaviour
 {
     private Camera mainCamera;
     public AudioSource _as;
+    public GameObject explosion;
+    public bool isShield = false;
+    private float y_velocity = 0f;
 
     void Start()
     {
@@ -26,10 +29,15 @@ public class FastFallHitboxScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Monster monster = collision.gameObject.GetComponent<Monster>();
-        if (transform.parent.GetComponent<Rigidbody2D>().velocity.y <= ySpeedKillThreashold)
+        y_velocity = (!isShield) ? transform.parent.GetComponent<Rigidbody2D>().velocity.y
+            : transform.parent.parent.GetComponent<Rigidbody2D>().velocity.y;
+
+        if (y_velocity <= ySpeedKillThreashold)
         {
             if (monster != null) monster.Die();
             _as.Play();
+            //GameObject _exp = Instantiate(explosion, transform.position, transform.rotation);
+            //_exp.GetComponent<Explosion>().Explode();
             mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.20f, 0f);
         }
     }

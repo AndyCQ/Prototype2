@@ -3,13 +3,15 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public float explosionForce = 10f; // Adjust the force as needed
+    public float destroyAfter = 2.5f; // Adjust the force as needed
+    public bool explodeAtStart = false;
 
     void Start()
     {
-        Explode();
+        if (explodeAtStart) Explode();
     }
 
-    void Explode()
+    public void Explode()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f); // Adjust the radius as needed
 
@@ -26,5 +28,6 @@ public class Explosion : MonoBehaviour
                 rb.AddForce(direction.normalized * explosionForce * force, ForceMode2D.Impulse);
             }
         }
+        Destroy(gameObject, destroyAfter);
     }
 }
