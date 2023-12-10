@@ -218,7 +218,6 @@ public class PlayerCode : MonoBehaviour
         // PublicVars.score += 1;
     }
     void KB(Collider2D other){
-        Damage(1);
         if(other.gameObject.transform.position.x <= transform.position.x){
             knockFromRight = false;
         }
@@ -226,6 +225,7 @@ public class PlayerCode : MonoBehaviour
             knockFromRight = true;
         }
         KBCounter = KBTotalTime;
+        Damage(1);
     }
 
     void Die() {
@@ -253,15 +253,15 @@ public class PlayerCode : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Enemy") && shielded == false)
         {
-            Damage(1);
             if(other.gameObject.transform.position.x <= transform.position.x){
+                print("here");
                 knockFromRight = false;
             }
             else{
                 knockFromRight = true;
             }
             KBCounter = KBTotalTime;
-
+            Damage(1);
             //gameObject.GetComponent<Animation>().Play("GetHit");
         }
     }
