@@ -159,7 +159,7 @@ public class PlayerCode : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "EnemyBullet") pickupSFX.Play();
+        //if (other.tag != "EnemyBullet") pickupSFX.Play();
         if (other.tag == "SpeedBoost")
         {
             speed = speed + speedIncr;
@@ -195,7 +195,23 @@ public class PlayerCode : MonoBehaviour
             PublicVars.total_xp += 1;
             Destroy(other.gameObject);
         }
+        if(other.tag == "LightingBolt" && shielded == false){
+            KB(other);
+        }
+        if(other.tag == "Boss" && shielded == false){
+            KB(other);
+        }
         // PublicVars.score += 1;
+    }
+    void KB(Collider2D other){
+        Damage(1);
+        if(other.gameObject.transform.position.x <= transform.position.x){
+            knockFromRight = false;
+        }
+        else{
+            knockFromRight = true;
+        }
+        KBCounter = KBTotalTime;
     }
 
     void Die() {

@@ -26,7 +26,7 @@ public class PlayerDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (PlayerCode.Instance.IsImmune) return;
-        else if (collision.CompareTag("EnemyBullet"))
+        else if (collision.CompareTag("EnemyBullet") || collision.CompareTag("Boss") || collision.CompareTag("LightingBolt"))
         {
             Debug.Log(PlayerCode.Instance.IsImmune);
             PlayerCode.Instance.IsImmune = true;

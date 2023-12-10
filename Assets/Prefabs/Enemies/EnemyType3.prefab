@@ -29189,7 +29189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93dda47f41dd3874da8c7ffac9c3afad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookDist: 10
+  lookDist: 15
   GroundWallLayer:
     serializedVersion: 2
     m_Bits: 0

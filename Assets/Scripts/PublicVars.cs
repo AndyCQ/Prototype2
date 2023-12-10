@@ -31,7 +31,7 @@ public class PublicVars : MonoBehaviour
     public static string currSF = "";
     public static string currM = "";
 
-    public static int starting_health = 6;
+    public static int starting_health = 300;
     public static int starting_jumpforce = 700;
     public static float starting_spd = 10;
     public static float starting_atk_spd = .7f;

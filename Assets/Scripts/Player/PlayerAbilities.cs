@@ -55,14 +55,14 @@ public class PlayerAbilities : MonoBehaviour
         //     StartCoroutine(shieldCD(shieldCooldown));
         //     StartCoroutine(DisableShieldAfterSecs(shieldDuration));
         // }
-        if(Input.GetKeyDown(KeyCode.Q)){
-            GameObject newBullet;
-            newBullet = Instantiate(railshot, firePoint.position + new Vector3(17,0,0) * transform.localScale.x, Quaternion.identity);
-            //newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(railSpeed,0) * 1 *transform.localScale + rb.velocity);
-            //gunshotSFX.Play();
-            //StartCoroutine(atkCD(atkCD_Timer));
+        // if(Input.GetKeyDown(KeyCode.Q)){
+        //     GameObject newBullet;
+        //     newBullet = Instantiate(railshot, firePoint.position + new Vector3(17,0,0) * transform.localScale.x, Quaternion.identity);
+        //     //newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(railSpeed,0) * 1 *transform.localScale + rb.velocity);
+        //     //gunshotSFX.Play();
+        //     //StartCoroutine(atkCD(atkCD_Timer));
             
-        }
+        // }
     }
 
     private void activate(){
