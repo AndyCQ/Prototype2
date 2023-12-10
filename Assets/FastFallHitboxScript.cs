@@ -28,9 +28,9 @@ public class FastFallHitboxScript : MonoBehaviour
         Monster monster = collision.gameObject.GetComponent<Monster>();
         if (transform.parent.GetComponent<Rigidbody2D>().velocity.y <= ySpeedKillThreashold)
         {
-            mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.20f, 0f);
             if (monster != null) monster.Die();
             _as.Play();
+            mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.20f, 0f);
         }
     }
 }
