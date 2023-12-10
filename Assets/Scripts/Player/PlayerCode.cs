@@ -70,6 +70,7 @@ public class PlayerCode : MonoBehaviour
 
     public bool isDead = false;
 
+    private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +85,8 @@ public class PlayerCode : MonoBehaviour
         maxHealth = PublicVars.starting_health;
 
         currHealth = maxHealth;
+
+        mainCamera = Camera.main;
     }
 
     private void Awake()
@@ -252,6 +255,7 @@ public class PlayerCode : MonoBehaviour
             currHealth -= dmg;
             //StartCoroutine(hit());
             hitSFX.Play();
+            mainCamera.GetComponent<CameraShake>().Shake(0.5f, 0.1f, 0f);
         }
     }
 
