@@ -109,7 +109,7 @@ public class Monster : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        Destroy(gameObject, 7.5f);
+        Destroy(gameObject, 3f);
     }
 
     IEnumerator DoT(){
