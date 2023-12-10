@@ -6,6 +6,7 @@ public class FastFallHitboxScript : MonoBehaviour
 {
     private Camera mainCamera;
     public AudioSource _as;
+    public GameObject explosion;
 
     void Start()
     {
@@ -30,6 +31,8 @@ public class FastFallHitboxScript : MonoBehaviour
         {
             if (monster != null) monster.Die();
             _as.Play();
+            //GameObject _exp = Instantiate(explosion, transform.position, transform.rotation);
+            //_exp.GetComponent<Explosion>().Explode();
             mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.20f, 0f);
         }
     }
