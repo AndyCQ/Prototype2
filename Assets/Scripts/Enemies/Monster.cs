@@ -54,6 +54,7 @@ public class Monster : MonoBehaviour
             currHealth -= PublicVars.bulletDMG;
             if(currHealth <= 0){
                 Die();
+                return;
             }
             hb.TakeDamage(PublicVars.bulletDMG);
             PlaySFX(hurtSFX);
