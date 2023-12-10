@@ -27,7 +27,7 @@ public class JumpToScene : MonoBehaviour
 
     public void LoadTutorial() {
         PublicVars.score = 0;
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("TutorialVer2");
     }
 
     public void LoadIntroScene()

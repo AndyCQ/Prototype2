@@ -54,6 +54,7 @@ public class Monster : MonoBehaviour
             currHealth -= PublicVars.bulletDMG;
             if(currHealth <= 0){
                 Die();
+                return;
             }
             hb.TakeDamage(PublicVars.bulletDMG);
             PlaySFX(hurtSFX);
@@ -69,7 +70,8 @@ public class Monster : MonoBehaviour
         }
     }
 
-    void Die() {
+    public void Die() {
+        if (isDead) return;
         isDead = true;
         PlaySFX(deathSFX);
         PublicVars.score += scoreVal;
@@ -108,7 +110,7 @@ public class Monster : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        Destroy(gameObject, 7.5f);
+        Destroy(gameObject, 3f);
     }
 
     IEnumerator DoT(){
@@ -120,9 +122,9 @@ public class Monster : MonoBehaviour
             {
                 Die();
             }
-            hb.TakeDamage(1);
+            if (!isDead) hb.TakeDamage(1);
             yield return new WaitForSeconds(1);
-            PlaySFX(hurtSFX);
+            if (!isDead) PlaySFX(hurtSFX);
         }
 
     }

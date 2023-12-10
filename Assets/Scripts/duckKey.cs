@@ -16,6 +16,8 @@ public class duckKey : MonoBehaviour
     public PlayerCode player;
     int spotInLine = 0;
 
+    public AudioSource quackAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +77,7 @@ public class duckKey : MonoBehaviour
         }*/
         if (col.gameObject.CompareTag("Player") && !finished)
         {
+            if (!following) quackAudioSource.Play();
             following = true;
             if (!foundSpot)
             {
