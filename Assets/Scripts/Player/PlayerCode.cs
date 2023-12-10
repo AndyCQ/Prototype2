@@ -130,7 +130,6 @@ public class PlayerCode : MonoBehaviour
         if (isDead) return;
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
         _animator.SetBool("Grounded", grounded);
-        if (!grounded) Debug.Log(_rigidbody.velocity.y);
         if (grounded == true)
         {
             remainingJumps = doubleJump ? 1 : 0;
