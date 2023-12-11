@@ -7,11 +7,12 @@ public class JumpToScene : MonoBehaviour
     
     void Start()
     {
-        clickSFX = gameObject.GetComponents<AudioSource>()[0];
+        AudioSource[] clickSFXList = gameObject.GetComponents<AudioSource>();
+        if (clickSFXList.Length != 0) clickSFX = clickSFXList[0];
     }
 
     public void Play(){
-        clickSFX.Play();
+        if (clickSFX != null) clickSFX.Play();
         Invoke("LoadLevel", 0.8f);
     }
 

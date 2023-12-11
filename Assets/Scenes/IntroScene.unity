@@ -3093,8 +3093,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1180987957352219952, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
+      propertyPath: AutoStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180987957352219952, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
       propertyPath: SceneToLoad
-      value: 
+      value: Assets/Scenes/TutorialVer2.unity
       objectReference: {fileID: 0}
     - target: {fileID: 1180987957352219952, guid: 3c41b1e2fa9d33c4e87472375d63b932, type: 3}
       propertyPath: FadeOutAtEnd
