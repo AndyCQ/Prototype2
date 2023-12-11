@@ -179,6 +179,9 @@ public class PlayerCode : MonoBehaviour
         if(currHealth <= 0){
             Die();
         }
+        if(transform.position.y < -20){
+            Die();
+        }
 
     }
 

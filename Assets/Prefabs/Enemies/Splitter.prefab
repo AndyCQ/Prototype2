@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7cfb0518c56440ada5e5560a84230ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 4
+  distance: 3
   lookDist: 10
   jumpForce: 500
   grounded: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  startSpd: 4
+  startSpd: 3
   currHealth: 0
   maxHealth: 4
   Mrb: {fileID: 0}
@@ -214,6 +214,9 @@ MonoBehaviour:
   scoreVal: 1
   splitter: 1
   xpVal: 5
+  deathAudioClipPath: 
+  painAudioClipPath: 
+  isDead: 0
 --- !u!114 &5531259083209608093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179b888e7fe0d149b46b1d84b3a6cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
   healthBarUI: {fileID: 2114109101578688475}
   slider: {fileID: 2114109100878104411}
 --- !u!95 &4326225560744997147
