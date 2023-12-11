@@ -55,6 +55,7 @@ public class PlayerCode : MonoBehaviour
     public AudioSource hitSFX;
     public AudioSource deathSFX;
     public AudioSource backgroundMusic;
+    public AudioSource jumpingSFX;
 
     float xSpeed = 0;
 
@@ -140,18 +141,21 @@ public class PlayerCode : MonoBehaviour
         if ((Input.GetButtonDown("Jump")) && grounded)
         {
             if (Time.timeScale != 0f) _rigidbody.AddForce(new Vector2(0, jumpForce));
+            jumpingSFX.Play();
         }
         if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0 && PublicVars.mobility == "DJ")
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x,0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             remainingJumps -= 1;
+            jumpingSFX.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.S) && !grounded)
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, -1500));
+            jumpingSFX.Play();
         }
 
         if (Input.GetButtonDown("Fire1") && fireStatus){
