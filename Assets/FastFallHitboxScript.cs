@@ -41,10 +41,11 @@ public class FastFallHitboxScript : MonoBehaviour
             _as.Play();
             //GameObject _exp = Instantiate(explosion, transform.position, transform.rotation);
             //_exp.GetComponent<Explosion>().Explode();
-            mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.20f, 0f);
+            mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.25f, 0f);
         } else if (y_velocity <= lightThudThreashold && collision.gameObject.layer == 6)
         {
             _as2.Play();
+            mainCamera.GetComponent<CameraShake>().Shake(0.25f, 0.075f * Mathf.Min((y_velocity / lightThudThreashold), 1f), 0f);
         }
     }
 }
