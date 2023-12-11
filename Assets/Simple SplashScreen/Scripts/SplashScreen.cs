@@ -11,7 +11,7 @@ public class SplashScreen : MonoBehaviour
     private SemaphoreSlim signal;
     private CancellationTokenSource tokenSource;
     private CancellationToken CancellationToken;
-    private bool CanSkip;
+    private bool CanSkip = true;
     private bool SkipRequest;
 
     public SplashScreenMode splashScreenMode;
@@ -127,11 +127,11 @@ public class SplashScreen : MonoBehaviour
 
     private void Skip()
     {
-        if (!CanSkip)
-            return;
+        // if (!CanSkip)
+            // return;
 
-        if (splashScreenMode == SplashScreenMode.WaitForASignal)
-            return;
+        // if (splashScreenMode == SplashScreenMode.WaitForASignal)
+            // return;
 
         SkipRequest = true;
         CanSkip = false;
@@ -167,6 +167,7 @@ public class SplashScreen : MonoBehaviour
             await Task.Delay(steps, CancellationToken);
             if (SkipRequest)
             {
+                print("set to false");
                 SkipRequest = false;
                 return;
             }
@@ -185,7 +186,12 @@ public class SplashScreen : MonoBehaviour
     void Update()
     {
         if (Input.anyKeyDown)
-            Skip();
+        {
+            GameObject nextChild = transform.parent.GetChild(transform.GetSiblingIndex() + 1).gameObject;
+            nextChild.SetActive(true);
+            gameObject.SetActive(false);
+            // Skip();
+        }
     }
 
     private IEnumerator CanSkipAfter(float secondes)

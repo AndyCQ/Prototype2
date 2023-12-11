@@ -56,7 +56,7 @@ public class SplashScreenManager : MonoBehaviour
 #else
             StartCoroutine(AsyncCompleted());
 #endif
-            Loading(true);
+            // Loading(true);
         }
     }
 
