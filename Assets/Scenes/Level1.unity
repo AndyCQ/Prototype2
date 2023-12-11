@@ -3015,6 +3015,10 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Level2
       objectReference: {fileID: 0}
+    - target: {fileID: 6282410378743126792, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+      propertyPath: neededDucks
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6408306915097185112, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
