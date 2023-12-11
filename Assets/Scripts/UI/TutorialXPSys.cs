@@ -61,7 +61,7 @@ public class TutorialXpSys : MonoBehaviour
         PublicVars.spd = PublicVars.s_spd;
         PublicVars.jmp = PublicVars.s_jmp;
         PublicVars.health = PublicVars.s_health;
-        if(SceneManager.GetActiveScene().name == "Tutorial"){
+        if(SceneManager.GetActiveScene().name == "TutorialVer2"){
             PublicVars.starting_health = 1;
         }
         

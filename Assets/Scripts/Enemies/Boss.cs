@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Boss : MonoBehaviour
     public float distance = 10;
 
     public int currHealth;
-    public int maxHealth = 50;
+    private int maxHealth = 50;
 
     public GameObject bulletPrefab1;
 
@@ -37,6 +38,7 @@ public class Boss : MonoBehaviour
     public Transform[] clouds;
     int boltSpeed = 400;
     public GameObject thunderbolt;
+    public int NumOfBolts = 2;
 
     //How long the boss stays in place after an atk
     float atkCD = 5;
@@ -52,8 +54,8 @@ public class Boss : MonoBehaviour
 
     void NextAttack(){
         StopAllCoroutines();
-        int state = Random.Range(0,5);
-        //state = 3;
+        int state = Random.Range(0,4);
+        //int state = 3;
         switch(state)
         {
             case 0:
@@ -173,11 +175,13 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         GameObject bolt1;
         GameObject bolt2;
-        for(int i = 0; i<clouds.Length;i+=2){
-            bolt1 = Instantiate(thunderbolt, clouds[i].transform.position, transform.rotation * Quaternion.Euler(0,0,90));
+        int dist = 0;
+        for(int i = 0; i<NumOfBolts;i+=2){
+            bolt1 = Instantiate(thunderbolt,new Vector2(clouds[0].transform.position.x - dist, clouds[0].transform.position.y), transform.rotation * Quaternion.Euler(0,0,90));
             bolt1.GetComponent<Rigidbody2D>().AddForce(-transform.up * boltSpeed);
-            bolt2 = Instantiate(thunderbolt, clouds[i+1].transform.position, transform.rotation * Quaternion.Euler(0,0,90));
+            bolt2 = Instantiate(thunderbolt,new Vector2(clouds[1].transform.position.x + dist, clouds[1].transform.position.y), transform.rotation * Quaternion.Euler(0,0,90));
             bolt2.GetComponent<Rigidbody2D>().AddForce(-transform.up * boltSpeed);
+            dist += 5;
             yield return new WaitForSeconds(1);
         }
         StartCoroutine(moveToPos(positions[0]));
