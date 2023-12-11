@@ -26569,6 +26569,17 @@ Transform:
   - {fileID: 620982013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &588358325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6282410378743126792, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+  m_PrefabInstance: {fileID: 1916078991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767819818c834b046af90ae63329c182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603750293
 GameObject:
   m_ObjectHideFlags: 0
@@ -48393,6 +48404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: yellow duck_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
+      propertyPath: port
+      value: 
+      objectReference: {fileID: 588358325}
     - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
       propertyPath: player
       value: 
@@ -139178,6 +139193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: yellow duck_0
       objectReference: {fileID: 0}
+    - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
+      propertyPath: port
+      value: 
+      objectReference: {fileID: 588358325}
     - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
       propertyPath: player
       value: 
