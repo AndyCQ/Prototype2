@@ -57,6 +57,7 @@ public class PlayerCode : MonoBehaviour
     public AudioSource deathSFX;
     public AudioSource backgroundMusic;
     public AudioSource jumpingSFX;
+    public AudioSource footStepsSFX;
 
     float xSpeed = 0;
 
@@ -132,13 +133,18 @@ public class PlayerCode : MonoBehaviour
 
     }
 
+    private bool lastFrameGrounded;
     void Update(){
         if (isDead) return;
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
         _animator.SetBool("Grounded", grounded);
+        if (!grounded && footStepsSFX.isPlaying) footStepsSFX.Stop();
         if (grounded == true)
         {
             remainingJumps = doubleJump ? 1 : 0;
+            if (_rigidbody.velocity.x == 0f) { footStepsSFX.volume = 0.05f; }
+            else { footStepsSFX.volume = 0.35f; }
+            if (_rigidbody.velocity.x != 0f && !footStepsSFX.isPlaying) { footStepsSFX.Play(); }
         }
         if ((Input.GetButtonDown("Jump")) && grounded)
         {
