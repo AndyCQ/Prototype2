@@ -1289,6 +1289,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c539c3c978b1b408aa3940007a8f96, type: 3}
+--- !u!114 &262506918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6282410378743126792, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+  m_PrefabInstance: {fileID: 7491555675299633766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767819818c834b046af90ae63329c182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &365281876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1713,6 +1724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: yellow duck_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
+      propertyPath: port
+      value: 
+      objectReference: {fileID: 262506918}
     - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
       propertyPath: player
       value: 
@@ -4944,6 +4959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: yellow duck_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
+      propertyPath: port
+      value: 
+      objectReference: {fileID: 262506918}
     - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
       propertyPath: player
       value: 
@@ -17664,6 +17683,10 @@ PrefabInstance:
       value: yellow duck_0
       objectReference: {fileID: 0}
     - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
+      propertyPath: port
+      value: 
+      objectReference: {fileID: 262506918}
+    - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1546499086}
@@ -17683,6 +17706,10 @@ PrefabInstance:
     - target: {fileID: 211434409326795535, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: m_Name
       value: portalRings2_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3380940549243586742, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.031
       objectReference: {fileID: 0}
     - target: {fileID: 4633144406379288271, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: m_LocalPosition.x

@@ -15,6 +15,7 @@ public class duckKey : MonoBehaviour
     Vector3 offset;
     public PlayerCode player;
     int spotInLine = 0;
+    public Portal port;
 
     public AudioSource quackAudioSource;
 
@@ -30,8 +31,16 @@ public class duckKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
+        if (player.ducksGoBack)
+        {
+            finished = true;
+        }
+        if (finished)
+        {
+            rb.velocity = Vector3.zero;
+            transform.position = Vector2.MoveTowards(transform.position, port.duckHolders[spotInLine].transform.position, 0.1f);
+            anim.SetBool("isWalking", false);
+        }
         if (following && !finished)
         {
             if (player.isFlipped)

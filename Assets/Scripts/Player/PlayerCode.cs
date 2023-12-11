@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCode : MonoBehaviour
 {
+    public bool ducksGoBack;
     public bool isFlipped = false;
     public bool doubleJump;
     int remainingJumps;
@@ -76,6 +77,7 @@ public class PlayerCode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ducksGoBack = false;
         _rigidbody = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
