@@ -13,6 +13,7 @@ public class FastFallHitboxScript : MonoBehaviour
 
     public float ySpeedKillThreashold = -32.5f;
     public float lightThudThreashold = -2.5f;
+    public ParticleSystem impactParticles;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class FastFallHitboxScript : MonoBehaviour
             //GameObject _exp = Instantiate(explosion, transform.position, transform.rotation);
             //_exp.GetComponent<Explosion>().Explode();
             mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.2f, 0f);
+            if (impactParticles != null) impactParticles.Play();
         } else if (y_velocity <= lightThudThreashold && collision.gameObject.layer == 6)
         {
             _as2.Play();
