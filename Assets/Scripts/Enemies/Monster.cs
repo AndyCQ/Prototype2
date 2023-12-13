@@ -51,23 +51,28 @@ public class Monster : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Bullet")){
             Destroy(other.gameObject);
-            currHealth -= PublicVars.bulletDMG;
-            if(currHealth <= 0){
-                Die();
-                return;
-            }
-            hb.TakeDamage(PublicVars.bulletDMG);
-            PlaySFX(hurtSFX);
+            TakeDamage(PublicVars.bulletDMG);
         }
         if (other.CompareTag("PoisonDart")){
             Destroy(other.gameObject);
             StartCoroutine(DoT());
         }
         if (other.CompareTag("RailGunShot")){
-            currHealth -= PublicVars.RGDmg;
-            hb.TakeDamage(PublicVars.RGDmg);
-            PlaySFX(hurtSFX);
+            TakeDamage(PublicVars.RGDmg);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (currHealth <= 0) return;
+        currHealth -= damage;
+        if (currHealth <= 0)
+        {
+            Die();
+            return;
+        }
+        hb.TakeDamage(damage);
+        PlaySFX(hurtSFX);
     }
 
     public void Die() {
@@ -144,16 +149,15 @@ public class Monster : MonoBehaviour
     IEnumerator DoT(){
         for (int i = 0; i < 6; i++) 
         {
-            //Tickrate
-            currHealth -= 1;
-            if (currHealth <= 0)
-            {
-                Die();
-            }
-            if (!isDead) hb.TakeDamage(1);
+            ////Tickrate
+            //currHealth -= 1;
+            //if (currHealth <= 0)
+            //{
+            //    Die();
+            //}
+            // if (!isDead) hb.TakeDamage(1);
+            TakeDamage(1);
             yield return new WaitForSeconds(1);
-            if (!isDead) PlaySFX(hurtSFX);
         }
-
     }
 }

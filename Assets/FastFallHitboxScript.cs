@@ -9,11 +9,13 @@ public class FastFallHitboxScript : MonoBehaviour
     public AudioSource _as2;
     public GameObject explosion;
     public bool isShield = false;
-    private float y_velocity = 0f;
-
     public float ySpeedKillThreashold = -32.5f;
     public float lightThudThreashold = -2.5f;
     public ParticleSystem impactParticles;
+    public bool oneShotKill;
+    public int poundDamage;
+
+    private float y_velocity = 0f;
 
     void Start()
     {
@@ -38,10 +40,21 @@ public class FastFallHitboxScript : MonoBehaviour
 
         if (y_velocity <= ySpeedKillThreashold)
         {
-            if (monster != null) monster.Die();
+            if (monster != null)
+            {
+                if (oneShotKill)
+                {
+                    monster.Die();
+                } else
+                {
+                    monster.TakeDamage(poundDamage);
+                }
+            }
             _as.Play();
+
             //GameObject _exp = Instantiate(explosion, transform.position, transform.rotation);
             //_exp.GetComponent<Explosion>().Explode();
+
             mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.2f, 0f);
             if (impactParticles != null) impactParticles.Play();
         } else if (y_velocity <= lightThudThreashold && collision.gameObject.layer == 6)
