@@ -131,6 +131,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1488510043125627875, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6799467
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488510043125627875, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      propertyPath: m_Size.y
+      value: 0.96534204
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488510043125627875, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.02888158
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488510043125627875, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.017328978
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488510043125627875, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.7333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488510043125627875, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2108877713552468257, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
       propertyPath: maxHealth
       value: 100
@@ -239,6 +263,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8996672722303118342, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -399931377, guid: c0e589cf4f53b9a41a0287bfb4b74faa, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -246,6 +274,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2824086889577687185, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 806588519}
+    - targetCorrespondingSourceObject: {fileID: 2824086889577687185, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 806588526}
   m_SourcePrefab: {fileID: 100100000, guid: 4d14e5e54781de34493ace916a1d5dac, type: 3}
 --- !u!1 &114606962
 GameObject:
@@ -1550,6 +1581,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarUI: {fileID: 1737009011}
   slider: {fileID: 1801628308}
+--- !u!95 &806588526
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806588512}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21bbf61765af639439dfaa2437598745, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &830480717
 GameObject:
   m_ObjectHideFlags: 0
