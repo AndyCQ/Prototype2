@@ -28,6 +28,7 @@ public class Boss : MonoBehaviour
     float aimSpeed = .5f;
     float reload = .5f;
     float delay = .5f;
+    public GameObject StunBullet;
 
     //Spawner atk
     public GameObject[] enemies;
@@ -54,8 +55,8 @@ public class Boss : MonoBehaviour
 
     void NextAttack(){
         StopAllCoroutines();
-        int state = Random.Range(0,4);
-        //int state = 3;
+        //int state = Random.Range(0,4);
+        int state = 0;
         switch(state)
         {
             case 0:
@@ -126,7 +127,7 @@ public class Boss : MonoBehaviour
     IEnumerator Fire(int shotNUm, float reload, float delay){
         yield return new WaitForSeconds(delay);
         for (int i = 0; i < shotNUm; i++){
-            GameObject newBullet = Instantiate(bulletPrefab1, firePoint.position, transform.rotation * Quaternion.Euler(0,0,90));
+            GameObject newBullet = Instantiate(StunBullet, firePoint.position, transform.rotation * Quaternion.Euler(0,0,90));
             newBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce);
             yield return new WaitForSeconds(reload);
         }

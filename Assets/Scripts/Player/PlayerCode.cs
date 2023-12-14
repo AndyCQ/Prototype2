@@ -70,7 +70,7 @@ public class PlayerCode : MonoBehaviour
 
     // ability stuff
     public bool shielded = false;
-
+    public bool stunned = false;
     public bool isDead = false;
 
     private Camera mainCamera;
@@ -230,6 +230,12 @@ public class PlayerCode : MonoBehaviour
         if(other.tag == "Boss" && shielded == false){
             KB(other);
         }
+        if(other.tag == "StunBullet" && shielded == false){
+            Damage(1);
+            StartCoroutine(Stun());
+        }
+
+
         // PublicVars.score += 1;
     }
     void KB(Collider2D other){
@@ -301,6 +307,19 @@ public class PlayerCode : MonoBehaviour
         fireStatus = false;
         yield return new WaitForSeconds(timer);
         fireStatus = true;
+    }
+
+    IEnumerator Stun(){
+        if(!stunned){
+            int jmpfr = jumpForce;
+            float spd = speed;
+            stunned = true;
+            jumpForce = 0;
+            speed = 0;
+            yield return new WaitForSeconds(2);
+            jumpForce = jmpfr;
+            speed = spd;
+        }
     }
 }
 
