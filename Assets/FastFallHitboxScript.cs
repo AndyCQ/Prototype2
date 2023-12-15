@@ -49,13 +49,15 @@ public class FastFallHitboxScript : MonoBehaviour
                 {
                     monster.TakeDamage(poundDamage);
                 }
+                mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.5f, 0f);
+            } else
+            {
+                mainCamera.GetComponent<CameraShake>().Shake(0.5f, 0.1f, 0f);
             }
             _as.Play();
 
             //GameObject _exp = Instantiate(explosion, transform.position, transform.rotation);
             //_exp.GetComponent<Explosion>().Explode();
-
-            mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.2f, 0f);
             if (impactParticles != null) impactParticles.Play();
         } else if (y_velocity <= lightThudThreashold && collision.gameObject.layer == 6)
         {
