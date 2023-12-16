@@ -66,7 +66,7 @@ public class FastFallHitboxScript : MonoBehaviour
             if (impactParticles != null) impactParticles.Play();
         } else if (y_velocity <= lightThudThreashold && collision.gameObject.layer == 6)
         {
-            _as2.Play();
+            if (_as2 != null) _as2.Play();
             mainCamera.GetComponent<CameraShake>().Shake(0.25f, 0.075f * Mathf.Min((y_velocity / lightThudThreashold), 1f), 0f);
         }
     }

@@ -24,7 +24,7 @@ public class BulletLifeSpan : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             // Bullet collided with ground, handle the impact
-            groundHitSFX.Play();
+            if (groundHitSFX != null) groundHitSFX.Play();
 
             // lock it in place.
             Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
