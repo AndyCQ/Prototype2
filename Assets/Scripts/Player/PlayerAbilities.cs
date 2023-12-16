@@ -6,8 +6,6 @@ public class PlayerAbilities : MonoBehaviour
 {
 
     //Knockback ability
-    public GameObject powerRadiusVisual;
-    private GameObject activePowerRadiusVisual;
     public float powerRadius = 10;
     private bool cooldown1 = true;
 
@@ -15,6 +13,9 @@ public class PlayerAbilities : MonoBehaviour
     public float KBCounter;
     public float KBTotalTime;
     public bool knockFromRight;
+    private int knockbackDucks = 6;
+    public GameObject knockbackDuck;
+    public int knockbackDuckspeed = 5;
 
     //Poison Darts ability
     public GameObject dart;
@@ -74,6 +75,7 @@ public class PlayerAbilities : MonoBehaviour
         }
         if(PublicVars.support == "Knockback"){
             KnockbackEnemies();
+            SpawnKnockBackDucks();
             StartCoroutine(supportCD(2));
         }
     }
@@ -151,7 +153,7 @@ public class PlayerAbilities : MonoBehaviour
             Vector2 spawnDirection = (spawnPosition - (Vector2)transform.position).normalized;
 
             // Create a new bullet at the calculated position.
-            GameObject bullet = Instantiate(dart, spawnPosition, Quaternion.identity);
+            GameObject bullet = Instantiate(dart, spawnPosition,  transform.rotation * Quaternion.Euler(0,0,currentAngle));
 
             // Set the bullet's velocity to move in the calculated direction.
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -161,6 +163,33 @@ public class PlayerAbilities : MonoBehaviour
             }
 
             currentAngle += angleStep;
+        }
+
+    }
+    void SpawnKnockBackDucks(){
+        float angleStep = 360f / knockbackDucks;
+        float currentAngle = 0f;
+
+        for (int i = 0; i < knockbackDucks; i++)
+        {
+            currentAngle += angleStep;
+            // Calculate the position for each bullet.
+            float radians = currentAngle * Mathf.Deg2Rad;
+            Vector2 spawnPosition = new Vector2(transform.position.x + Mathf.Cos(radians), transform.position.y + Mathf.Sin(radians));
+
+            // Calculate the direction for each bullet.
+            Vector2 spawnDirection = (spawnPosition - (Vector2)transform.position).normalized;
+
+            // Create a new bullet at the calculated position.
+            GameObject bullet = Instantiate(knockbackDuck, spawnPosition,  transform.rotation * Quaternion.Euler(0,0,radians));
+
+            // Set the bullet's velocity to move in the calculated direction.
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = spawnDirection * knockbackDuckspeed;
+            }
+
         }
 
     }

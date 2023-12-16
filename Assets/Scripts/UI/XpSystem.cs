@@ -37,6 +37,14 @@ public class XpSystem : MonoBehaviour
 
     public GameObject UI;
 
+    public GameObject supportUI;
+    public GameObject combatUI;
+    public GameObject mobilityUI;
+
+    public GameObject SheildCoolDown;
+    public GameObject KnockBackCoolDown;
+    public GameObject PoisonDartsCoolDown;
+
 
     void Start()
     {
@@ -81,7 +89,7 @@ public class XpSystem : MonoBehaviour
 
     
 
-        if (Input.GetKeyDown(KeyCode.F)){
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Escape)){
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
             if(UI.activeSelf){
                 UI.SetActive(false);
@@ -94,22 +102,28 @@ public class XpSystem : MonoBehaviour
                 player.fireStatus = false;
                 }
         }
-        if(PublicVars.support == "Shield"){
-            knockback.gameObject.SetActive(false);
-            supportCost.gameObject.SetActive(false);
+        if(PublicVars.support == "Shield" || PublicVars.support == "Knockback"){
+            supportUI.SetActive(false);
+
+            if(PublicVars.support == "Shield"){
+                SheildCoolDown.SetActive(true);
             }
-        if(PublicVars.support == "knockback"){
-            shield.gameObject.SetActive(false);
-            supportCost.gameObject.SetActive(false);
+            else KnockBackCoolDown.SetActive(true);
             }
+        // if(PublicVars.support == "knockback"){
+        //     shield.gameObject.SetActive(false);
+        //     supportCost.gameObject.SetActive(false);
+        //     }
         if(PublicVars.secondaryFire == "PDs"){
-            //knockback.gameObject.SetActive(false);
-            SFCost.gameObject.SetActive(false);
+            combatUI.SetActive(false);
+            if(!PoisonDartsCoolDown.activeSelf){
+                PoisonDartsCoolDown.SetActive(true);
+            }
             }
         if(PublicVars.mobility == "DJ"){
-            //knockback.gameObject.SetActive(false);
-            MCost.gameObject.SetActive(false);
+            mobilityUI.SetActive(false);
             }
+        
     }
 
 
