@@ -66,22 +66,18 @@ public class Monster : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if(gameObject.tag == "Enemy" || gameObject.tag == "Boss"){
-        if (monsterImmune) return;
-        if (currHealth <= 0) return;
-        currHealth -= damage;
-        hb.TakeDamage(damage);
-        if (currHealth <= 0)
-        {
+            if (monsterImmune) return;
             if (currHealth <= 0) return;
             currHealth -= damage;
             if (currHealth <= 0)
             {
                 Die();
-                return;
+                PlaySFX(deathSFX);
+            } else
+                {
+                    PlaySFX(hurtSFX);
+                }
             }
-            PlaySFX(hurtSFX);
-        }
-        }
     }
 
     public void Die() {
