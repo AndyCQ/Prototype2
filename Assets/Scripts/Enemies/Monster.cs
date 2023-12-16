@@ -96,9 +96,9 @@ public class Monster : MonoBehaviour
                 child.generation = parent.generation += 1;
                 mc.maxHealth = Mathf.FloorToInt(maxHealth * parent.childrenHealthProportion);
                 mc.currHealth = mc.maxHealth;
+                mc.isDead = false;
                 mc.speed = speed * parent.childrenSpeedProportion;
             }
-
         }
         }
 
