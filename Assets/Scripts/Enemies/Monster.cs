@@ -69,6 +69,7 @@ public class Monster : MonoBehaviour
         if (monsterImmune) return;
         if (currHealth <= 0) return;
         currHealth -= damage;
+        hb.TakeDamage(damage);
         if (currHealth <= 0)
         {
             if (currHealth <= 0) return;
@@ -78,7 +79,6 @@ public class Monster : MonoBehaviour
                 Die();
                 return;
             }
-            hb.TakeDamage(damage);
             PlaySFX(hurtSFX);
         }
         }
