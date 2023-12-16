@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
     private HealthBar hb;
     public bool splitter = false;
     public int xpVal = 1;
+    public bool monsterImmune = false;
 
     public string deathAudioClipPath;
     public string painAudioClipPath;
@@ -64,6 +65,7 @@ public class Monster : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (monsterImmune) return;
         if (currHealth <= 0) return;
         currHealth -= damage;
         if (currHealth <= 0)
