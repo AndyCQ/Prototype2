@@ -75,9 +75,18 @@ public class PlayerCode : MonoBehaviour
 
     private Camera mainCamera;
 
+    public bool bossCut;
+    public bool bossCutFinished = false;
+    public bool stopFollowing;
+
+    
+    public GameObject goose;
+    public bool hasGoose;
     // Start is called before the first frame update
     void Start()
     {
+        stopFollowing = false;
+        bossCut = false;
         ducksGoBack = false;
         _rigidbody = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
@@ -91,6 +100,7 @@ public class PlayerCode : MonoBehaviour
         currHealth = maxHealth;
 
         mainCamera = Camera.main;
+        hasGoose = false;
     }
 
     private void Awake()
@@ -109,15 +119,21 @@ public class PlayerCode : MonoBehaviour
     {
         if (isDead) return;
         if(KBCounter <= 0){
-            xSpeed = Input.GetAxisRaw("Horizontal") * speed;
+            if (!bossCut)
+            {
+                xSpeed = Input.GetAxisRaw("Horizontal") * speed;
+            }
 
-            if((xSpeed < 0 && transform.localScale.x > 0) || (xSpeed > 0 && transform.localScale.x < 0))
+            if ((xSpeed < 0 && transform.localScale.x > 0) || (xSpeed > 0 && transform.localScale.x < 0))
             {
                 transform.localScale *= new Vector2(-1,1);
                 isFlipped = !isFlipped;
             }
             //print(Time.fixedDeltaTime);
-            _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
+            if (!bossCut)
+            {
+                _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
+            }
 
             _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
             }
@@ -135,6 +151,36 @@ public class PlayerCode : MonoBehaviour
 
     private bool lastFrameGrounded;
     void Update(){
+        if(bossCutFinished && mainCamera.orthographicSize < 16.87695f)
+        {
+            mainCamera.orthographicSize += Time.deltaTime * 5;
+        }
+        if (hasGoose && gameObject.transform.position.x > -20 && !bossCut && !bossCutFinished)
+        {
+            bossCut = true;
+        }
+        if (bossCut && goose.transform.position.x < -2)
+        {
+            if(mainCamera.orthographicSize > 10)
+            {
+                mainCamera.orthographicSize -= Time.deltaTime * 2f;
+            }
+            _rigidbody.velocity = new Vector2(speed, _rigidbody.velocity.y);
+            xSpeed = speed;
+        }
+        else if (bossCut)
+        {
+            xSpeed = 0;
+            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+            if (!isFlipped)
+            {
+                transform.localScale *= new Vector2(-1, 1);
+                isFlipped = !isFlipped;
+            }
+
+            stopFollowing = true;
+
+        }
         if (isDead) return;
         grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
         _animator.SetBool("Grounded", grounded);
@@ -146,12 +192,12 @@ public class PlayerCode : MonoBehaviour
             else { footStepsSFX.volume = 0.35f; }
             if (_rigidbody.velocity.x != 0f && !footStepsSFX.isPlaying) { footStepsSFX.Play(); }
         }
-        if ((Input.GetButtonDown("Jump")) && grounded)
+        if ((Input.GetButtonDown("Jump")) && grounded && !bossCut)
         {
             if (Time.timeScale != 0f) _rigidbody.AddForce(new Vector2(0, jumpForce));
             jumpingSFX.Play();
         }
-        if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0 && PublicVars.mobility == "DJ")
+        if(Input.GetButtonDown("Jump") && !grounded && remainingJumps > 0 && PublicVars.mobility == "DJ" && !bossCut)
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x,0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
@@ -321,6 +367,7 @@ public class PlayerCode : MonoBehaviour
             speed = spd;
         }
     }
+
 }
 
     

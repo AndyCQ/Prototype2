@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class Boss : MonoBehaviour
 {
@@ -41,18 +43,27 @@ public class Boss : MonoBehaviour
     public GameObject thunderbolt;
     public int NumOfBolts = 2;
 
+    public bool battleStart = false;
+    public gooseStartMovement gooseStart;
+
     //How long the boss stays in place after an atk
     float atkCD = 5;
     
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         playercode = player.GetComponent<PlayerCode>();
-        NextAttack();
         startingPos = transform.position;
         _rigidbody = GetComponent<Rigidbody2D>();
         currHealth = maxHealth;
     }
-
+    private void Update()
+    {
+        if(battleStart == false && gooseStart.battleBegin)
+        {
+            battleStart = true;
+            NextAttack();
+        }
+    }
     void NextAttack(){
         StopAllCoroutines();
         //int state = Random.Range(0,4);

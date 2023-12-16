@@ -64,15 +64,18 @@ public class Monster : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currHealth <= 0) return;
-        currHealth -= damage;
-        if (currHealth <= 0)
+        if(gameObject.tag == "Enemy" || gameObject.tag == "Boss")
         {
-            Die();
-            return;
+            if (currHealth <= 0) return;
+            currHealth -= damage;
+            if (currHealth <= 0)
+            {
+                Die();
+                return;
+            }
+            hb.TakeDamage(damage);
+            PlaySFX(hurtSFX);
         }
-        hb.TakeDamage(damage);
-        PlaySFX(hurtSFX);
     }
 
     public void Die() {
