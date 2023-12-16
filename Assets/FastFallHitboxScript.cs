@@ -15,6 +15,9 @@ public class FastFallHitboxScript : MonoBehaviour
     public bool oneShotKill;
     public int poundDamage;
 
+    public PlayerCode player;
+    public float immunityAfterPound = 0.25f;
+
     private float y_velocity = 0f;
 
     void Start()
@@ -49,6 +52,8 @@ public class FastFallHitboxScript : MonoBehaviour
                 {
                     monster.TakeDamage(poundDamage);
                 }
+                player.IsImmune = true;
+                StartCoroutine(DisableImmunityAfterDelay(immunityAfterPound));
                 mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.5f, 0f);
             } else
             {
@@ -64,5 +69,12 @@ public class FastFallHitboxScript : MonoBehaviour
             _as2.Play();
             mainCamera.GetComponent<CameraShake>().Shake(0.25f, 0.075f * Mathf.Min((y_velocity / lightThudThreashold), 1f), 0f);
         }
+    }
+
+    private IEnumerator DisableImmunityAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.IsImmune = false;
+        Debug.Log("Immunity disabled after " + delay + " seconds");
     }
 }
