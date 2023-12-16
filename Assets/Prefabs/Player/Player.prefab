@@ -44880,7 +44880,7 @@ MonoBehaviour:
   lightThudThreashold: -5
   impactParticles: {fileID: 1140935081300393619}
   oneShotKill: 0
-  poundDamage: 0
+  poundDamage: 5
   player: {fileID: 7954780642415885174}
   immunityAfterPound: 0.25
 --- !u!82 &8824080201879535193
@@ -45212,6 +45212,11 @@ MonoBehaviour:
   shielded: 0
   stunned: 0
   isDead: 0
+  bossCut: 0
+  bossCutFinished: 0
+  stopFollowing: 0
+  goose: {fileID: 0}
+  hasGoose: 0
 --- !u!82 &1036621663
 AudioSource:
   m_ObjectHideFlags: 0
@@ -46027,12 +46032,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbef7d34e991cd9419163c3f02555035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerRadiusVisual: {fileID: 0}
   powerRadius: 9
   knockbackForce: 20
   KBCounter: 0
   KBTotalTime: 0
   knockFromRight: 0
+  knockbackDuck: {fileID: 0}
+  knockbackDuckspeed: 5
   dart: {fileID: 1265988121741817689, guid: 7870701cf8e5ae14e9775177be1a79bb, type: 3}
   shootInterval: 1
   dartSpeed: 5
