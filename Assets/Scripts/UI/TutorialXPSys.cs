@@ -40,8 +40,18 @@ public class TutorialXpSys : MonoBehaviour
     public TMP_Text MCost;
 
     public GameObject UI;
+    public GameObject supportUI;
+    public GameObject combatUI;
+    public GameObject mobilityUI;
+    public GameObject SheildCoolDown;
+    public GameObject KnockBackCoolDown;
+    public GameObject PoisonDartsCoolDown;
 
-
+    void Awake() {
+        if(SceneManager.GetActiveScene().name == "TutorialVer2"){
+            PublicVars.starting_health = 1;
+        }
+    }
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
@@ -60,21 +70,17 @@ public class TutorialXpSys : MonoBehaviour
         PublicVars.atkSpd = PublicVars.s_atkSpd;
         PublicVars.spd = PublicVars.s_spd;
         PublicVars.jmp = PublicVars.s_jmp;
-        PublicVars.health = PublicVars.s_health;
-        if(SceneManager.GetActiveScene().name == "TutorialVer2"){
-            PublicVars.starting_health = 1;
-        }
+        PublicVars.health = PublicVars.starting_health;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        atkSpd.text = "AtkSpd Level: "+ player.bulletBoost_count;
-        atkPwr.text = "AtkPwr Level: "+ pwrLevel;
-        spd.text = "Speed Level: "+ player.speepBoost_count;
-        jmp.text = "Jump Level: "+ player.jumpBoost_count;
-        health.text = "Health Boost: "+healtBoost;
+        atkSpd.text = "AtkSpd Level: "+ PublicVars.atkSpd;
+        spd.text = "Speed Level: "+ PublicVars.spd;
+        jmp.text = "Jump Level: "+ PublicVars.jmp;
+        health.text = "Health Boost: "+ PublicVars.health;
 
         atkSpd_cost.text = PublicVars.atkSpd_cost.ToString();
         atkPwr_cost.text = PublicVars.atk_cost.ToString();
@@ -84,7 +90,9 @@ public class TutorialXpSys : MonoBehaviour
 
         total_xp.text = "Total XP: " + PublicVars.total_xp.ToString();
 
-        if (Input.GetKeyDown(KeyCode.F)){
+    
+
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Escape)){
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
             if(UI.activeSelf){
                 UI.SetActive(false);
@@ -97,6 +105,28 @@ public class TutorialXpSys : MonoBehaviour
                 player.fireStatus = false;
                 }
         }
+        if(PublicVars.support == "Shield" || PublicVars.support == "Knockback"){
+            supportUI.SetActive(false);
+
+            if(PublicVars.support == "Shield"){
+                SheildCoolDown.SetActive(true);
+            }
+            else KnockBackCoolDown.SetActive(true);
+            }
+        // if(PublicVars.support == "knockback"){
+        //     shield.gameObject.SetActive(false);
+        //     supportCost.gameObject.SetActive(false);
+        //     }
+        if(PublicVars.secondaryFire == "PDs"){
+            combatUI.SetActive(false);
+            if(!PoisonDartsCoolDown.activeSelf){
+                PoisonDartsCoolDown.SetActive(true);
+            }
+            }
+        if(PublicVars.mobility == "DJ"){
+            mobilityUI.SetActive(false);
+            }
+        
     }
 
 

@@ -29,26 +29,36 @@ public class EnemyTypeSplitter : MonoBehaviour
     public float childrenSizeProportion;
     public float childrenSpeedProportion;
     public float childrenHealthProportion;
+    public float spawnImmunity = 0.25f;
+    public float collidableAfter = 0.5f;
 
     Monster mc;
 
     void Start()
     {
+        mc = GetComponent<Monster>();
         _rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(MoveLoop());
         //spaceman = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
         gameObject.transform.localScale = new Vector3(size, size, size);
-        mc = GetComponent<Monster>();
+        mc.monsterImmune = true;
+        StartCoroutine(DisableImmunityAfterDelay(spawnImmunity));
     }
 
-    
+    private IEnumerator DisableImmunityAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        mc.monsterImmune = false;
+        Debug.Log("Immunity disabled after " + delay + " seconds");
+    }
+
     IEnumerator MoveLoop(){
         while (true)
         {
             
             yield return new WaitForSeconds(.1f);
-            if(mc.moving && !gameObject.GetComponent<Monster>().isDead)
+            if(mc.moving && !mc.isDead)
             {
                 if (Vector2.Distance(transform.position, player.position) < lookDist){
                     if(player.position.x > transform.position.x && transform.localScale.x < 0 || 
