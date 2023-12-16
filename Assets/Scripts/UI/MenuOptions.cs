@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuOptions : MonoBehaviour
 {
+    public GameObject panel;
+    public GameObject restartConfirm;
+    public GameObject quitConfirm;
     public void restart(){
         Time.timeScale = 1f;
         string currentSceneName = SceneManager.GetActiveScene().name;
@@ -39,4 +42,25 @@ public class MenuOptions : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("WelcomeScreen");
     }
+
+    public void restartMessage(){
+        panel.SetActive(false);
+        restartConfirm.SetActive(true);
+    }
+
+    public void dontRestart(){
+        panel.SetActive(true);
+        restartConfirm.SetActive(false);
+    }
+    public void quitMessage(){
+        panel.SetActive(false);
+        quitConfirm.SetActive(true);
+    }
+
+    public void dontQuit(){
+        panel.SetActive(true);
+        quitConfirm.SetActive(false);
+    }
+
+
 }
