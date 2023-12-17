@@ -56,7 +56,7 @@ public class FastFallHitboxScript : MonoBehaviour
                 }
                 player.IsImmune = true;
                 StartCoroutine(DisableImmunityAfterDelay(immunityAfterPound));
-                mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.5f, 0f);
+                mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.3f, 0f);
             } else
             {
                 mainCamera.GetComponent<CameraShake>().Shake(0.5f, 0.1f, 0f);
