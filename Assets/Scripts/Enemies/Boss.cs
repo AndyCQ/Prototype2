@@ -66,8 +66,8 @@ public class Boss : MonoBehaviour
     }
     void NextAttack(){
         StopAllCoroutines();
-        //int state = Random.Range(0,4);
-        int state = 0;
+        int state = Random.Range(0,4);
+        //int state = 0;
         switch(state)
         {
             case 0:
