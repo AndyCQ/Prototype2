@@ -525,7 +525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Goose, Eater of Bread
+  m_text: 'Goose: Eater of Bread'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1341d2038ac411a4db42171c7607f58b, type: 2}
   m_sharedMaterial: {fileID: 6490285280204402528, guid: 1341d2038ac411a4db42171c7607f58b, type: 2}

@@ -10,7 +10,9 @@ public class Portal : MonoBehaviour
     public string nextLevel;
     public List<GameObject> duckHolders = new List<GameObject>();
     public SpriteRenderer portalCover;
+    public AudioSource WinSFX;
 
+    private bool alreadyTriggered = false;
     //public float cutSceneDuration = 2.5f;
     private float cutSceneDuration;
 
@@ -18,80 +20,21 @@ public class Portal : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
-        cutSceneDuration = 3f;
+        cutSceneDuration = 5f;
+        alreadyTriggered = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
-    }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && player.ducksInLine == neededDucks)
+        if (other.tag == "Player" && player.ducksInLine == neededDucks && !alreadyTriggered)
         {
+            alreadyTriggered = true;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             player.backgroundMusic.Stop();
+            if (WinSFX != null) WinSFX.Play();
             GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().currentTime += cutSceneDuration + 1f;
             StartCoroutine(NextLevelCutScene(cutSceneDuration));
-            //if (Input.GetKey(KeyCode.Space))
-            //{
-            //    PublicVars.starting_xp = PublicVars.total_xp;
-
-            //    PublicVars.starting_atk_cost = PublicVars.atk_cost;
-            //    PublicVars.starting_atkSpd_cost = PublicVars.atkSpd_cost;
-            //    PublicVars.starting_jmp_cost = PublicVars.jmp_cost;
-            //    PublicVars.starting_spd_cost = PublicVars.spd_cost;
-            //    PublicVars.starting_health_cost = PublicVars.health_cost;
-
-            //    PublicVars.currSA = PublicVars.support;
-            //    PublicVars.currSF = PublicVars.secondaryFire;
-            //    PublicVars.currM = PublicVars.mobility;
-
-            //    PublicVars.starting_bulletDMG = PublicVars.bulletDMG;
-            //    PublicVars.starting_atk_spd = player.atkCD_Timer;
-            //    PublicVars.starting_jumpforce = player.jumpForce;
-            //    PublicVars.starting_health = player.maxHealth;
-            //    PublicVars.starting_spd = player.speed;
-
-            //    PublicVars.s_atkLvl = PublicVars.atkLvl;
-            //    PublicVars.s_atkSpd = PublicVars.atkSpd;
-            //    PublicVars.s_spd = PublicVars.spd;
-            //    PublicVars.s_jmp = PublicVars.jmp;
-            //    PublicVars.s_health = PublicVars.health;
-
-            //    PublicVars.supportCost = 35;
-            //    PublicVars.combatCost = 60;
-            //    PublicVars.mobilityCost = 35;
-
-            //    if (nextLevel == "WelcomeScreen" || nextLevel == "WinGame")
-            //    {
-            //        PublicVars.starting_xp = 0;
-
-            //        PublicVars.starting_atk_cost = 5;
-            //        PublicVars.starting_atkSpd_cost = 5;
-            //        PublicVars.starting_jmp_cost = 5;
-            //        PublicVars.starting_spd_cost = 5;
-            //        PublicVars.starting_health_cost = 5;
-
-            //        PublicVars.currSA = "";
-            //        PublicVars.currSF = "";
-            //        PublicVars.currM = "";
-
-            //        PublicVars.starting_bulletDMG = 2;
-            //        PublicVars.starting_atk_spd = .7f;
-            //        PublicVars.starting_jumpforce = 700;
-            //        PublicVars.starting_health = 6;
-            //        PublicVars.starting_spd = 10;
-
-            //        PublicVars.s_atkLvl = 0;
-            //        PublicVars.s_atkSpd = 0;
-            //        PublicVars.s_spd = 0;
-            //        PublicVars.s_jmp = 0;
-            //        PublicVars.s_health = 0;
-
-            //    }
-            //    SceneManager.LoadScene(nextLevel);
-            //}
+            
 
             while (portalCover.color[3] > 0)
             {
@@ -101,6 +44,8 @@ public class Portal : MonoBehaviour
 
         }
     }
+
+
 
     private IEnumerator NextLevelCutScene(float secs)
     {
@@ -134,7 +79,9 @@ public class Portal : MonoBehaviour
         PublicVars.combatCost = 60;
         PublicVars.mobilityCost = 35;
 
-        if (nextLevel == "WelcomeScreen" || nextLevel == "WinGame")
+        PublicVars.currLevel = nextLevel;
+
+        if (nextLevel == "WelcomeScreen" || nextLevel == "WinGame" || nextLevel == "Level1")
         {
             PublicVars.starting_xp = 0;
 
@@ -160,7 +107,10 @@ public class Portal : MonoBehaviour
             PublicVars.s_jmp = 0;
             PublicVars.s_health = 0;
 
+            PublicVars.currLevel = "Level1";
+
         }
         SceneManager.LoadScene(nextLevel);
     }
 }
+

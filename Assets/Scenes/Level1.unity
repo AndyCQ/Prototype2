@@ -3930,6 +3930,10 @@ PrefabInstance:
       propertyPath: startTime
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 4440563616376917786, guid: 1818d4221007e714696366eff2fc6240, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80537,6 +80541,7 @@ MonoBehaviour:
   nextLevel: Level2
   duckHolders: []
   portalCover: {fileID: 0}
+  WinSFX: {fileID: 0}
 --- !u!61 &1784602223
 BoxCollider2D:
   m_ObjectHideFlags: 0

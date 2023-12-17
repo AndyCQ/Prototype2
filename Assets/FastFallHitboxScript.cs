@@ -50,11 +50,13 @@ public class FastFallHitboxScript : MonoBehaviour
                     monster.Die();
                 } else
                 {
-                    monster.TakeDamage(poundDamage);
+                    int damage = (int)Mathf.Floor(poundDamage * Mathf.Max(1f, y_velocity * .9f / ySpeedKillThreashold));
+                    print(damage);
+                    monster.TakeDamage(damage);
                 }
                 player.IsImmune = true;
                 StartCoroutine(DisableImmunityAfterDelay(immunityAfterPound));
-                mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.5f, 0f);
+                mainCamera.GetComponent<CameraShake>().Shake(0.75f, 0.3f, 0f);
             } else
             {
                 mainCamera.GetComponent<CameraShake>().Shake(0.5f, 0.1f, 0f);
