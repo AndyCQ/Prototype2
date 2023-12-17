@@ -6439,6 +6439,10 @@ PrefabInstance:
       propertyPath: bossHealthBar
       value: 
       objectReference: {fileID: 1737009011}
+    - target: {fileID: 7549381619214146576, guid: b29716fe771f4b94289a58f48e4b729f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
