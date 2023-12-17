@@ -32,7 +32,8 @@ public class Portal : MonoBehaviour
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             player.backgroundMusic.Stop();
             if (WinSFX != null) WinSFX.Play();
-            GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().currentTime += cutSceneDuration + 1f;
+            GameObject _timer = GameObject.FindGameObjectWithTag("Timer");
+            if (_timer != null) _timer.GetComponent<Timer>().currentTime += cutSceneDuration + 1f;
             StartCoroutine(NextLevelCutScene(cutSceneDuration));
             
 
