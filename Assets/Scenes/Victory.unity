@@ -9606,6 +9606,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: yellow duck_0 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7588871803330823873, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588871803330823873, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8824069157777033739, guid: 074b0aba98b6bd048a1f4847cca2ac5d, type: 3}
       propertyPath: port
       value: 
