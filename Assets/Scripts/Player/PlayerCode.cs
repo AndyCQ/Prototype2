@@ -101,7 +101,7 @@ public class PlayerCode : MonoBehaviour
 
         mainCamera = Camera.main;
         hasGoose = false;
-        
+
         string currentSceneName = SceneManager.GetActiveScene().name;
         PublicVars.currLevel = currentSceneName;
     }
@@ -259,7 +259,6 @@ public class PlayerCode : MonoBehaviour
         {
             currHealth += 1;
             healSFX.Play();
-            PublicVars.score += 1;
         }
         if (other.tag == "EnemyBullet" && shielded == false)
         {

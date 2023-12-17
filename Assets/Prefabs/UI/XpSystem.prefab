@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_margin: {x: 150.02237, y: 17.828766, z: 27.8302, w: 18.26355}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2138682568886307485
@@ -3867,7 +3867,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4450114221906960087
@@ -5566,7 +5566,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -116.203766, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6405942992334827038
@@ -8302,7 +8302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cost: 35'
+  m_text: 'Cost: 60'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1341d2038ac411a4db42171c7607f58b, type: 2}
   m_sharedMaterial: {fileID: 6490285280204402528, guid: 1341d2038ac411a4db42171c7607f58b, type: 2}
