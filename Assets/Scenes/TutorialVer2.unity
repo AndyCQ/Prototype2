@@ -138590,7 +138590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6282410378743126792, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: nextLevel
-      value: WelcomeScreen
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 6282410378743126792, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: neededDucks
