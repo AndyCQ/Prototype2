@@ -163,7 +163,7 @@ public class Monster : MonoBehaviour
             //}
             // if (!isDead) hb.TakeDamage(1);
             TakeDamage(1);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
         }
     }
 }
