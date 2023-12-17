@@ -93,17 +93,7 @@ public class TutorialXpSys : MonoBehaviour
     
 
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Escape)){
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
-            if(UI.activeSelf){
-                UI.SetActive(false);
-                Time.timeScale = 1f;
-                player.fireStatus = true;
-            }
-            else{
-                UI.SetActive(true);
-                Time.timeScale = 0f;
-                player.fireStatus = false;
-                }
+            OpenCloseMenu();
         }
         if(PublicVars.support == "Shield" || PublicVars.support == "Knockback"){
             supportUI.SetActive(false);
@@ -129,7 +119,19 @@ public class TutorialXpSys : MonoBehaviour
         
     }
 
-
+    public void OpenCloseMenu(){
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
+        if(UI.activeSelf){
+            UI.SetActive(false);
+            Time.timeScale = 1f;
+            player.fireStatus = true;
+        }
+        else{
+            UI.SetActive(true);
+            Time.timeScale = 0f;
+            player.fireStatus = false;
+            }
+    }
     public void incAtkSpd(){
         if(PublicVars.total_xp >= PublicVars.atkSpd_cost && player.bulletBoost_count < 2){
             player.atkCD_Timer -= atkSpdIncr;

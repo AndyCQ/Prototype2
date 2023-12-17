@@ -26857,6 +26857,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2608671486350811178, guid: f1cd8c045cc24d848bd9dfe1af8d34c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1640390687}
+    - target: {fileID: 2608671486350811178, guid: f1cd8c045cc24d848bd9dfe1af8d34c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenCloseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608671486350811178, guid: f1cd8c045cc24d848bd9dfe1af8d34c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TutorialXpSys, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3159125350548344458, guid: f1cd8c045cc24d848bd9dfe1af8d34c3, type: 3}
       propertyPath: m_IsActive
       value: 0
