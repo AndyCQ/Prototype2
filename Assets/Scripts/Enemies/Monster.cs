@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour
     private AudioSource _as;
     private AudioClip hurtSFX;
     private AudioClip deathSFX;
+    public GameObject port;
 
     // public AudioSource voiceAudioSource;
 
@@ -146,8 +147,9 @@ public class Monster : MonoBehaviour
             PublicVars.s_spd = 0;
             PublicVars.s_jmp = 0;
             PublicVars.s_health = 0;
-            
-            SceneManager.LoadScene("WinGame");
+
+            port.SetActive(true);
+            //SceneManager.LoadScene("WinGame");
         }
         Destroy(gameObject, 3f);
     }
