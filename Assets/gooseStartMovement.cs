@@ -21,6 +21,7 @@ public class gooseStartMovement : MonoBehaviour
     // Start is called before the first frame update
 
     // backgroundMusic
+    public AudioSource honks;
     public AudioSource playerMusic;
     public string angryMusicPath;
     private AudioClip angryMusicClip;
@@ -45,6 +46,7 @@ public class gooseStartMovement : MonoBehaviour
             if (!alreadyStopped)
             {
                 playerMusic.Stop();
+                honks.Play();
                 alreadyStopped = true;
             }
             rb.velocity = Vector3.zero;
