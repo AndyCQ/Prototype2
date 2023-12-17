@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -13,28 +14,24 @@ public class Timer : MonoBehaviour
     public Color og;
     public Color red;
 
+    public GameObject player;
 
     void Start()
     {
         currentTime = startTime;
         TimerText.text = currentTime.ToString("f2");
         StartTimer = true;
+        player = GameObject.FindGameObjectWithTag ("Player");
     }
 
     void Update()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            StartTimer = true;
-        }
-        */
         if (StartTimer){
             currentTime -= Time.deltaTime;
             if (currentTime <= 0)
             {
-                FindObjectOfType<GameManager>().EndGame();
-
+                
+                player.GetComponent<PlayerCode>().Die();
                 //add migrate to end scene here after complete
                 StartTimer = false;
                 currentTime = 0;

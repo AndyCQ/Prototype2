@@ -295,7 +295,7 @@ public class PlayerCode : MonoBehaviour
         Damage(1);
     }
 
-    void Die() {
+    public void Die() {
         isDead = true;
         backgroundMusic.Stop();
         deathSFX.Play();

@@ -8,7 +8,7 @@ public class TimeBoost : MonoBehaviour
 
     void Awake()
     {
-        obj = GameObject.FindGameObjectWithTag ("Timer");
+        obj = GameObject.FindGameObjectWithTag("Timer");
     }
 
     void OnTriggerEnter2D(Collider2D other)

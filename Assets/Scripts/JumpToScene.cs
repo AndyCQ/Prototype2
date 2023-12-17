@@ -23,7 +23,7 @@ public class JumpToScene : MonoBehaviour
 
     public void PlayTutorial(){
         clickSFX.Play();
-        Invoke("LoadTutorial", 0.8f);
+        Invoke("LoadTutorial", 0.5f);
     }
 
     public void LoadTutorial() {
