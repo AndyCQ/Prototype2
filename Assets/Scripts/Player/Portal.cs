@@ -16,18 +16,28 @@ public class Portal : MonoBehaviour
     //public float cutSceneDuration = 2.5f;
     private float cutSceneDuration;
 
+    private float timeTaken;
+
     float alphaLevel = 1.0f;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
         cutSceneDuration = 5f;
         alreadyTriggered = false;
+        timeTaken = 0;
+    }
+
+    void Update(){
+        timeTaken += Time.deltaTime;
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player" && player.ducksInLine == neededDucks && !alreadyTriggered)
         {
+            if(PublicVars.currLevel == "Level1" || PublicVars.currLevel == "Level2" || PublicVars.currLevel == "Level3" || PublicVars.currLevel == "BossFight"){
+                PublicVars.totalTime += timeTaken;
+            }
             alreadyTriggered = true;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             player.backgroundMusic.Stop();
@@ -80,6 +90,7 @@ public class Portal : MonoBehaviour
         PublicVars.combatCost = 60;
         PublicVars.mobilityCost = 35;
 
+
         PublicVars.currLevel = nextLevel;
 
         if (nextLevel == "WelcomeScreen" || nextLevel == "WinGame" || nextLevel == "Level1")
@@ -107,6 +118,8 @@ public class Portal : MonoBehaviour
             PublicVars.s_spd = 0;
             PublicVars.s_jmp = 0;
             PublicVars.s_health = 0;
+
+            PublicVars.totalTime += timeTaken;
 
             PublicVars.currLevel = "Level1";
 

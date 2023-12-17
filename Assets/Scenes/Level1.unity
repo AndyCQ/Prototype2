@@ -6102,6 +6102,10 @@ PrefabInstance:
       propertyPath: startSpd
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 752370066549142379, guid: ffcb4c7610afe6f46b7ef705d7078b7c, type: 3}
+      propertyPath: maxHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1107256888733757731, guid: ffcb4c7610afe6f46b7ef705d7078b7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -61.41

@@ -54,4 +54,6 @@ public class PublicVars : MonoBehaviour
     public static int mobilityCost = 35;
     
     public static string currLevel = "Level1";
+
+    public static float totalTime = 0;
 }
