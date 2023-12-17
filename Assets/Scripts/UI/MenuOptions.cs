@@ -39,7 +39,9 @@ public class MenuOptions : MonoBehaviour
         PublicVars.s_jmp = 0;
         PublicVars.s_health = 0;
         
+        PublicVars.currLevel = "Level1";
         Time.timeScale = 1f;
+        
         SceneManager.LoadScene("WelcomeScreen");
     }
 
