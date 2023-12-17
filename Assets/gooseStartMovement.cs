@@ -19,6 +19,12 @@ public class gooseStartMovement : MonoBehaviour
     public GameObject bossHealthBar;
     bool positionSet;
     // Start is called before the first frame update
+
+    // backgroundMusic
+    public AudioSource playerMusic;
+    public string angryMusicPath;
+    private AudioClip angryMusicClip;
+
     void Start()
     {
         sprRnd = GetComponent<SpriteRenderer>();
@@ -26,13 +32,21 @@ public class gooseStartMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         offset = new Vector3(0, -0.85f, 0);
         positionSet = false;
+        angryMusicClip = Resources.Load<AudioClip>(angryMusicPath);
     }
 
+    private bool alreadyPlaying = false;
+    private bool alreadyStopped = false;
     // Update is called once per frame
     void Update()
     {
         if(player.stopFollowing)
         {
+            if (!alreadyStopped)
+            {
+                playerMusic.Stop();
+                alreadyStopped = true;
+            }
             rb.velocity = Vector3.zero;
             following = false;
             //Debug.Log("done");
@@ -57,6 +71,13 @@ public class gooseStartMovement : MonoBehaviour
             player.bossCutFinished = true;
             gameObject.tag = "Boss";
             battleBegin = true;
+            playerMusic.clip = angryMusicClip;
+            playerMusic.volume = 0.5f;
+            if (!alreadyPlaying)
+            {
+                playerMusic.Play();
+                alreadyPlaying = true;
+            }
         }
         if (!battleBegin && following)
         {

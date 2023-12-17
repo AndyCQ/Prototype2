@@ -2229,6 +2229,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
+--- !u!82 &1430481483 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1036621663, guid: cd8027ccf7c5ad644a621d440ca24e6f, type: 3}
+  m_PrefabInstance: {fileID: 1430481482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1440978222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6422,6 +6427,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 700776415}
+    - target: {fileID: 7119094495404418627, guid: b29716fe771f4b94289a58f48e4b729f, type: 3}
+      propertyPath: chillMusic
+      value: 
+      objectReference: {fileID: 1430481483}
+    - target: {fileID: 7119094495404418627, guid: b29716fe771f4b94289a58f48e4b729f, type: 3}
+      propertyPath: playerMusic
+      value: 
+      objectReference: {fileID: 1430481483}
     - target: {fileID: 7119094495404418627, guid: b29716fe771f4b94289a58f48e4b729f, type: 3}
       propertyPath: bossHealthBar
       value: 
