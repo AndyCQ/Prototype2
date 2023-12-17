@@ -3110,6 +3110,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -97
       objectReference: {fileID: 0}
+    - target: {fileID: 2138651047980183723, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+      propertyPath: m_SortingOrder
+      value: -98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296859522596283895, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+      propertyPath: m_SortingOrder
+      value: -98
+      objectReference: {fileID: 0}
     - target: {fileID: 2969652470556384213, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -3181,6 +3189,14 @@ PrefabInstance:
     - target: {fileID: 6408306915097185112, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918112657037327746, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+      propertyPath: m_SortingOrder
+      value: -98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573946421075766874, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
+      propertyPath: m_SortingOrder
+      value: -98
       objectReference: {fileID: 0}
     - target: {fileID: 8680045618153162730, guid: cc32ecf91a9799443ae744be1dbdc4b4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -80508,6 +80524,7 @@ MonoBehaviour:
   nextLevel: Level2
   duckHolders: []
   portalCover: {fileID: 0}
+  cutSceneDuration: 2.5
 --- !u!61 &1784602223
 BoxCollider2D:
   m_ObjectHideFlags: 0
