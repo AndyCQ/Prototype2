@@ -48,6 +48,8 @@ public class Boss : MonoBehaviour
 
     //How long the boss stays in place after an atk
     float atkCD = 5;
+
+    private Monster mc;
     
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -55,9 +57,11 @@ public class Boss : MonoBehaviour
         startingPos = transform.position;
         _rigidbody = GetComponent<Rigidbody2D>();
         currHealth = maxHealth;
+        mc = gameObject.GetComponent<Monster>();
     }
     private void Update()
     {
+        if (mc.isDead) return;
         if(battleStart == false && gooseStart.battleBegin)
         {
             battleStart = true;
