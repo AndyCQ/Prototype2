@@ -45013,7 +45013,7 @@ MonoBehaviour:
   lightThudThreashold: -5
   impactParticles: {fileID: 1140935081300393619}
   oneShotKill: 0
-  poundDamage: 0
+  poundDamage: 5
   player: {fileID: 7954780642415885174}
   immunityAfterPound: 0.25
 --- !u!82 &8824080201879535193
@@ -45346,6 +45346,11 @@ MonoBehaviour:
   shielded: 0
   stunned: 0
   isDead: 0
+  bossCut: 0
+  bossCutFinished: 0
+  stopFollowing: 0
+  goose: {fileID: 0}
+  hasGoose: 0
 --- !u!82 &1036621663
 AudioSource:
   m_ObjectHideFlags: 0
