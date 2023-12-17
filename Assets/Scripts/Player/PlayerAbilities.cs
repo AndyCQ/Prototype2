@@ -47,7 +47,7 @@ public class PlayerAbilities : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Q) && cooldown2 && PublicVars.secondaryFire == "PDs"){
             SpawnDarts();
-            StartCoroutine(poisonCD(2));
+            StartCoroutine(poisonCD(4));
         }
         // if (Input.GetKeyDown(KeyCode.S) && cooldown3)
         // {

@@ -10,13 +10,13 @@ public class Highscore : MonoBehaviour
     public int highscore;
     void Awake(){
         highscore = PlayerPrefs.GetInt("highscore",0);
-        totalTime.text = "Total Time: " + ((int)PublicVars.totalTime).ToString() + "s";
+        totalTime.text = "Total Time: " + ((int)PublicVars.totalTime).ToString() + " seconds";
         if (highscore > (int)PublicVars.totalTime){
             PlayerPrefs.SetInt("highscore", (int)PublicVars.totalTime);
             }
 
         highscore = PlayerPrefs.GetInt("highscore",0);
-        highscoreText.text = "Best Time: " + highscore.ToString() + "s";
+        highscoreText.text = "Best Time: " + highscore.ToString() + " seconds";
         print(PublicVars.totalTime);
         print(highscore);
     }

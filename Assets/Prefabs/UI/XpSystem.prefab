@@ -7353,7 +7353,7 @@ MonoBehaviour:
   ability2: 101
   realImage2: {fileID: 1034477134058438882}
   abilityImage3: {fileID: 8233991879729655698}
-  cooldown3: 2
+  cooldown3: 4
   isCooldown3: 1
   ability3: 113
   realImage3: {fileID: 5913453583090927975}

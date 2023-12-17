@@ -47,6 +47,8 @@ public class JumpToMain : MonoBehaviour
         PublicVars.mobilityCost = 35;
 
         PublicVars.currLevel = "Level1";
+
+        PublicVars.totalTime = 0;
         
         SceneManager.LoadScene(0);
     }
