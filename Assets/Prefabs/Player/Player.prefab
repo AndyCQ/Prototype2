@@ -46172,7 +46172,7 @@ MonoBehaviour:
   KBTotalTime: 0
   knockFromRight: 0
   knockbackDuck: {fileID: 3747761683395774834, guid: d636082dcfea61f4e87755c26e4351c2, type: 3}
-  knockbackDuckspeed: 5
+  knockbackDuckspeed: 30
   dart: {fileID: 1265988121741817689, guid: 7870701cf8e5ae14e9775177be1a79bb, type: 3}
   shootInterval: 1
   dartSpeed: 5
