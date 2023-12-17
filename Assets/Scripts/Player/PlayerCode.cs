@@ -310,7 +310,7 @@ public class PlayerCode : MonoBehaviour
         Transform deathPiecesTransform = gameObject.transform.Find("death_pieces");
         if (deathPiecesTransform != null) deathPiecesTransform.gameObject.SetActive(true);
 
-        StartCoroutine(LoadLevelAfterDelay(5f));
+        StartCoroutine(LoadLevelAfterDelay(5.1f));
     }
 
     IEnumerator LoadLevelAfterDelay(float delay)
