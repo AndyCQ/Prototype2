@@ -12,7 +12,7 @@ public class NormalBulletLifeSpan : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (gameObject.tag != "PoisonDart" && other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             HandleGroundCollision();
         }

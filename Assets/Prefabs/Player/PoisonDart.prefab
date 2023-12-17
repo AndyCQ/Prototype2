@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4322803323757814945}
   - component: {fileID: 434412828595521912}
   - component: {fileID: 2887335570612406952}
-  - component: {fileID: 7334410772099620532}
+  - component: {fileID: 6091845337065967345}
   m_Layer: 0
   m_Name: PoisonDart
   m_TagString: PoisonDart
@@ -159,7 +159,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7334410772099620532
+--- !u!114 &6091845337065967345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,8 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1265988121741817689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae41548d3e7cef42b68b7d35c10f2dc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef41eb861fd86cd44b51a9a891b971cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
-  groundHitSFX: {fileID: 0}
