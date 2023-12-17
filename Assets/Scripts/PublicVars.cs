@@ -53,4 +53,5 @@ public class PublicVars : MonoBehaviour
     public static int combatCost = 60;
     public static int mobilityCost = 35;
     
+    public static string currLevel = "Level1";
 }

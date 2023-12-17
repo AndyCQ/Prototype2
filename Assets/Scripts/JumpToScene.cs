@@ -13,17 +13,17 @@ public class JumpToScene : MonoBehaviour
 
     public void Play(){
         if (clickSFX != null) clickSFX.Play();
-        Invoke("LoadLevel", 0.8f);
+        Invoke("LoadLevel", 0.2f);
     }
 
     public void LoadLevel() {
         PublicVars.score = 0;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(PublicVars.currLevel);
     }
 
     public void PlayTutorial(){
         clickSFX.Play();
-        Invoke("LoadTutorial", 0.5f);
+        Invoke("LoadTutorial", 0.2f);
     }
 
     public void LoadTutorial() {

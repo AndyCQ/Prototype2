@@ -30,8 +30,7 @@ public class Timer : MonoBehaviour
             currentTime -= Time.deltaTime;
             if (currentTime <= 0)
             {
-                
-                player.GetComponent<PlayerCode>().Die();
+                SceneManager.LoadScene("EndGame");
                 //add migrate to end scene here after complete
                 StartTimer = false;
                 currentTime = 0;

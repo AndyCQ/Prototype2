@@ -6657,6 +6657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403259096}
   - component: {fileID: 1403259095}
+  - component: {fileID: 1403259097}
   m_Layer: 0
   m_Name: AI Generated background
   m_TagString: Untagged
@@ -6731,6 +6732,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1403259097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403259094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a15821fc595f148b639aad524fb49a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1411940497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80524,7 +80537,6 @@ MonoBehaviour:
   nextLevel: Level2
   duckHolders: []
   portalCover: {fileID: 0}
-  cutSceneDuration: 2.5
 --- !u!61 &1784602223
 BoxCollider2D:
   m_ObjectHideFlags: 0

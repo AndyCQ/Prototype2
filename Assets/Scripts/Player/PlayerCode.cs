@@ -101,6 +101,9 @@ public class PlayerCode : MonoBehaviour
 
         mainCamera = Camera.main;
         hasGoose = false;
+        
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        PublicVars.currLevel = currentSceneName;
     }
 
     private void Awake()

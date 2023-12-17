@@ -45,6 +45,8 @@ public class JumpToMain : MonoBehaviour
         PublicVars.supportCost = 35;
         PublicVars.combatCost = 60;
         PublicVars.mobilityCost = 35;
+
+        PublicVars.currLevel = "Level1";
         
         SceneManager.LoadScene(0);
     }
