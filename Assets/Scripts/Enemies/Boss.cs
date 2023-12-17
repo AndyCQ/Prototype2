@@ -102,7 +102,7 @@ public class Boss : MonoBehaviour
         StartCoroutine(moveToPos(positions[1]));
         StartCoroutine(Fire(aimedShots, reload, delay));
         float t = 0;
-        while(t < 2){
+        while(t < 2 && !mc.isDead){
             firePoint.up = Vector3.Lerp(-firePoint.up, player.transform.position - firePoint.position, t);
             t += aimSpeed * Time.deltaTime;
             yield return null;
@@ -141,7 +141,7 @@ public class Boss : MonoBehaviour
 
     IEnumerator Fire(int shotNUm, float reload, float delay){
         yield return new WaitForSeconds(delay);
-        for (int i = 0; i < shotNUm; i++){
+        for (int i = 0; i < shotNUm && !mc.isDead; i++){
             GameObject newBullet = Instantiate(StunBullet, firePoint.position, transform.rotation * Quaternion.Euler(0,0,90));
             newBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce);
             yield return new WaitForSeconds(reload);
@@ -171,7 +171,7 @@ public class Boss : MonoBehaviour
         StartCoroutine(moveToPos(positions[1]));
         yield return new WaitForSeconds(1);
         float t = 0;
-        while (t < 30)
+        while (t < 30 && !mc.isDead)
         {   
             yield return new WaitForSeconds(.1f);
             GameObject newBullet = Instantiate(bulletPrefab1, firePoint.position, transform.rotation * Quaternion.Euler(0,0,90));
@@ -192,7 +192,7 @@ public class Boss : MonoBehaviour
         GameObject bolt1;
         GameObject bolt2;
         int dist = 0;
-        for(int i = 0; i<NumOfBolts;i+=2){
+        for(int i = 0; i<NumOfBolts && !mc.isDead; i+=2){
             bolt1 = Instantiate(thunderbolt,new Vector2(clouds[0].transform.position.x - dist, clouds[0].transform.position.y), transform.rotation * Quaternion.Euler(0,0,90));
             bolt1.GetComponent<Rigidbody2D>().AddForce(-transform.up * boltSpeed);
             bolt2 = Instantiate(thunderbolt,new Vector2(clouds[1].transform.position.x + dist, clouds[1].transform.position.y), transform.rotation * Quaternion.Euler(0,0,90));
