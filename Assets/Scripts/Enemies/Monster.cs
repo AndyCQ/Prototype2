@@ -151,7 +151,7 @@ public class Monster : MonoBehaviour
             port.SetActive(true);
             //SceneManager.LoadScene("WinGame");
         }
-        Destroy(gameObject, 3f);
+        if (gameObject.tag != "Boss") Destroy(gameObject, 3f);
     }
 
     IEnumerator DoT(){
