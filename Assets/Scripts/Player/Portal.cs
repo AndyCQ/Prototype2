@@ -10,11 +10,15 @@ public class Portal : MonoBehaviour
     public string nextLevel;
     public List<GameObject> duckHolders = new List<GameObject>();
     public SpriteRenderer portalCover;
-    public float cutSceneDuration = 2.5f;
+
+    //public float cutSceneDuration = 2.5f;
+    private float cutSceneDuration;
+
     float alphaLevel = 1.0f;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCode>();
+        cutSceneDuration = 3f;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,6 +30,7 @@ public class Portal : MonoBehaviour
         if (other.tag == "Player" && player.ducksInLine == neededDucks)
         {
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            player.backgroundMusic.Stop();
             GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().currentTime += cutSceneDuration + 1f;
             StartCoroutine(NextLevelCutScene(cutSceneDuration));
             //if (Input.GetKey(KeyCode.Space))
