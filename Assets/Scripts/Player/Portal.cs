@@ -93,7 +93,7 @@ public class Portal : MonoBehaviour
 
         PublicVars.currLevel = nextLevel;
 
-        if (nextLevel == "WelcomeScreen" || nextLevel == "WinGame" || nextLevel == "Level1")
+        if (nextLevel == "WelcomeScreen" || nextLevel == "WinGame" || nextLevel == "Level1" || nextLevel == "Victory")
         {
             PublicVars.starting_xp = 0;
 
