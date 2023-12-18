@@ -122,7 +122,13 @@ public class Monster : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        
+
+
+        if(gameObject.tag == "Boss")
+        {
+            port.SetActive(true);
+        }
+
         //if(gameObject.tag == "Boss"){
         //    PublicVars.starting_xp = 0;
 
